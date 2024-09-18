@@ -1,0 +1,762 @@
+
+zhongfa16A.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000003bc  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          000000d0  00800060  00800060  00000430  2**0
+                  ALLOC
+  2 .comment      00000030  00000000  00000000  00000430  2**0
+                  CONTENTS, READONLY
+  3 .debug_aranges 000000b0  00000000  00000000  00000460  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   0000070d  00000000  00000000  00000510  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 000003f9  00000000  00000000  00000c1d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   0000034f  00000000  00000000  00001016  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  000001c0  00000000  00000000  00001368  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    00000208  00000000  00000000  00001528  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    00000457  00000000  00000000  00001730  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000080  00000000  00000000  00001b87  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+   8:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+   c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  10:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  14:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  18:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  1c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  20:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  24:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  28:	0c 94 5d 00 	jmp	0xba	; 0xba <__vector_10>
+  2c:	0c 94 09 01 	jmp	0x212	; 0x212 <__vector_11>
+  30:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  34:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  38:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  3c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  40:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  44:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  48:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  4c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  50:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_clear_bss>:
+  60:	21 e0       	ldi	r18, 0x01	; 1
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	01 c0       	rjmp	.+2      	; 0x6a <.do_clear_bss_start>
+
+00000068 <.do_clear_bss_loop>:
+  68:	1d 92       	st	X+, r1
+
+0000006a <.do_clear_bss_start>:
+  6a:	a0 33       	cpi	r26, 0x30	; 48
+  6c:	b2 07       	cpc	r27, r18
+  6e:	e1 f7       	brne	.-8      	; 0x68 <.do_clear_bss_loop>
+  70:	0e 94 30 01 	call	0x260	; 0x260 <main>
+  74:	0c 94 dc 01 	jmp	0x3b8	; 0x3b8 <_exit>
+
+00000078 <__bad_interrupt>:
+  78:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000007c <SPI_Init>:
+ Queue SPIbufQueue;
+
+
+void SPI_Init(void)// SPI初始化，默认从机模式
+{
+	SPCR &= ~(1<<7);  // 关闭SPI中断SPIE
+  7c:	6f 98       	cbi	0x0d, 7	; 13
+	SPSR &= ~(1<<7);  // 清空中断标志SPIF
+  7e:	77 98       	cbi	0x0e, 7	; 14
+	// 设置SPI为主机模式
+	SPCR &= ~(1<<4);  // 将SPCR控制寄存器中的MSTR清零，代表选择从机模式
+  80:	6c 98       	cbi	0x0d, 4	; 13
+	// 仅MISO设置为输入，其他均设为输出
+	DDRB &= ~(1<<4);  // ~SS，输入
+  82:	bc 98       	cbi	0x17, 4	; 23
+	DDRB &= ~(1<<7);  // SCK，输入
+  84:	bf 98       	cbi	0x17, 7	; 23
+	DDRB &= ~(1<<5);  // MOSI，输入
+  86:	bd 98       	cbi	0x17, 5	; 23
+	DDRB |= (1<<6);  // MISO，输出
+  88:	be 9a       	sbi	0x17, 6	; 23
+	PORTB |= (1<<4);  // 拉高SS的电平
+  8a:	c4 9a       	sbi	0x18, 4	; 24
+	
+	SPCR |=(1<<0)|(1<<1);//128分频
+  8c:	8d b1       	in	r24, 0x0d	; 13
+  8e:	83 60       	ori	r24, 0x03	; 3
+  90:	8d b9       	out	0x0d, r24	; 13
+	SPCR |=(1<<6)|(1<<7);//SPI使能和中断使能
+  92:	8d b1       	in	r24, 0x0d	; 13
+  94:	80 6c       	ori	r24, 0xC0	; 192
+  96:	8d b9       	out	0x0d, r24	; 13
+  98:	08 95       	ret
+
+0000009a <SPI_MasterInit>:
+}
+void SPI_MasterInit(void)//SPI主机初始化，谁发谁是主，默认全部是从机模式同时将SS设为低电平，谁想发数据就先配置为主机再拉高SS
+{
+    SPCR &= ~(1<<7);  // 关闭SPI中断SPIE
+  9a:	6f 98       	cbi	0x0d, 7	; 13
+	SPSR &= ~(1<<7);  // 清空中断标志SPIF
+  9c:	77 98       	cbi	0x0e, 7	; 14
+	// 设置SPI为主机模式
+	SPCR |= (1<<4);  // 将SPCR控制寄存器中的MSTR置位，代表选择主机模式
+  9e:	6c 9a       	sbi	0x0d, 4	; 13
+	// 仅MISO设置为输入，其他均设为输出
+ 	DDRB |= (1<<4);  // ~SS，输出
+  a0:	bc 9a       	sbi	0x17, 4	; 23
+	DDRB |= (1<<7);  // SCK，输出
+  a2:	bf 9a       	sbi	0x17, 7	; 23
+	DDRB |= (1<<5);  // MOSI，输出
+  a4:	bd 9a       	sbi	0x17, 5	; 23
+	DDRB &= ~(1<<6);  // MISO，输入
+  a6:	be 98       	cbi	0x17, 6	; 23
+	PORTB &= ~(1<<4);  // 拉低SS电平，以开始数据传输
+  a8:	c4 98       	cbi	0x18, 4	; 24
+	SPCR |=(1<<0)|(1<<1);//128分频
+  aa:	8d b1       	in	r24, 0x0d	; 13
+  ac:	83 60       	ori	r24, 0x03	; 3
+  ae:	8d b9       	out	0x0d, r24	; 13
+  b0:	08 95       	ret
+
+000000b2 <SPI_MasterTransmit>:
+
+
+void SPI_MasterTransmit(uchar rdata)
+{
+   // 将待传输的数据存放进SPDR数据寄存器中
+   SPDR = rdata;  // rdata为485通过USART传进ATmega16中的数据，通过SPI发送给ATmega128
+  b2:	8f b9       	out	0x0f, r24	; 15
+   while (!(SPSR & (1<<SPIF))); // 等待数据发送结束
+  b4:	77 9b       	sbis	0x0e, 7	; 14
+  b6:	fe cf       	rjmp	.-4      	; 0xb4 <SPI_MasterTransmit+0x2>
+}
+  b8:	08 95       	ret
+
+000000ba <__vector_10>:
+
+void __attribute((signal))   __vector_10(void){//SPI中断
+  ba:	1f 92       	push	r1
+  bc:	0f 92       	push	r0
+  be:	0f b6       	in	r0, 0x3f	; 63
+  c0:	0f 92       	push	r0
+  c2:	11 24       	eor	r1, r1
+  c4:	2f 93       	push	r18
+  c6:	3f 93       	push	r19
+  c8:	4f 93       	push	r20
+  ca:	5f 93       	push	r21
+  cc:	6f 93       	push	r22
+  ce:	7f 93       	push	r23
+  d0:	8f 93       	push	r24
+  d2:	9f 93       	push	r25
+  d4:	af 93       	push	r26
+  d6:	bf 93       	push	r27
+  d8:	ef 93       	push	r30
+  da:	ff 93       	push	r31
+
+	char flag3;
+	flag3=SPDR;
+  dc:	6f b1       	in	r22, 0x0f	; 15
+	  enQueue(&SPIbufQueue,flag3);//发送
+  de:	80 e6       	ldi	r24, 0x60	; 96
+  e0:	90 e0       	ldi	r25, 0x00	; 0
+  e2:	0e 94 96 00 	call	0x12c	; 0x12c <enQueue>
+}
+  e6:	ff 91       	pop	r31
+  e8:	ef 91       	pop	r30
+  ea:	bf 91       	pop	r27
+  ec:	af 91       	pop	r26
+  ee:	9f 91       	pop	r25
+  f0:	8f 91       	pop	r24
+  f2:	7f 91       	pop	r23
+  f4:	6f 91       	pop	r22
+  f6:	5f 91       	pop	r21
+  f8:	4f 91       	pop	r20
+  fa:	3f 91       	pop	r19
+  fc:	2f 91       	pop	r18
+  fe:	0f 90       	pop	r0
+ 100:	0f be       	out	0x3f, r0	; 63
+ 102:	0f 90       	pop	r0
+ 104:	1f 90       	pop	r1
+ 106:	18 95       	reti
+
+00000108 <initqueue>:
+#include <usart.h>
+#define  MCLK  16000000// ATmega16A的晶振大小为16MHz
+
+
+Queue bufQueue;
+void initqueue(Queue *Q){
+ 108:	fc 01       	movw	r30, r24
+	for(int i=0;i<100;i++){
+ 10a:	20 e0       	ldi	r18, 0x00	; 0
+ 10c:	30 e0       	ldi	r19, 0x00	; 0
+		Q->base[i]=0;
+ 10e:	11 92       	st	Z+, r1
+#define  MCLK  16000000// ATmega16A的晶振大小为16MHz
+
+
+Queue bufQueue;
+void initqueue(Queue *Q){
+	for(int i=0;i<100;i++){
+ 110:	2f 5f       	subi	r18, 0xFF	; 255
+ 112:	3f 4f       	sbci	r19, 0xFF	; 255
+ 114:	24 36       	cpi	r18, 0x64	; 100
+ 116:	31 05       	cpc	r19, r1
+ 118:	d1 f7       	brne	.-12     	; 0x10e <initqueue+0x6>
+		Q->base[i]=0;
+	}
+	Q->front=Q->rear=0;
+ 11a:	fc 01       	movw	r30, r24
+ 11c:	ea 59       	subi	r30, 0x9A	; 154
+ 11e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 120:	11 82       	std	Z+1, r1	; 0x01
+ 122:	10 82       	st	Z, r1
+ 124:	32 97       	sbiw	r30, 0x02	; 2
+ 126:	11 82       	std	Z+1, r1	; 0x01
+ 128:	10 82       	st	Z, r1
+ 12a:	08 95       	ret
+
+0000012c <enQueue>:
+}
+
+int enQueue(Queue *Q,char e)
+{
+ 12c:	cf 93       	push	r28
+ 12e:	9c 01       	movw	r18, r24
+ 130:	c6 2f       	mov	r28, r22
+	if ((Q->rear+1)%100==Q->front)
+ 132:	fc 01       	movw	r30, r24
+ 134:	ea 59       	subi	r30, 0x9A	; 154
+ 136:	ff 4f       	sbci	r31, 0xFF	; 255
+ 138:	01 90       	ld	r0, Z+
+ 13a:	f0 81       	ld	r31, Z
+ 13c:	e0 2d       	mov	r30, r0
+ 13e:	cf 01       	movw	r24, r30
+ 140:	01 96       	adiw	r24, 0x01	; 1
+ 142:	64 e6       	ldi	r22, 0x64	; 100
+ 144:	70 e0       	ldi	r23, 0x00	; 0
+ 146:	0e 94 b4 01 	call	0x368	; 0x368 <__divmodhi4>
+ 14a:	d9 01       	movw	r26, r18
+ 14c:	ac 59       	subi	r26, 0x9C	; 156
+ 14e:	bf 4f       	sbci	r27, 0xFF	; 255
+ 150:	4d 91       	ld	r20, X+
+ 152:	5c 91       	ld	r21, X
+ 154:	84 17       	cp	r24, r20
+ 156:	95 07       	cpc	r25, r21
+ 158:	59 f0       	breq	.+22     	; 0x170 <enQueue+0x44>
+	return 0;
+	Q->base[Q->rear]=e;
+ 15a:	e2 0f       	add	r30, r18
+ 15c:	f3 1f       	adc	r31, r19
+ 15e:	c0 83       	st	Z, r28
+	Q->rear=(Q->rear+1)%100;
+ 160:	f9 01       	movw	r30, r18
+ 162:	ea 59       	subi	r30, 0x9A	; 154
+ 164:	ff 4f       	sbci	r31, 0xFF	; 255
+ 166:	91 83       	std	Z+1, r25	; 0x01
+ 168:	80 83       	st	Z, r24
+	return 1;
+ 16a:	81 e0       	ldi	r24, 0x01	; 1
+ 16c:	90 e0       	ldi	r25, 0x00	; 0
+ 16e:	02 c0       	rjmp	.+4      	; 0x174 <enQueue+0x48>
+}
+
+int enQueue(Queue *Q,char e)
+{
+	if ((Q->rear+1)%100==Q->front)
+	return 0;
+ 170:	80 e0       	ldi	r24, 0x00	; 0
+ 172:	90 e0       	ldi	r25, 0x00	; 0
+	Q->base[Q->rear]=e;
+	Q->rear=(Q->rear+1)%100;
+	return 1;
+}
+ 174:	cf 91       	pop	r28
+ 176:	08 95       	ret
+
+00000178 <DeQueue>:
+int DeQueue(Queue *Q,char *e){
+	if(Q->front==Q->rear) return 0;
+ 178:	fc 01       	movw	r30, r24
+ 17a:	ec 59       	subi	r30, 0x9C	; 156
+ 17c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 17e:	20 81       	ld	r18, Z
+ 180:	31 81       	ldd	r19, Z+1	; 0x01
+ 182:	32 96       	adiw	r30, 0x02	; 2
+ 184:	40 81       	ld	r20, Z
+ 186:	51 81       	ldd	r21, Z+1	; 0x01
+ 188:	24 17       	cp	r18, r20
+ 18a:	35 07       	cpc	r19, r21
+ 18c:	a9 f0       	breq	.+42     	; 0x1b8 <DeQueue+0x40>
+	*e=Q->base[Q->front];
+ 18e:	fc 01       	movw	r30, r24
+ 190:	e2 0f       	add	r30, r18
+ 192:	f3 1f       	adc	r31, r19
+ 194:	20 81       	ld	r18, Z
+ 196:	fb 01       	movw	r30, r22
+ 198:	20 83       	st	Z, r18
+	Q->front=(Q->front+1)%100;
+ 19a:	fc 01       	movw	r30, r24
+ 19c:	ec 59       	subi	r30, 0x9C	; 156
+ 19e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1a0:	80 81       	ld	r24, Z
+ 1a2:	91 81       	ldd	r25, Z+1	; 0x01
+ 1a4:	01 96       	adiw	r24, 0x01	; 1
+ 1a6:	64 e6       	ldi	r22, 0x64	; 100
+ 1a8:	70 e0       	ldi	r23, 0x00	; 0
+ 1aa:	0e 94 b4 01 	call	0x368	; 0x368 <__divmodhi4>
+ 1ae:	91 83       	std	Z+1, r25	; 0x01
+ 1b0:	80 83       	st	Z, r24
+	return 1;
+ 1b2:	81 e0       	ldi	r24, 0x01	; 1
+ 1b4:	90 e0       	ldi	r25, 0x00	; 0
+ 1b6:	08 95       	ret
+	Q->base[Q->rear]=e;
+	Q->rear=(Q->rear+1)%100;
+	return 1;
+}
+int DeQueue(Queue *Q,char *e){
+	if(Q->front==Q->rear) return 0;
+ 1b8:	80 e0       	ldi	r24, 0x00	; 0
+ 1ba:	90 e0       	ldi	r25, 0x00	; 0
+	*e=Q->base[Q->front];
+	Q->front=(Q->front+1)%100;
+	return 1;
+}
+ 1bc:	08 95       	ret
+
+000001be <delay>:
+void delay(uint ms)
+{
+	uint i,j;
+	for(i=0;i<ms;i++)
+ 1be:	00 97       	sbiw	r24, 0x00	; 0
+ 1c0:	91 f0       	breq	.+36     	; 0x1e6 <delay+0x28>
+ 1c2:	40 e0       	ldi	r20, 0x00	; 0
+ 1c4:	50 e0       	ldi	r21, 0x00	; 0
+	*e=Q->base[Q->front];
+	Q->front=(Q->front+1)%100;
+	return 1;
+}
+void delay(uint ms)
+{
+ 1c6:	75 e7       	ldi	r23, 0x75	; 117
+ 1c8:	64 e0       	ldi	r22, 0x04	; 4
+ 1ca:	0a c0       	rjmp	.+20     	; 0x1e0 <delay+0x22>
+ 1cc:	21 50       	subi	r18, 0x01	; 1
+ 1ce:	31 09       	sbc	r19, r1
+	uint i,j;
+	for(i=0;i<ms;i++)
+	{
+		for(j=0;j<1141;j++);
+ 1d0:	21 15       	cp	r18, r1
+ 1d2:	31 05       	cpc	r19, r1
+ 1d4:	d9 f7       	brne	.-10     	; 0x1cc <delay+0xe>
+	return 1;
+}
+void delay(uint ms)
+{
+	uint i,j;
+	for(i=0;i<ms;i++)
+ 1d6:	4f 5f       	subi	r20, 0xFF	; 255
+ 1d8:	5f 4f       	sbci	r21, 0xFF	; 255
+ 1da:	48 17       	cp	r20, r24
+ 1dc:	59 07       	cpc	r21, r25
+ 1de:	19 f0       	breq	.+6      	; 0x1e6 <delay+0x28>
+	*e=Q->base[Q->front];
+	Q->front=(Q->front+1)%100;
+	return 1;
+}
+void delay(uint ms)
+{
+ 1e0:	27 2f       	mov	r18, r23
+ 1e2:	36 2f       	mov	r19, r22
+ 1e4:	f3 cf       	rjmp	.-26     	; 0x1cc <delay+0xe>
+ 1e6:	08 95       	ret
+
+000001e8 <USART_Init>:
+}
+
+// 异步串行通信初始化
+void USART_Init()
+{
+	UCSRB = 0X00;
+ 1e8:	1a b8       	out	0x0a, r1	; 10
+	UCSRA = 0X00;  // 控制寄存器清零
+ 1ea:	1b b8       	out	0x0b, r1	; 11
+	UCSRC = (1<<URSEL)|(1<<UCSZ1)|(1<<UCSZ0);  // 选择UCSRC寄存器、8位数据位
+ 1ec:	86 e8       	ldi	r24, 0x86	; 134
+ 1ee:	80 bd       	out	0x20, r24	; 32
+	UCSRC &=~(1<<USBS);//1位停止位，
+ 1f0:	80 b5       	in	r24, 0x20	; 32
+ 1f2:	87 7f       	andi	r24, 0xF7	; 247
+ 1f4:	80 bd       	out	0x20, r24	; 32
+	UBRRL = 3;  // 波特率2400低八位存入UBRRL
+ 1f6:	83 e0       	ldi	r24, 0x03	; 3
+ 1f8:	89 b9       	out	0x09, r24	; 9
+	UBRRH = 0;  // 剩余高位存入UBRRH
+ 1fa:	10 bc       	out	0x20, r1	; 32
+	UCSRB = (1<<TXEN)|(1<<RXEN)|(1<<RXCIE);  // 接受、发送使能，接收结束中断使能
+ 1fc:	88 e9       	ldi	r24, 0x98	; 152
+ 1fe:	8a b9       	out	0x0a, r24	; 10
+	SREG |= (1<<7);  // 全局中断开放
+ 200:	8f b7       	in	r24, 0x3f	; 63
+ 202:	80 68       	ori	r24, 0x80	; 128
+ 204:	8f bf       	out	0x3f, r24	; 63
+	DDRD |= 0X02;  // PD0和PD1分别是串口输入和串口输出，配置TX为输出RX为输入
+ 206:	89 9a       	sbi	0x11, 1	; 17
+ 208:	08 95       	ret
+
+0000020a <USART_Transmit>:
+}
+
+// 数据发送函数
+void USART_Transmit(uchar data)
+{
+	while(!(UCSRA & (1<<UDRE)));  // 查询数据寄存器是否为空
+ 20a:	5d 9b       	sbis	0x0b, 5	; 11
+ 20c:	fe cf       	rjmp	.-4      	; 0x20a <USART_Transmit>
+	UDR = data;  // 将数据写入UDR数据寄存器
+ 20e:	8c b9       	out	0x0c, r24	; 12
+ 210:	08 95       	ret
+
+00000212 <__vector_11>:
+	//led2flashing();//red
+}
+
+// 接收结束中断函数
+void __attribute((signal))   __vector_11(void)
+{
+ 212:	1f 92       	push	r1
+ 214:	0f 92       	push	r0
+ 216:	0f b6       	in	r0, 0x3f	; 63
+ 218:	0f 92       	push	r0
+ 21a:	11 24       	eor	r1, r1
+ 21c:	2f 93       	push	r18
+ 21e:	3f 93       	push	r19
+ 220:	4f 93       	push	r20
+ 222:	5f 93       	push	r21
+ 224:	6f 93       	push	r22
+ 226:	7f 93       	push	r23
+ 228:	8f 93       	push	r24
+ 22a:	9f 93       	push	r25
+ 22c:	af 93       	push	r26
+ 22e:	bf 93       	push	r27
+ 230:	ef 93       	push	r30
+ 232:	ff 93       	push	r31
+	char cdata;
+	cdata=UDR;
+ 234:	6c b1       	in	r22, 0x0c	; 12
+	enQueue(&bufQueue,cdata);
+ 236:	88 ec       	ldi	r24, 0xC8	; 200
+ 238:	90 e0       	ldi	r25, 0x00	; 0
+ 23a:	0e 94 96 00 	call	0x12c	; 0x12c <enQueue>
+}
+ 23e:	ff 91       	pop	r31
+ 240:	ef 91       	pop	r30
+ 242:	bf 91       	pop	r27
+ 244:	af 91       	pop	r26
+ 246:	9f 91       	pop	r25
+ 248:	8f 91       	pop	r24
+ 24a:	7f 91       	pop	r23
+ 24c:	6f 91       	pop	r22
+ 24e:	5f 91       	pop	r21
+ 250:	4f 91       	pop	r20
+ 252:	3f 91       	pop	r19
+ 254:	2f 91       	pop	r18
+ 256:	0f 90       	pop	r0
+ 258:	0f be       	out	0x3f, r0	; 63
+ 25a:	0f 90       	pop	r0
+ 25c:	1f 90       	pop	r1
+ 25e:	18 95       	reti
+
+00000260 <main>:
+#define  uchar unsigned char
+#define  uint  unsigned int
+extern   Queue bufQueue;
+extern   Queue SPIbufQueue;
+int main(void)
+{
+ 260:	cf 93       	push	r28
+ 262:	df 93       	push	r29
+ 264:	00 d0       	rcall	.+0      	; 0x266 <main+0x6>
+ 266:	cd b7       	in	r28, 0x3d	; 61
+ 268:	de b7       	in	r29, 0x3e	; 62
+ 26a:	28 e8       	ldi	r18, 0x88	; 136
+ 26c:	33 e1       	ldi	r19, 0x13	; 19
+ 26e:	50 ea       	ldi	r21, 0xA0	; 160
+ 270:	45 e0       	ldi	r20, 0x05	; 5
+ 272:	08 c0       	rjmp	.+16     	; 0x284 <main+0x24>
+ 274:	01 97       	sbiw	r24, 0x01	; 1
+	for(int i=0;i<5000;i++)
+	{
+		for(int j=0;j<1440;j++);
+ 276:	00 97       	sbiw	r24, 0x00	; 0
+ 278:	e9 f7       	brne	.-6      	; 0x274 <main+0x14>
+ 27a:	21 50       	subi	r18, 0x01	; 1
+ 27c:	31 09       	sbc	r19, r1
+#define  uint  unsigned int
+extern   Queue bufQueue;
+extern   Queue SPIbufQueue;
+int main(void)
+{
+	for(int i=0;i<5000;i++)
+ 27e:	21 15       	cp	r18, r1
+ 280:	31 05       	cpc	r19, r1
+ 282:	19 f0       	breq	.+6      	; 0x28a <main+0x2a>
+#define  uchar unsigned char
+#define  uint  unsigned int
+extern   Queue bufQueue;
+extern   Queue SPIbufQueue;
+int main(void)
+{
+ 284:	85 2f       	mov	r24, r21
+ 286:	94 2f       	mov	r25, r20
+ 288:	f5 cf       	rjmp	.-22     	; 0x274 <main+0x14>
+	for(int i=0;i<5000;i++)
+	{
+		for(int j=0;j<1440;j++);
+	}
+	SPI_Init();
+ 28a:	0e 94 3e 00 	call	0x7c	; 0x7c <SPI_Init>
+	USART_Init(); // USART异步串行通信
+ 28e:	0e 94 f4 00 	call	0x1e8	; 0x1e8 <USART_Init>
+	
+	initqueue(&bufQueue);
+ 292:	88 ec       	ldi	r24, 0xC8	; 200
+ 294:	90 e0       	ldi	r25, 0x00	; 0
+ 296:	0e 94 84 00 	call	0x108	; 0x108 <initqueue>
+	initqueue(&SPIbufQueue);
+ 29a:	80 e6       	ldi	r24, 0x60	; 96
+ 29c:	90 e0       	ldi	r25, 0x00	; 0
+ 29e:	0e 94 84 00 	call	0x108	; 0x108 <initqueue>
+	char e,a;
+	while(1)
+    { 
+		delay(10);
+		//发送给128
+		if(bufQueue.front!=bufQueue.rear){
+ 2a2:	0f 2e       	mov	r0, r31
+ 2a4:	fc e2       	ldi	r31, 0x2C	; 44
+ 2a6:	af 2e       	mov	r10, r31
+ 2a8:	f1 e0       	ldi	r31, 0x01	; 1
+ 2aa:	bf 2e       	mov	r11, r31
+ 2ac:	f0 2d       	mov	r31, r0
+ 2ae:	0f 2e       	mov	r0, r31
+ 2b0:	fe e2       	ldi	r31, 0x2E	; 46
+ 2b2:	cf 2e       	mov	r12, r31
+ 2b4:	f1 e0       	ldi	r31, 0x01	; 1
+ 2b6:	df 2e       	mov	r13, r31
+ 2b8:	f0 2d       	mov	r31, r0
+		 a = SPDR;
+		  SPI_Init();
+		
+	}
+		//发送给PC
+			while(SPIbufQueue.front!=SPIbufQueue.rear)
+ 2ba:	0f 2e       	mov	r0, r31
+ 2bc:	f4 ec       	ldi	r31, 0xC4	; 196
+ 2be:	ef 2e       	mov	r14, r31
+ 2c0:	f0 e0       	ldi	r31, 0x00	; 0
+ 2c2:	ff 2e       	mov	r15, r31
+ 2c4:	f0 2d       	mov	r31, r0
+ 2c6:	06 ec       	ldi	r16, 0xC6	; 198
+ 2c8:	10 e0       	ldi	r17, 0x00	; 0
+	initqueue(&bufQueue);
+	initqueue(&SPIbufQueue);
+	char e,a;
+	while(1)
+    { 
+		delay(10);
+ 2ca:	8a e0       	ldi	r24, 0x0A	; 10
+ 2cc:	90 e0       	ldi	r25, 0x00	; 0
+ 2ce:	0e 94 df 00 	call	0x1be	; 0x1be <delay>
+		//发送给128
+		if(bufQueue.front!=bufQueue.rear){
+ 2d2:	f5 01       	movw	r30, r10
+ 2d4:	20 81       	ld	r18, Z
+ 2d6:	31 81       	ldd	r19, Z+1	; 0x01
+ 2d8:	f6 01       	movw	r30, r12
+ 2da:	80 81       	ld	r24, Z
+ 2dc:	91 81       	ldd	r25, Z+1	; 0x01
+ 2de:	28 17       	cp	r18, r24
+ 2e0:	39 07       	cpc	r19, r25
+ 2e2:	29 f1       	breq	.+74     	; 0x32e <main+0xce>
+		while(!(PORTB&(1<<4)));//等待SS电平为高
+ 2e4:	c4 9b       	sbis	0x18, 4	; 24
+ 2e6:	fe cf       	rjmp	.-4      	; 0x2e4 <main+0x84>
+		SPI_MasterInit();//转换为主机模式
+ 2e8:	0e 94 4d 00 	call	0x9a	; 0x9a <SPI_MasterInit>
+			
+		while(bufQueue.front!=bufQueue.rear)
+ 2ec:	f5 01       	movw	r30, r10
+ 2ee:	20 81       	ld	r18, Z
+ 2f0:	31 81       	ldd	r19, Z+1	; 0x01
+ 2f2:	f6 01       	movw	r30, r12
+ 2f4:	80 81       	ld	r24, Z
+ 2f6:	91 81       	ldd	r25, Z+1	; 0x01
+ 2f8:	28 17       	cp	r18, r24
+ 2fa:	39 07       	cpc	r19, r25
+ 2fc:	a1 f0       	breq	.+40     	; 0x326 <main+0xc6>
+		{
+			
+			DeQueue(&bufQueue,&e);
+ 2fe:	be 01       	movw	r22, r28
+ 300:	6f 5f       	subi	r22, 0xFF	; 255
+ 302:	7f 4f       	sbci	r23, 0xFF	; 255
+ 304:	88 ec       	ldi	r24, 0xC8	; 200
+ 306:	90 e0       	ldi	r25, 0x00	; 0
+ 308:	0e 94 bc 00 	call	0x178	; 0x178 <DeQueue>
+			//USART_Transmit(e);//发给PC
+		    SPI_MasterTransmit(e);//发给128
+ 30c:	89 81       	ldd	r24, Y+1	; 0x01
+ 30e:	90 e0       	ldi	r25, 0x00	; 0
+ 310:	0e 94 59 00 	call	0xb2	; 0xb2 <SPI_MasterTransmit>
+		//发送给128
+		if(bufQueue.front!=bufQueue.rear){
+		while(!(PORTB&(1<<4)));//等待SS电平为高
+		SPI_MasterInit();//转换为主机模式
+			
+		while(bufQueue.front!=bufQueue.rear)
+ 314:	f5 01       	movw	r30, r10
+ 316:	20 81       	ld	r18, Z
+ 318:	31 81       	ldd	r19, Z+1	; 0x01
+ 31a:	f6 01       	movw	r30, r12
+ 31c:	80 81       	ld	r24, Z
+ 31e:	91 81       	ldd	r25, Z+1	; 0x01
+ 320:	28 17       	cp	r18, r24
+ 322:	39 07       	cpc	r19, r25
+ 324:	61 f7       	brne	.-40     	; 0x2fe <main+0x9e>
+			
+			DeQueue(&bufQueue,&e);
+			//USART_Transmit(e);//发给PC
+		    SPI_MasterTransmit(e);//发给128
+		}
+		 a = SPDR;
+ 326:	8f b1       	in	r24, 0x0f	; 15
+ 328:	8a 83       	std	Y+2, r24	; 0x02
+		  SPI_Init();
+ 32a:	0e 94 3e 00 	call	0x7c	; 0x7c <SPI_Init>
+		
+	}
+		//发送给PC
+			while(SPIbufQueue.front!=SPIbufQueue.rear)
+ 32e:	f7 01       	movw	r30, r14
+ 330:	20 81       	ld	r18, Z
+ 332:	31 81       	ldd	r19, Z+1	; 0x01
+ 334:	f8 01       	movw	r30, r16
+ 336:	80 81       	ld	r24, Z
+ 338:	91 81       	ldd	r25, Z+1	; 0x01
+ 33a:	28 17       	cp	r18, r24
+ 33c:	39 07       	cpc	r19, r25
+ 33e:	29 f2       	breq	.-118    	; 0x2ca <main+0x6a>
+			{   
+				//USART_Transmit(0x11);
+				DeQueue(&SPIbufQueue,&a);
+ 340:	be 01       	movw	r22, r28
+ 342:	6e 5f       	subi	r22, 0xFE	; 254
+ 344:	7f 4f       	sbci	r23, 0xFF	; 255
+ 346:	80 e6       	ldi	r24, 0x60	; 96
+ 348:	90 e0       	ldi	r25, 0x00	; 0
+ 34a:	0e 94 bc 00 	call	0x178	; 0x178 <DeQueue>
+				USART_Transmit(a);//发给PC
+ 34e:	8a 81       	ldd	r24, Y+2	; 0x02
+ 350:	0e 94 05 01 	call	0x20a	; 0x20a <USART_Transmit>
+		 a = SPDR;
+		  SPI_Init();
+		
+	}
+		//发送给PC
+			while(SPIbufQueue.front!=SPIbufQueue.rear)
+ 354:	f7 01       	movw	r30, r14
+ 356:	20 81       	ld	r18, Z
+ 358:	31 81       	ldd	r19, Z+1	; 0x01
+ 35a:	f8 01       	movw	r30, r16
+ 35c:	80 81       	ld	r24, Z
+ 35e:	91 81       	ldd	r25, Z+1	; 0x01
+ 360:	28 17       	cp	r18, r24
+ 362:	39 07       	cpc	r19, r25
+ 364:	69 f7       	brne	.-38     	; 0x340 <main+0xe0>
+ 366:	b1 cf       	rjmp	.-158    	; 0x2ca <main+0x6a>
+
+00000368 <__divmodhi4>:
+ 368:	97 fb       	bst	r25, 7
+ 36a:	07 2e       	mov	r0, r23
+ 36c:	16 f4       	brtc	.+4      	; 0x372 <__divmodhi4+0xa>
+ 36e:	00 94       	com	r0
+ 370:	07 d0       	rcall	.+14     	; 0x380 <__divmodhi4_neg1>
+ 372:	77 fd       	sbrc	r23, 7
+ 374:	09 d0       	rcall	.+18     	; 0x388 <__divmodhi4_neg2>
+ 376:	0e 94 c8 01 	call	0x390	; 0x390 <__udivmodhi4>
+ 37a:	07 fc       	sbrc	r0, 7
+ 37c:	05 d0       	rcall	.+10     	; 0x388 <__divmodhi4_neg2>
+ 37e:	3e f4       	brtc	.+14     	; 0x38e <__divmodhi4_exit>
+
+00000380 <__divmodhi4_neg1>:
+ 380:	90 95       	com	r25
+ 382:	81 95       	neg	r24
+ 384:	9f 4f       	sbci	r25, 0xFF	; 255
+ 386:	08 95       	ret
+
+00000388 <__divmodhi4_neg2>:
+ 388:	70 95       	com	r23
+ 38a:	61 95       	neg	r22
+ 38c:	7f 4f       	sbci	r23, 0xFF	; 255
+
+0000038e <__divmodhi4_exit>:
+ 38e:	08 95       	ret
+
+00000390 <__udivmodhi4>:
+ 390:	aa 1b       	sub	r26, r26
+ 392:	bb 1b       	sub	r27, r27
+ 394:	51 e1       	ldi	r21, 0x11	; 17
+ 396:	07 c0       	rjmp	.+14     	; 0x3a6 <__udivmodhi4_ep>
+
+00000398 <__udivmodhi4_loop>:
+ 398:	aa 1f       	adc	r26, r26
+ 39a:	bb 1f       	adc	r27, r27
+ 39c:	a6 17       	cp	r26, r22
+ 39e:	b7 07       	cpc	r27, r23
+ 3a0:	10 f0       	brcs	.+4      	; 0x3a6 <__udivmodhi4_ep>
+ 3a2:	a6 1b       	sub	r26, r22
+ 3a4:	b7 0b       	sbc	r27, r23
+
+000003a6 <__udivmodhi4_ep>:
+ 3a6:	88 1f       	adc	r24, r24
+ 3a8:	99 1f       	adc	r25, r25
+ 3aa:	5a 95       	dec	r21
+ 3ac:	a9 f7       	brne	.-22     	; 0x398 <__udivmodhi4_loop>
+ 3ae:	80 95       	com	r24
+ 3b0:	90 95       	com	r25
+ 3b2:	bc 01       	movw	r22, r24
+ 3b4:	cd 01       	movw	r24, r26
+ 3b6:	08 95       	ret
+
+000003b8 <_exit>:
+ 3b8:	f8 94       	cli
+
+000003ba <__stop_program>:
+ 3ba:	ff cf       	rjmp	.-2      	; 0x3ba <__stop_program>

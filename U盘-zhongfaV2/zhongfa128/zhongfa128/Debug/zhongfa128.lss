@@ -1,0 +1,1418 @@
+
+zhongfa128.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         000000dc  00800100  00000710  000007a4  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000710  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          000000d1  008001dc  008001dc  00000880  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000880  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000158  00000000  00000000  000008b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00001247  00000000  00000000  00000a08  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000626  00000000  00000000  00001c4f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000b06  00000000  00000000  00002275  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000364  00000000  00000000  00002d7c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    0000038f  00000000  00000000  000030e0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000a41  00000000  00000000  0000346f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000120  00000000  00000000  00003eb0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	45 c0       	rjmp	.+138    	; 0x8c <__ctors_end>
+   2:	00 00       	nop
+   4:	60 c0       	rjmp	.+192    	; 0xc6 <__bad_interrupt>
+   6:	00 00       	nop
+   8:	5e c0       	rjmp	.+188    	; 0xc6 <__bad_interrupt>
+   a:	00 00       	nop
+   c:	5c c0       	rjmp	.+184    	; 0xc6 <__bad_interrupt>
+   e:	00 00       	nop
+  10:	5a c0       	rjmp	.+180    	; 0xc6 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	58 c0       	rjmp	.+176    	; 0xc6 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	56 c0       	rjmp	.+172    	; 0xc6 <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	54 c0       	rjmp	.+168    	; 0xc6 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	52 c0       	rjmp	.+164    	; 0xc6 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	50 c0       	rjmp	.+160    	; 0xc6 <__bad_interrupt>
+  26:	00 00       	nop
+  28:	4e c0       	rjmp	.+156    	; 0xc6 <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	4c c0       	rjmp	.+152    	; 0xc6 <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	4a c0       	rjmp	.+148    	; 0xc6 <__bad_interrupt>
+  32:	00 00       	nop
+  34:	48 c0       	rjmp	.+144    	; 0xc6 <__bad_interrupt>
+  36:	00 00       	nop
+  38:	46 c0       	rjmp	.+140    	; 0xc6 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	44 c0       	rjmp	.+136    	; 0xc6 <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	42 c0       	rjmp	.+132    	; 0xc6 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	88 c0       	rjmp	.+272    	; 0x156 <__vector_17>
+  46:	00 00       	nop
+  48:	3b c1       	rjmp	.+630    	; 0x2c0 <__vector_18>
+  4a:	00 00       	nop
+  4c:	3c c0       	rjmp	.+120    	; 0xc6 <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	3a c0       	rjmp	.+116    	; 0xc6 <__bad_interrupt>
+  52:	00 00       	nop
+  54:	38 c0       	rjmp	.+112    	; 0xc6 <__bad_interrupt>
+  56:	00 00       	nop
+  58:	36 c0       	rjmp	.+108    	; 0xc6 <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	34 c0       	rjmp	.+104    	; 0xc6 <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	32 c0       	rjmp	.+100    	; 0xc6 <__bad_interrupt>
+  62:	00 00       	nop
+  64:	30 c0       	rjmp	.+96     	; 0xc6 <__bad_interrupt>
+  66:	00 00       	nop
+  68:	2e c0       	rjmp	.+92     	; 0xc6 <__bad_interrupt>
+  6a:	00 00       	nop
+  6c:	2c c0       	rjmp	.+88     	; 0xc6 <__bad_interrupt>
+  6e:	00 00       	nop
+  70:	2a c0       	rjmp	.+84     	; 0xc6 <__bad_interrupt>
+  72:	00 00       	nop
+  74:	28 c0       	rjmp	.+80     	; 0xc6 <__bad_interrupt>
+  76:	00 00       	nop
+  78:	4d c1       	rjmp	.+666    	; 0x314 <__vector_30>
+  7a:	00 00       	nop
+  7c:	24 c0       	rjmp	.+72     	; 0xc6 <__bad_interrupt>
+  7e:	00 00       	nop
+  80:	22 c0       	rjmp	.+68     	; 0xc6 <__bad_interrupt>
+  82:	00 00       	nop
+  84:	20 c0       	rjmp	.+64     	; 0xc6 <__bad_interrupt>
+  86:	00 00       	nop
+  88:	1e c0       	rjmp	.+60     	; 0xc6 <__bad_interrupt>
+	...
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e1       	ldi	r29, 0x10	; 16
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+
+00000098 <__do_copy_data>:
+  98:	11 e0       	ldi	r17, 0x01	; 1
+  9a:	a0 e0       	ldi	r26, 0x00	; 0
+  9c:	b1 e0       	ldi	r27, 0x01	; 1
+  9e:	e0 e1       	ldi	r30, 0x10	; 16
+  a0:	f7 e0       	ldi	r31, 0x07	; 7
+  a2:	00 e0       	ldi	r16, 0x00	; 0
+  a4:	0b bf       	out	0x3b, r16	; 59
+  a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
+  a8:	07 90       	elpm	r0, Z+
+  aa:	0d 92       	st	X+, r0
+  ac:	ac 3d       	cpi	r26, 0xDC	; 220
+  ae:	b1 07       	cpc	r27, r17
+  b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
+
+000000b2 <__do_clear_bss>:
+  b2:	22 e0       	ldi	r18, 0x02	; 2
+  b4:	ac ed       	ldi	r26, 0xDC	; 220
+  b6:	b1 e0       	ldi	r27, 0x01	; 1
+  b8:	01 c0       	rjmp	.+2      	; 0xbc <.do_clear_bss_start>
+
+000000ba <.do_clear_bss_loop>:
+  ba:	1d 92       	st	X+, r1
+
+000000bc <.do_clear_bss_start>:
+  bc:	ad 3a       	cpi	r26, 0xAD	; 173
+  be:	b2 07       	cpc	r27, r18
+  c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
+  c2:	6f d1       	rcall	.+734    	; 0x3a2 <main>
+  c4:	23 c3       	rjmp	.+1606   	; 0x70c <_exit>
+
+000000c6 <__bad_interrupt>:
+  c6:	9c cf       	rjmp	.-200    	; 0x0 <__vectors>
+
+000000c8 <EEPROM_READ>:
+ */ 
+
+#include "EEPORM.h"
+
+uint8_t EEPROM_READ(uint16_t address){
+    eeprom_busy_wait();
+  c8:	e1 99       	sbic	0x1c, 1	; 28
+  ca:	fe cf       	rjmp	.-4      	; 0xc8 <EEPROM_READ>
+	return eeprom_read_byte((uint8_t*)(address));
+  cc:	17 c3       	rjmp	.+1582   	; 0x6fc <__eerd_byte_m128>
+}
+  ce:	08 95       	ret
+
+000000d0 <delay>:
+void LedRedOff(){
+	PORTA |= (1<<2);
+}
+
+void LedGreenOff(){
+	PORTA |= (1<<1);
+  d0:	00 97       	sbiw	r24, 0x00	; 0
+  d2:	91 f0       	breq	.+36     	; 0xf8 <delay+0x28>
+  d4:	40 e0       	ldi	r20, 0x00	; 0
+  d6:	50 e0       	ldi	r21, 0x00	; 0
+  d8:	75 e7       	ldi	r23, 0x75	; 117
+  da:	64 e0       	ldi	r22, 0x04	; 4
+  dc:	0a c0       	rjmp	.+20     	; 0xf2 <delay+0x22>
+  de:	21 50       	subi	r18, 0x01	; 1
+  e0:	31 09       	sbc	r19, r1
+  e2:	21 15       	cp	r18, r1
+  e4:	31 05       	cpc	r19, r1
+  e6:	d9 f7       	brne	.-10     	; 0xde <delay+0xe>
+  e8:	4f 5f       	subi	r20, 0xFF	; 255
+  ea:	5f 4f       	sbci	r21, 0xFF	; 255
+  ec:	48 17       	cp	r20, r24
+  ee:	59 07       	cpc	r21, r25
+  f0:	19 f0       	breq	.+6      	; 0xf8 <delay+0x28>
+  f2:	27 2f       	mov	r18, r23
+  f4:	36 2f       	mov	r19, r22
+  f6:	f3 cf       	rjmp	.-26     	; 0xde <delay+0xe>
+  f8:	08 95       	ret
+
+000000fa <Led_Init>:
+  fa:	8a b3       	in	r24, 0x1a	; 26
+  fc:	87 60       	ori	r24, 0x07	; 7
+  fe:	8a bb       	out	0x1a, r24	; 26
+ 100:	8b b3       	in	r24, 0x1b	; 27
+ 102:	88 7f       	andi	r24, 0xF8	; 248
+ 104:	8b bb       	out	0x1b, r24	; 27
+ 106:	08 95       	ret
+
+00000108 <LedYellowOn>:
+ 108:	d8 98       	cbi	0x1b, 0	; 27
+ 10a:	08 95       	ret
+
+0000010c <LedYellowOff>:
+}
+
+void LedYellowOff(){
+	PORTA |= (1<<0);
+ 10c:	d8 9a       	sbi	0x1b, 0	; 27
+ 10e:	08 95       	ret
+
+00000110 <SPI_Init>:
+Queue SPIbufQueue;
+extern Queue UARTbufQueue;
+int result=0;
+void SPI_Init(void)//SPI从机初始化
+{
+	 SPCR &= (~(1<<SPE));//关闭spi
+ 110:	6e 98       	cbi	0x0d, 6	; 13
+
+	 SPCR &= ~(1<<7);  // 关闭SPI中断SPIE
+ 112:	6f 98       	cbi	0x0d, 7	; 13
+	 SPSR &= ~(1<<7);  // 清空中断标志SPIF
+ 114:	77 98       	cbi	0x0e, 7	; 14
+	SPCR &= ~(1<<4);  // MSTR为0代表从机模式，末两位00代表默认分频（4分频）
+ 116:	6c 98       	cbi	0x0d, 4	; 13
+	//SPCR |= (1<<4); 
+	// 初始时SPI默认为从机，仅MISO为输出，其他引脚均为输入
+	DDRB |= (1<<3);  // MISO，输出
+ 118:	bb 9a       	sbi	0x17, 3	; 23
+	DDRB &= ~(1<<1);  // SCK，输入
+ 11a:	b9 98       	cbi	0x17, 1	; 23
+	DDRB &= ~(1<<2);  // MOSI，输入
+ 11c:	ba 98       	cbi	0x17, 2	; 23
+	DDRB &= ~(1<<0);  // ~SS，输入
+ 11e:	b8 98       	cbi	0x17, 0	; 23
+	PORTB |= (1<<0);  // 00010000,PB4口对应的SS被拉高
+ 120:	c0 9a       	sbi	0x18, 0	; 24
+	
+	
+	//使用默认分频
+	SPCR |= ((1<<0) | (1<<1)); 
+ 122:	8d b1       	in	r24, 0x0d	; 13
+ 124:	83 60       	ori	r24, 0x03	; 3
+ 126:	8d b9       	out	0x0d, r24	; 13
+	SPSR &= ~(1<<7);  // 清空中断标志SPIF
+ 128:	77 98       	cbi	0x0e, 7	; 14
+	// 使能spi和中断
+	SPCR |= ((1<<SPE) | (1<<SPIE));  // 11000000
+ 12a:	8d b1       	in	r24, 0x0d	; 13
+ 12c:	80 6c       	ori	r24, 0xC0	; 192
+ 12e:	8d b9       	out	0x0d, r24	; 13
+ 130:	08 95       	ret
+
+00000132 <SPI_MasterInitInit>:
+	//SPCR |= (1<<SPE);  // 11000000
+	
+}
+void SPI_MasterInitInit(void)//SPI主机初始化
+{
+	SPCR &= ~(1<<7);  // 关闭SPI中断SPIE
+ 132:	6f 98       	cbi	0x0d, 7	; 13
+	SPSR &= ~(1<<7);  // 清空中断标志SPIF
+ 134:	77 98       	cbi	0x0e, 7	; 14
+	
+	SPCR |= (1<<4);  // MSTR为0代表从机模式，末两位00代表默认分频（4分频）
+ 136:	6c 9a       	sbi	0x0d, 4	; 13
+
+	DDRB &= ~(1<<3);  // MISO，输入
+ 138:	bb 98       	cbi	0x17, 3	; 23
+	DDRB |= (1<<1);  // SCK，输出
+ 13a:	b9 9a       	sbi	0x17, 1	; 23
+	DDRB |= (1<<2);  // MOSI，输出
+ 13c:	ba 9a       	sbi	0x17, 2	; 23
+	DDRB |= (1<<0);  // ~SS，输出
+ 13e:	b8 9a       	sbi	0x17, 0	; 23
+	PORTB &= ~(1<<0);  // 00010000,PB4口对应的SS被拉低
+ 140:	c0 98       	cbi	0x18, 0	; 24
+	
+	//使用默认分频
+	SPCR |= ((1<<0) | (1<<1));//128分频
+ 142:	8d b1       	in	r24, 0x0d	; 13
+ 144:	83 60       	ori	r24, 0x03	; 3
+ 146:	8d b9       	out	0x0d, r24	; 13
+	SPSR &= ~(1<<7);  // 清空中断标志SPIF
+ 148:	77 98       	cbi	0x0e, 7	; 14
+	//使能spi
+	SPCR |= (1<<SPE);
+ 14a:	6e 9a       	sbi	0x0d, 6	; 13
+ 14c:	08 95       	ret
+
+0000014e <SPI_MasterTransmit>:
+	
+}
+void SPI_MasterTransmit(uchar rdata)
+{
+	// 将待传输的数据存放进SPDR数据寄存器中
+	SPDR = rdata;  // rdata为485通过USART传进ATmega16中的数据，通过SPI发送给ATmega128
+ 14e:	8f b9       	out	0x0f, r24	; 15
+	while (!(SPSR & (1<<SPIF))); // 等待数据发送结束
+ 150:	77 9b       	sbis	0x0e, 7	; 14
+ 152:	fe cf       	rjmp	.-4      	; 0x150 <SPI_MasterTransmit+0x2>
+}
+ 154:	08 95       	ret
+
+00000156 <__vector_17>:
+
+void __attribute((signal))   __vector_17(void){//SPI中断
+ 156:	1f 92       	push	r1
+ 158:	0f 92       	push	r0
+ 15a:	0f b6       	in	r0, 0x3f	; 63
+ 15c:	0f 92       	push	r0
+ 15e:	11 24       	eor	r1, r1
+ 160:	0b b6       	in	r0, 0x3b	; 59
+ 162:	0f 92       	push	r0
+ 164:	2f 93       	push	r18
+ 166:	3f 93       	push	r19
+ 168:	4f 93       	push	r20
+ 16a:	5f 93       	push	r21
+ 16c:	6f 93       	push	r22
+ 16e:	7f 93       	push	r23
+ 170:	8f 93       	push	r24
+ 172:	9f 93       	push	r25
+ 174:	af 93       	push	r26
+ 176:	bf 93       	push	r27
+ 178:	ef 93       	push	r30
+ 17a:	ff 93       	push	r31
+	//如果是从机则执行spi中断
+	//if( (SPCR & (1<<MSTR)) == 0 )
+	//{
+		char flag;
+		flag=SPDR;
+ 17c:	6f b1       	in	r22, 0x0f	; 15
+		enQueue(&SPIbufQueue,flag);		
+ 17e:	8c ed       	ldi	r24, 0xDC	; 220
+ 180:	91 e0       	ldi	r25, 0x01	; 1
+ 182:	25 d0       	rcall	.+74     	; 0x1ce <enQueue>
+	//}
+	
+}
+ 184:	ff 91       	pop	r31
+ 186:	ef 91       	pop	r30
+ 188:	bf 91       	pop	r27
+ 18a:	af 91       	pop	r26
+ 18c:	9f 91       	pop	r25
+ 18e:	8f 91       	pop	r24
+ 190:	7f 91       	pop	r23
+ 192:	6f 91       	pop	r22
+ 194:	5f 91       	pop	r21
+ 196:	4f 91       	pop	r20
+ 198:	3f 91       	pop	r19
+ 19a:	2f 91       	pop	r18
+ 19c:	0f 90       	pop	r0
+ 19e:	0b be       	out	0x3b, r0	; 59
+ 1a0:	0f 90       	pop	r0
+ 1a2:	0f be       	out	0x3f, r0	; 63
+ 1a4:	0f 90       	pop	r0
+ 1a6:	1f 90       	pop	r1
+ 1a8:	18 95       	reti
+
+000001aa <initqueue>:
+Queue UARTbufQueue;
+char a;
+// rdata用于保存接收到的数据
+
+
+void initqueue(Queue *Q){
+ 1aa:	fc 01       	movw	r30, r24
+	for(int i=0;i<100;i++){
+ 1ac:	20 e0       	ldi	r18, 0x00	; 0
+ 1ae:	30 e0       	ldi	r19, 0x00	; 0
+		Q->base[i]=0;
+ 1b0:	11 92       	st	Z+, r1
+char a;
+// rdata用于保存接收到的数据
+
+
+void initqueue(Queue *Q){
+	for(int i=0;i<100;i++){
+ 1b2:	2f 5f       	subi	r18, 0xFF	; 255
+ 1b4:	3f 4f       	sbci	r19, 0xFF	; 255
+ 1b6:	24 36       	cpi	r18, 0x64	; 100
+ 1b8:	31 05       	cpc	r19, r1
+ 1ba:	d1 f7       	brne	.-12     	; 0x1b0 <initqueue+0x6>
+		Q->base[i]=0;
+	}
+	Q->front=Q->rear=0;
+ 1bc:	fc 01       	movw	r30, r24
+ 1be:	ea 59       	subi	r30, 0x9A	; 154
+ 1c0:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1c2:	11 82       	std	Z+1, r1	; 0x01
+ 1c4:	10 82       	st	Z, r1
+ 1c6:	32 97       	sbiw	r30, 0x02	; 2
+ 1c8:	11 82       	std	Z+1, r1	; 0x01
+ 1ca:	10 82       	st	Z, r1
+ 1cc:	08 95       	ret
+
+000001ce <enQueue>:
+}
+
+int enQueue(Queue *Q,char e)
+{
+ 1ce:	cf 93       	push	r28
+ 1d0:	9c 01       	movw	r18, r24
+ 1d2:	c6 2f       	mov	r28, r22
+	if ((Q->rear+1)%100==Q->front)
+ 1d4:	fc 01       	movw	r30, r24
+ 1d6:	ea 59       	subi	r30, 0x9A	; 154
+ 1d8:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1da:	01 90       	ld	r0, Z+
+ 1dc:	f0 81       	ld	r31, Z
+ 1de:	e0 2d       	mov	r30, r0
+ 1e0:	cf 01       	movw	r24, r30
+ 1e2:	01 96       	adiw	r24, 0x01	; 1
+ 1e4:	64 e6       	ldi	r22, 0x64	; 100
+ 1e6:	70 e0       	ldi	r23, 0x00	; 0
+ 1e8:	62 d2       	rcall	.+1220   	; 0x6ae <__divmodhi4>
+ 1ea:	d9 01       	movw	r26, r18
+ 1ec:	ac 59       	subi	r26, 0x9C	; 156
+ 1ee:	bf 4f       	sbci	r27, 0xFF	; 255
+ 1f0:	4d 91       	ld	r20, X+
+ 1f2:	5c 91       	ld	r21, X
+ 1f4:	84 17       	cp	r24, r20
+ 1f6:	95 07       	cpc	r25, r21
+ 1f8:	59 f0       	breq	.+22     	; 0x210 <enQueue+0x42>
+	return 0;
+	Q->base[Q->rear]=e;
+ 1fa:	e2 0f       	add	r30, r18
+ 1fc:	f3 1f       	adc	r31, r19
+ 1fe:	c0 83       	st	Z, r28
+	Q->rear=(Q->rear+1)%100;
+ 200:	f9 01       	movw	r30, r18
+ 202:	ea 59       	subi	r30, 0x9A	; 154
+ 204:	ff 4f       	sbci	r31, 0xFF	; 255
+ 206:	91 83       	std	Z+1, r25	; 0x01
+ 208:	80 83       	st	Z, r24
+	return 1;
+ 20a:	81 e0       	ldi	r24, 0x01	; 1
+ 20c:	90 e0       	ldi	r25, 0x00	; 0
+ 20e:	02 c0       	rjmp	.+4      	; 0x214 <enQueue+0x46>
+}
+
+int enQueue(Queue *Q,char e)
+{
+	if ((Q->rear+1)%100==Q->front)
+	return 0;
+ 210:	80 e0       	ldi	r24, 0x00	; 0
+ 212:	90 e0       	ldi	r25, 0x00	; 0
+	Q->base[Q->rear]=e;
+	Q->rear=(Q->rear+1)%100;
+	return 1;
+}
+ 214:	cf 91       	pop	r28
+ 216:	08 95       	ret
+
+00000218 <DeQueue>:
+int DeQueue(Queue *Q,char *e){
+	if(Q->front==Q->rear) return 0;
+ 218:	fc 01       	movw	r30, r24
+ 21a:	ec 59       	subi	r30, 0x9C	; 156
+ 21c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 21e:	20 81       	ld	r18, Z
+ 220:	31 81       	ldd	r19, Z+1	; 0x01
+ 222:	32 96       	adiw	r30, 0x02	; 2
+ 224:	40 81       	ld	r20, Z
+ 226:	51 81       	ldd	r21, Z+1	; 0x01
+ 228:	24 17       	cp	r18, r20
+ 22a:	35 07       	cpc	r19, r21
+ 22c:	a1 f0       	breq	.+40     	; 0x256 <DeQueue+0x3e>
+	*e=Q->base[Q->front];
+ 22e:	fc 01       	movw	r30, r24
+ 230:	e2 0f       	add	r30, r18
+ 232:	f3 1f       	adc	r31, r19
+ 234:	20 81       	ld	r18, Z
+ 236:	fb 01       	movw	r30, r22
+ 238:	20 83       	st	Z, r18
+	Q->front=(Q->front+1)%100;
+ 23a:	fc 01       	movw	r30, r24
+ 23c:	ec 59       	subi	r30, 0x9C	; 156
+ 23e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 240:	80 81       	ld	r24, Z
+ 242:	91 81       	ldd	r25, Z+1	; 0x01
+ 244:	01 96       	adiw	r24, 0x01	; 1
+ 246:	64 e6       	ldi	r22, 0x64	; 100
+ 248:	70 e0       	ldi	r23, 0x00	; 0
+ 24a:	31 d2       	rcall	.+1122   	; 0x6ae <__divmodhi4>
+ 24c:	91 83       	std	Z+1, r25	; 0x01
+ 24e:	80 83       	st	Z, r24
+	return 1;
+ 250:	81 e0       	ldi	r24, 0x01	; 1
+ 252:	90 e0       	ldi	r25, 0x00	; 0
+ 254:	08 95       	ret
+	Q->base[Q->rear]=e;
+	Q->rear=(Q->rear+1)%100;
+	return 1;
+}
+int DeQueue(Queue *Q,char *e){
+	if(Q->front==Q->rear) return 0;
+ 256:	80 e0       	ldi	r24, 0x00	; 0
+ 258:	90 e0       	ldi	r25, 0x00	; 0
+	*e=Q->base[Q->front];
+	Q->front=(Q->front+1)%100;
+	return 1;
+}
+ 25a:	08 95       	ret
+
+0000025c <USART1_Init>:
+void USART1_Init()//UART1初始化
+{
+	UCSR0A = 0X00;
+ 25c:	1b b8       	out	0x0b, r1	; 11
+	UCSR0B = 0X00;  // 控制寄存器清零
+ 25e:	1a b8       	out	0x0a, r1	; 10
+	UCSR0C = (1<<UCSZ01)|(1<<UCSZ00);  // 异步，禁止校验，1位停止位，8位数据位
+ 260:	e5 e9       	ldi	r30, 0x95	; 149
+ 262:	f0 e0       	ldi	r31, 0x00	; 0
+ 264:	86 e0       	ldi	r24, 0x06	; 6
+ 266:	80 83       	st	Z, r24
+    UCSR0C &= ~(1<<USBS0);
+ 268:	80 81       	ld	r24, Z
+ 26a:	87 7f       	andi	r24, 0xF7	; 247
+ 26c:	80 83       	st	Z, r24
+	UBRR0L = 8;
+ 26e:	88 e0       	ldi	r24, 0x08	; 8
+ 270:	89 b9       	out	0x09, r24	; 9
+	UBRR0H = 0;
+ 272:	10 92 90 00 	sts	0x0090, r1
+	UCSR0B = (1 << RXCIE0)|(1 << RXEN0)|(1 << TXEN0);  // 接收、发送使能，接收结束中断使能
+ 276:	88 e9       	ldi	r24, 0x98	; 152
+ 278:	8a b9       	out	0x0a, r24	; 10
+	//SREG = (1<<7);  // 全局中断开启
+	DDRE |= 0X02;  // PE0和PE1是USART1的输出和接收端口
+ 27a:	11 9a       	sbi	0x02, 1	; 2
+ 27c:	08 95       	ret
+
+0000027e <USART2_Init>:
+}
+// USART2初始化
+void USART2_Init()
+{
+	UCSR1A = 0X00;
+ 27e:	10 92 9b 00 	sts	0x009B, r1
+	UCSR1B = 0X00;  // 控制寄存器清零
+ 282:	aa e9       	ldi	r26, 0x9A	; 154
+ 284:	b0 e0       	ldi	r27, 0x00	; 0
+ 286:	1c 92       	st	X, r1
+	UCSR1C = (1<<UCSZ11)|(1<<UCSZ10);  // |(1<<USBS1)异步，禁止校验，1位停止位，8位数据位
+ 288:	ed e9       	ldi	r30, 0x9D	; 157
+ 28a:	f0 e0       	ldi	r31, 0x00	; 0
+ 28c:	86 e0       	ldi	r24, 0x06	; 6
+ 28e:	80 83       	st	Z, r24
+	UCSR1C &= ~(1<<USBS1);//1位停止位，
+ 290:	80 81       	ld	r24, Z
+ 292:	87 7f       	andi	r24, 0xF7	; 247
+ 294:	80 83       	st	Z, r24
+	UBRR1L = 8;
+ 296:	88 e0       	ldi	r24, 0x08	; 8
+ 298:	80 93 99 00 	sts	0x0099, r24
+	UBRR1H = 0;
+ 29c:	10 92 98 00 	sts	0x0098, r1
+	UCSR1B = (1 << RXCIE1)|(1 << RXEN1)|(1 << TXEN1);  // 接收、发送使能，接收结束中断使能
+ 2a0:	88 e9       	ldi	r24, 0x98	; 152
+ 2a2:	8c 93       	st	X, r24
+	//SREG |= (1<<7);  // 全局中断开启
+	DDRD |= 0X08;  // PD2和PD3是USART2的输出和接收端口
+ 2a4:	8b 9a       	sbi	0x11, 3	; 17
+ 2a6:	08 95       	ret
+
+000002a8 <USART1_Transmit>:
+	
+}
+void USART1_Transmit(uchar data)// USART1数据发送函数
+{
+	
+	while(!(UCSR0A & ((1<<UDRE0))));
+ 2a8:	5d 9b       	sbis	0x0b, 5	; 11
+ 2aa:	fe cf       	rjmp	.-4      	; 0x2a8 <USART1_Transmit>
+	UDR0 = data;
+ 2ac:	8c b9       	out	0x0c, r24	; 12
+ 2ae:	08 95       	ret
+
+000002b0 <USART2_Transmit>:
+	
+}
+
+void USART2_Transmit(uchar data)// USART2数据发送函数
+{
+	while(!(UCSR1A & ((1<<UDRE1))));
+ 2b0:	eb e9       	ldi	r30, 0x9B	; 155
+ 2b2:	f0 e0       	ldi	r31, 0x00	; 0
+ 2b4:	90 81       	ld	r25, Z
+ 2b6:	95 ff       	sbrs	r25, 5
+ 2b8:	fd cf       	rjmp	.-6      	; 0x2b4 <USART2_Transmit+0x4>
+	UDR1 = data;
+ 2ba:	80 93 9c 00 	sts	0x009C, r24
+ 2be:	08 95       	ret
+
+000002c0 <__vector_18>:
+}
+void __attribute((signal))   __vector_18(void){//uart1接收中断
+ 2c0:	1f 92       	push	r1
+ 2c2:	0f 92       	push	r0
+ 2c4:	0f b6       	in	r0, 0x3f	; 63
+ 2c6:	0f 92       	push	r0
+ 2c8:	11 24       	eor	r1, r1
+ 2ca:	0b b6       	in	r0, 0x3b	; 59
+ 2cc:	0f 92       	push	r0
+ 2ce:	2f 93       	push	r18
+ 2d0:	3f 93       	push	r19
+ 2d2:	4f 93       	push	r20
+ 2d4:	5f 93       	push	r21
+ 2d6:	6f 93       	push	r22
+ 2d8:	7f 93       	push	r23
+ 2da:	8f 93       	push	r24
+ 2dc:	9f 93       	push	r25
+ 2de:	af 93       	push	r26
+ 2e0:	bf 93       	push	r27
+ 2e2:	ef 93       	push	r30
+ 2e4:	ff 93       	push	r31
+	char cdata0;
+	cdata0=UDR0;
+ 2e6:	6c b1       	in	r22, 0x0c	; 12
+	enQueue(&UARTbufQueue,cdata0);//接受到的UART数据放在缓冲区
+ 2e8:	84 e4       	ldi	r24, 0x44	; 68
+ 2ea:	92 e0       	ldi	r25, 0x02	; 2
+ 2ec:	70 df       	rcall	.-288    	; 0x1ce <enQueue>
+}
+ 2ee:	ff 91       	pop	r31
+ 2f0:	ef 91       	pop	r30
+ 2f2:	bf 91       	pop	r27
+ 2f4:	af 91       	pop	r26
+ 2f6:	9f 91       	pop	r25
+ 2f8:	8f 91       	pop	r24
+ 2fa:	7f 91       	pop	r23
+ 2fc:	6f 91       	pop	r22
+ 2fe:	5f 91       	pop	r21
+ 300:	4f 91       	pop	r20
+ 302:	3f 91       	pop	r19
+ 304:	2f 91       	pop	r18
+ 306:	0f 90       	pop	r0
+ 308:	0b be       	out	0x3b, r0	; 59
+ 30a:	0f 90       	pop	r0
+ 30c:	0f be       	out	0x3f, r0	; 63
+ 30e:	0f 90       	pop	r0
+ 310:	1f 90       	pop	r1
+ 312:	18 95       	reti
+
+00000314 <__vector_30>:
+
+void __attribute((signal))   __vector_30(void){//uart2接收中断
+ 314:	1f 92       	push	r1
+ 316:	0f 92       	push	r0
+ 318:	0f b6       	in	r0, 0x3f	; 63
+ 31a:	0f 92       	push	r0
+ 31c:	11 24       	eor	r1, r1
+ 31e:	0b b6       	in	r0, 0x3b	; 59
+ 320:	0f 92       	push	r0
+ 322:	2f 93       	push	r18
+ 324:	3f 93       	push	r19
+ 326:	4f 93       	push	r20
+ 328:	5f 93       	push	r21
+ 32a:	6f 93       	push	r22
+ 32c:	7f 93       	push	r23
+ 32e:	8f 93       	push	r24
+ 330:	9f 93       	push	r25
+ 332:	af 93       	push	r26
+ 334:	bf 93       	push	r27
+ 336:	ef 93       	push	r30
+ 338:	ff 93       	push	r31
+	char cdata1;
+	cdata1=UDR1;
+ 33a:	60 91 9c 00 	lds	r22, 0x009C
+	enQueue(&UARTbufQueue,cdata1);//接受到的UART数据放在缓冲区
+ 33e:	84 e4       	ldi	r24, 0x44	; 68
+ 340:	92 e0       	ldi	r25, 0x02	; 2
+ 342:	45 df       	rcall	.-374    	; 0x1ce <enQueue>
+}
+ 344:	ff 91       	pop	r31
+ 346:	ef 91       	pop	r30
+ 348:	bf 91       	pop	r27
+ 34a:	af 91       	pop	r26
+ 34c:	9f 91       	pop	r25
+ 34e:	8f 91       	pop	r24
+ 350:	7f 91       	pop	r23
+ 352:	6f 91       	pop	r22
+ 354:	5f 91       	pop	r21
+ 356:	4f 91       	pop	r20
+ 358:	3f 91       	pop	r19
+ 35a:	2f 91       	pop	r18
+ 35c:	0f 90       	pop	r0
+ 35e:	0b be       	out	0x3b, r0	; 59
+ 360:	0f 90       	pop	r0
+ 362:	0f be       	out	0x3f, r0	; 63
+ 364:	0f 90       	pop	r0
+ 366:	1f 90       	pop	r1
+ 368:	18 95       	reti
+
+0000036a <puts1>:
+void puts1(char *s)//发送字符串
+{
+ 36a:	cf 93       	push	r28
+ 36c:	df 93       	push	r29
+ 36e:	ec 01       	movw	r28, r24
+	while(*s)
+ 370:	88 81       	ld	r24, Y
+ 372:	88 23       	and	r24, r24
+ 374:	29 f0       	breq	.+10     	; 0x380 <puts1+0x16>
+ 376:	21 96       	adiw	r28, 0x01	; 1
+	{
+		USART1_Transmit(*s);
+ 378:	97 df       	rcall	.-210    	; 0x2a8 <USART1_Transmit>
+	cdata1=UDR1;
+	enQueue(&UARTbufQueue,cdata1);//接受到的UART数据放在缓冲区
+}
+void puts1(char *s)//发送字符串
+{
+	while(*s)
+ 37a:	89 91       	ld	r24, Y+
+ 37c:	81 11       	cpse	r24, r1
+ 37e:	fc cf       	rjmp	.-8      	; 0x378 <puts1+0xe>
+		USART1_Transmit(*s);
+		//*s=0;
+		s++;
+	}
+	
+}
+ 380:	df 91       	pop	r29
+ 382:	cf 91       	pop	r28
+ 384:	08 95       	ret
+
+00000386 <puts2>:
+void puts2(char *s)//发送字符串
+{
+ 386:	cf 93       	push	r28
+ 388:	df 93       	push	r29
+ 38a:	ec 01       	movw	r28, r24
+	while(*s)
+ 38c:	88 81       	ld	r24, Y
+ 38e:	88 23       	and	r24, r24
+ 390:	29 f0       	breq	.+10     	; 0x39c <puts2+0x16>
+ 392:	21 96       	adiw	r28, 0x01	; 1
+	{
+		USART2_Transmit(*s);
+ 394:	8d df       	rcall	.-230    	; 0x2b0 <USART2_Transmit>
+	}
+	
+}
+void puts2(char *s)//发送字符串
+{
+	while(*s)
+ 396:	89 91       	ld	r24, Y+
+ 398:	81 11       	cpse	r24, r1
+ 39a:	fc cf       	rjmp	.-8      	; 0x394 <puts2+0xe>
+		USART2_Transmit(*s);
+		//*s=0;
+		s++;
+	}
+	
+}
+ 39c:	df 91       	pop	r29
+ 39e:	cf 91       	pop	r28
+ 3a0:	08 95       	ret
+
+000003a2 <main>:
+#include <avr/delay.h>
+#include <usart.h>
+extern Queue SPIbufQueue;
+extern Queue UARTbufQueue;
+int main(void)
+{
+ 3a2:	cf 93       	push	r28
+ 3a4:	df 93       	push	r29
+ 3a6:	cd b7       	in	r28, 0x3d	; 61
+ 3a8:	de b7       	in	r29, 0x3e	; 62
+ 3aa:	c3 55       	subi	r28, 0x53	; 83
+ 3ac:	d1 09       	sbc	r29, r1
+ 3ae:	0f b6       	in	r0, 0x3f	; 63
+ 3b0:	f8 94       	cli
+ 3b2:	de bf       	out	0x3e, r29	; 62
+ 3b4:	0f be       	out	0x3f, r0	; 63
+ 3b6:	cd bf       	out	0x3d, r28	; 61
+    delay(2000);
+ 3b8:	80 ed       	ldi	r24, 0xD0	; 208
+ 3ba:	97 e0       	ldi	r25, 0x07	; 7
+ 3bc:	89 de       	rcall	.-750    	; 0xd0 <delay>
+	SREG &= (~(1<<7));  // 全局中断关闭
+ 3be:	8f b7       	in	r24, 0x3f	; 63
+ 3c0:	8f 77       	andi	r24, 0x7F	; 127
+ 3c2:	8f bf       	out	0x3f, r24	; 63
+    Led_Init();  // LED灯初始化,全亮
+ 3c4:	9a de       	rcall	.-716    	; 0xfa <Led_Init>
+    SPI_Init();  // SPI通信初始化
+ 3c6:	a4 de       	rcall	.-696    	; 0x110 <SPI_Init>
+	//拨动按钮初始化
+	DDRE  &= ~(1<<7);  // PE7输入
+ 3c8:	17 98       	cbi	0x02, 7	; 2
+	PORTE |= (1<<7);  // PE7输出高电平
+ 3ca:	1f 9a       	sbi	0x03, 7	; 3
+	//独立按键初始化
+	DDRE  &= ~(1<<3);  // PE7输入
+ 3cc:	13 98       	cbi	0x02, 3	; 2
+	PORTE |= (1<<3);  // PE7输出高电平
+ 3ce:	1b 9a       	sbi	0x03, 3	; 3
+	//SPI_MasterInitInit();
+	USART1_Init();
+ 3d0:	45 df       	rcall	.-374    	; 0x25c <USART1_Init>
+    USART2_Init();
+ 3d2:	55 df       	rcall	.-342    	; 0x27e <USART2_Init>
+    initqueue(&UARTbufQueue);
+ 3d4:	84 e4       	ldi	r24, 0x44	; 68
+ 3d6:	92 e0       	ldi	r25, 0x02	; 2
+ 3d8:	e8 de       	rcall	.-560    	; 0x1aa <initqueue>
+	initqueue(&SPIbufQueue);
+ 3da:	8c ed       	ldi	r24, 0xDC	; 220
+ 3dc:	91 e0       	ldi	r25, 0x01	; 1
+ 3de:	e5 de       	rcall	.-566    	; 0x1aa <initqueue>
+    char e,a;
+	char ip[19],port[8],wifiname[33],wifipass[17];//WiFi密码最多16位，WiFi名字英文最多32位，中文10位，即20个ASIC码
+	int ipnum=0,portnum=0,wifinamenum=0,wifipassnum=0,charnum=0;//字符串位数、特殊字符数量
+	char address=0x00; 
+	char char1;
+	SREG |= (1<<7);  // 全局中断开启
+ 3e0:	8f b7       	in	r24, 0x3f	; 63
+ 3e2:	80 68       	ori	r24, 0x80	; 128
+ 3e4:	8f bf       	out	0x3f, r24	; 63
+		}
+		
+		
+		//发送给16
+		
+		if(UARTbufQueue.front!=UARTbufQueue.rear){
+ 3e6:	0f 2e       	mov	r0, r31
+ 3e8:	f8 ea       	ldi	r31, 0xA8	; 168
+ 3ea:	6f 2e       	mov	r6, r31
+ 3ec:	f2 e0       	ldi	r31, 0x02	; 2
+ 3ee:	7f 2e       	mov	r7, r31
+ 3f0:	f0 2d       	mov	r31, r0
+ 3f2:	0f 2e       	mov	r0, r31
+ 3f4:	fa ea       	ldi	r31, 0xAA	; 170
+ 3f6:	4f 2e       	mov	r4, r31
+ 3f8:	f2 e0       	ldi	r31, 0x02	; 2
+ 3fa:	5f 2e       	mov	r5, r31
+ 3fc:	f0 2d       	mov	r31, r0
+	  }
+	  
+	  
+	  
+		//发给4G/wifi
+		while(SPIbufQueue.front!=SPIbufQueue.rear)
+ 3fe:	0f 2e       	mov	r0, r31
+ 400:	f0 e4       	ldi	r31, 0x40	; 64
+ 402:	af 2e       	mov	r10, r31
+ 404:	f2 e0       	ldi	r31, 0x02	; 2
+ 406:	bf 2e       	mov	r11, r31
+ 408:	f0 2d       	mov	r31, r0
+ 40a:	0f 2e       	mov	r0, r31
+ 40c:	f2 e4       	ldi	r31, 0x42	; 66
+ 40e:	cf 2e       	mov	r12, r31
+ 410:	f2 e0       	ldi	r31, 0x02	; 2
+ 412:	df 2e       	mov	r13, r31
+ 414:	f0 2d       	mov	r31, r0
+	//ip[1]=',';
+	//ip[2]='"';
+    while(1)
+    {
+		
+		delay(10);
+ 416:	8a e0       	ldi	r24, 0x0A	; 10
+ 418:	90 e0       	ldi	r25, 0x00	; 0
+ 41a:	5a de       	rcall	.-844    	; 0xd0 <delay>
+		key=PINE&(1<<3);
+		if (!key)
+ 41c:	0b 99       	sbic	0x01, 3	; 1
+ 41e:	f8 c0       	rjmp	.+496    	; 0x610 <main+0x26e>
+		{
+			LedYellowOff();//红灯闪烁
+ 420:	75 de       	rcall	.-790    	; 0x10c <LedYellowOff>
+			delay(1000);
+ 422:	88 ee       	ldi	r24, 0xE8	; 232
+ 424:	93 e0       	ldi	r25, 0x03	; 3
+ 426:	54 de       	rcall	.-856    	; 0xd0 <delay>
+			LedYellowOn();
+ 428:	6f de       	rcall	.-802    	; 0x108 <LedYellowOn>
+			delay(1000);
+ 42a:	88 ee       	ldi	r24, 0xE8	; 232
+ 42c:	93 e0       	ldi	r25, 0x03	; 3
+ 42e:	50 de       	rcall	.-864    	; 0xd0 <delay>
+			//读取字符
+			char1=EEPROM_READ(address++);
+ 430:	80 e0       	ldi	r24, 0x00	; 0
+ 432:	90 e0       	ldi	r25, 0x00	; 0
+ 434:	49 de       	rcall	.-878    	; 0xc8 <EEPROM_READ>
+ 436:	68 94       	set
+ 438:	33 24       	eor	r3, r3
+ 43a:	31 f8       	bld	r3, 1
+ 43c:	00 e0       	ldi	r16, 0x00	; 0
+ 43e:	10 e0       	ldi	r17, 0x00	; 0
+ 440:	81 2c       	mov	r8, r1
+ 442:	91 2c       	mov	r9, r1
+ 444:	64 96       	adiw	r28, 0x14	; 20
+ 446:	1f ae       	std	Y+63, r1	; 0x3f
+ 448:	1e ae       	std	Y+62, r1	; 0x3e
+ 44a:	64 97       	sbiw	r28, 0x14	; 20
+ 44c:	62 96       	adiw	r28, 0x12	; 18
+ 44e:	1f ae       	std	Y+63, r1	; 0x3f
+ 450:	1e ae       	std	Y+62, r1	; 0x3e
+ 452:	62 97       	sbiw	r28, 0x12	; 18
+ 454:	e1 2c       	mov	r14, r1
+ 456:	f1 2c       	mov	r15, r1
+ 458:	01 c0       	rjmp	.+2      	; 0x45c <main+0xba>
+ 45a:	33 94       	inc	r3
+ 45c:	9f ef       	ldi	r25, 0xFF	; 255
+ 45e:	93 0d       	add	r25, r3
+		    while (charnum<4)//读完停止
+			{
+				if (char1==0x11){charnum++;}
+ 460:	81 31       	cpi	r24, 0x11	; 17
+ 462:	19 f4       	brne	.+6      	; 0x46a <main+0xc8>
+ 464:	0f 5f       	subi	r16, 0xFF	; 255
+ 466:	1f 4f       	sbci	r17, 0xFF	; 255
+ 468:	43 c0       	rjmp	.+134    	; 0x4f0 <main+0x14e>
+				else
+				{
+					if(charnum==0){ip[ipnum++]=char1;}
+ 46a:	01 15       	cp	r16, r1
+ 46c:	11 05       	cpc	r17, r1
+ 46e:	61 f4       	brne	.+24     	; 0x488 <main+0xe6>
+ 470:	e3 e0       	ldi	r30, 0x03	; 3
+ 472:	f0 e0       	ldi	r31, 0x00	; 0
+ 474:	ec 0f       	add	r30, r28
+ 476:	fd 1f       	adc	r31, r29
+ 478:	ee 0d       	add	r30, r14
+ 47a:	ff 1d       	adc	r31, r15
+ 47c:	80 83       	st	Z, r24
+ 47e:	97 01       	movw	r18, r14
+ 480:	2f 5f       	subi	r18, 0xFF	; 255
+ 482:	3f 4f       	sbci	r19, 0xFF	; 255
+ 484:	79 01       	movw	r14, r18
+ 486:	0f c1       	rjmp	.+542    	; 0x6a6 <main+0x304>
+					else if(charnum==1){port[portnum++]=char1;}
+ 488:	01 30       	cpi	r16, 0x01	; 1
+ 48a:	11 05       	cpc	r17, r1
+ 48c:	91 f4       	brne	.+36     	; 0x4b2 <main+0x110>
+ 48e:	e6 e1       	ldi	r30, 0x16	; 22
+ 490:	f0 e0       	ldi	r31, 0x00	; 0
+ 492:	ec 0f       	add	r30, r28
+ 494:	fd 1f       	adc	r31, r29
+ 496:	62 96       	adiw	r28, 0x12	; 18
+ 498:	2e ad       	ldd	r18, Y+62	; 0x3e
+ 49a:	3f ad       	ldd	r19, Y+63	; 0x3f
+ 49c:	62 97       	sbiw	r28, 0x12	; 18
+ 49e:	e2 0f       	add	r30, r18
+ 4a0:	f3 1f       	adc	r31, r19
+ 4a2:	80 83       	st	Z, r24
+ 4a4:	2f 5f       	subi	r18, 0xFF	; 255
+ 4a6:	3f 4f       	sbci	r19, 0xFF	; 255
+ 4a8:	62 96       	adiw	r28, 0x12	; 18
+ 4aa:	3f af       	std	Y+63, r19	; 0x3f
+ 4ac:	2e af       	std	Y+62, r18	; 0x3e
+ 4ae:	62 97       	sbiw	r28, 0x12	; 18
+ 4b0:	fa c0       	rjmp	.+500    	; 0x6a6 <main+0x304>
+					else if (charnum==2){wifiname[wifinamenum++]=char1;}
+ 4b2:	02 30       	cpi	r16, 0x02	; 2
+ 4b4:	11 05       	cpc	r17, r1
+ 4b6:	91 f4       	brne	.+36     	; 0x4dc <main+0x13a>
+ 4b8:	ee e1       	ldi	r30, 0x1E	; 30
+ 4ba:	f0 e0       	ldi	r31, 0x00	; 0
+ 4bc:	ec 0f       	add	r30, r28
+ 4be:	fd 1f       	adc	r31, r29
+ 4c0:	64 96       	adiw	r28, 0x14	; 20
+ 4c2:	2e ad       	ldd	r18, Y+62	; 0x3e
+ 4c4:	3f ad       	ldd	r19, Y+63	; 0x3f
+ 4c6:	64 97       	sbiw	r28, 0x14	; 20
+ 4c8:	e2 0f       	add	r30, r18
+ 4ca:	f3 1f       	adc	r31, r19
+ 4cc:	80 83       	st	Z, r24
+ 4ce:	2f 5f       	subi	r18, 0xFF	; 255
+ 4d0:	3f 4f       	sbci	r19, 0xFF	; 255
+ 4d2:	64 96       	adiw	r28, 0x14	; 20
+ 4d4:	3f af       	std	Y+63, r19	; 0x3f
+ 4d6:	2e af       	std	Y+62, r18	; 0x3e
+ 4d8:	64 97       	sbiw	r28, 0x14	; 20
+ 4da:	e5 c0       	rjmp	.+458    	; 0x6a6 <main+0x304>
+					else{wifipass[wifipassnum++]=char1;}
+ 4dc:	ef e3       	ldi	r30, 0x3F	; 63
+ 4de:	f0 e0       	ldi	r31, 0x00	; 0
+ 4e0:	ec 0f       	add	r30, r28
+ 4e2:	fd 1f       	adc	r31, r29
+ 4e4:	e8 0d       	add	r30, r8
+ 4e6:	f9 1d       	adc	r31, r9
+ 4e8:	80 83       	st	Z, r24
+ 4ea:	f4 01       	movw	r30, r8
+ 4ec:	31 96       	adiw	r30, 0x01	; 1
+ 4ee:	4f 01       	movw	r8, r30
+				}
+				char1=EEPROM_READ(address++);
+ 4f0:	89 2f       	mov	r24, r25
+ 4f2:	90 e0       	ldi	r25, 0x00	; 0
+ 4f4:	e9 dd       	rcall	.-1070   	; 0xc8 <EEPROM_READ>
+			delay(1000);
+			LedYellowOn();
+			delay(1000);
+			//读取字符
+			char1=EEPROM_READ(address++);
+		    while (charnum<4)//读完停止
+ 4f6:	04 30       	cpi	r16, 0x04	; 4
+ 4f8:	11 05       	cpc	r17, r1
+ 4fa:	0c f4       	brge	.+2      	; 0x4fe <main+0x15c>
+ 4fc:	ae cf       	rjmp	.-164    	; 0x45a <main+0xb8>
+					else{wifipass[wifipassnum++]=char1;}
+				}
+				char1=EEPROM_READ(address++);
+				//USART1_Transmit(char1);
+			}
+			ip[ipnum]='\0';
+ 4fe:	fe 01       	movw	r30, r28
+ 500:	ee 0d       	add	r30, r14
+ 502:	ff 1d       	adc	r31, r15
+ 504:	13 82       	std	Z+3, r1	; 0x03
+			port[portnum]='\0';
+ 506:	62 96       	adiw	r28, 0x12	; 18
+ 508:	ee ad       	ldd	r30, Y+62	; 0x3e
+ 50a:	ff ad       	ldd	r31, Y+63	; 0x3f
+ 50c:	62 97       	sbiw	r28, 0x12	; 18
+ 50e:	ec 0f       	add	r30, r28
+ 510:	fd 1f       	adc	r31, r29
+ 512:	16 8a       	std	Z+22, r1	; 0x16
+			
+			wifiname[wifinamenum]='\0';
+ 514:	64 96       	adiw	r28, 0x14	; 20
+ 516:	ee ad       	ldd	r30, Y+62	; 0x3e
+ 518:	ff ad       	ldd	r31, Y+63	; 0x3f
+ 51a:	64 97       	sbiw	r28, 0x14	; 20
+ 51c:	ec 0f       	add	r30, r28
+ 51e:	fd 1f       	adc	r31, r29
+ 520:	16 8e       	std	Z+30, r1	; 0x1e
+			wifipass[wifipassnum]='\0';
+ 522:	ef e3       	ldi	r30, 0x3F	; 63
+ 524:	f0 e0       	ldi	r31, 0x00	; 0
+ 526:	ec 0f       	add	r30, r28
+ 528:	fd 1f       	adc	r31, r29
+ 52a:	e8 0d       	add	r30, r8
+ 52c:	f9 1d       	adc	r31, r9
+ 52e:	10 82       	st	Z, r1
+			
+			address=0x00;
+			ipnum=0;portnum=0;wifinamenum=0;wifipassnum=0;charnum=0;
+				dianping=PINE&(1<<7);
+				if(dianping)//高电平配置WiFi
+ 530:	0f 9b       	sbis	0x01, 7	; 1
+ 532:	4a c0       	rjmp	.+148    	; 0x5c8 <main+0x226>
+				{
+				
+					//puts1("AT\r\n");
+					//delay(10000);
+					puts1("AT+CWMODE=1\r\n");
+ 534:	80 e0       	ldi	r24, 0x00	; 0
+ 536:	91 e0       	ldi	r25, 0x01	; 1
+ 538:	18 df       	rcall	.-464    	; 0x36a <puts1>
+					delay(10000);
+ 53a:	80 e1       	ldi	r24, 0x10	; 16
+ 53c:	97 e2       	ldi	r25, 0x27	; 39
+ 53e:	c8 dd       	rcall	.-1136   	; 0xd0 <delay>
+					puts1("AT+RST\r\n");
+ 540:	8e e0       	ldi	r24, 0x0E	; 14
+ 542:	91 e0       	ldi	r25, 0x01	; 1
+ 544:	12 df       	rcall	.-476    	; 0x36a <puts1>
+					delay(10000);
+ 546:	80 e1       	ldi	r24, 0x10	; 16
+ 548:	97 e2       	ldi	r25, 0x27	; 39
+ 54a:	c2 dd       	rcall	.-1148   	; 0xd0 <delay>
+					//AT+CWJAP="Wireless network lab","wireless625"
+					puts1("AT+CWJAP=\"");
+ 54c:	87 e1       	ldi	r24, 0x17	; 23
+ 54e:	91 e0       	ldi	r25, 0x01	; 1
+ 550:	0c df       	rcall	.-488    	; 0x36a <puts1>
+					puts1(wifiname);
+ 552:	ce 01       	movw	r24, r28
+ 554:	4e 96       	adiw	r24, 0x1e	; 30
+ 556:	09 df       	rcall	.-494    	; 0x36a <puts1>
+					puts1("\",\"");
+ 558:	82 e2       	ldi	r24, 0x22	; 34
+ 55a:	91 e0       	ldi	r25, 0x01	; 1
+ 55c:	06 df       	rcall	.-500    	; 0x36a <puts1>
+					puts1(wifipass);
+ 55e:	ce 01       	movw	r24, r28
+ 560:	cf 96       	adiw	r24, 0x3f	; 63
+ 562:	03 df       	rcall	.-506    	; 0x36a <puts1>
+					puts1("\"\r\n");
+ 564:	86 e2       	ldi	r24, 0x26	; 38
+ 566:	91 e0       	ldi	r25, 0x01	; 1
+ 568:	00 df       	rcall	.-512    	; 0x36a <puts1>
+					delay(10000);
+ 56a:	80 e1       	ldi	r24, 0x10	; 16
+ 56c:	97 e2       	ldi	r25, 0x27	; 39
+ 56e:	b0 dd       	rcall	.-1184   	; 0xd0 <delay>
+					puts1("AT+CIPMUX=0\r\n");
+ 570:	8a e2       	ldi	r24, 0x2A	; 42
+ 572:	91 e0       	ldi	r25, 0x01	; 1
+ 574:	fa de       	rcall	.-524    	; 0x36a <puts1>
+					delay(10000);
+ 576:	80 e1       	ldi	r24, 0x10	; 16
+ 578:	97 e2       	ldi	r25, 0x27	; 39
+ 57a:	aa dd       	rcall	.-1196   	; 0xd0 <delay>
+					//AT+CIPSTART="TCP","112.125.89.8",37424
+					puts1("AT+CIPSTART=\"TCP\",");
+ 57c:	88 e3       	ldi	r24, 0x38	; 56
+ 57e:	91 e0       	ldi	r25, 0x01	; 1
+ 580:	f4 de       	rcall	.-536    	; 0x36a <puts1>
+					USART1_Transmit(0x22);
+ 582:	82 e2       	ldi	r24, 0x22	; 34
+ 584:	91 de       	rcall	.-734    	; 0x2a8 <USART1_Transmit>
+					puts1(ip);
+ 586:	ce 01       	movw	r24, r28
+ 588:	03 96       	adiw	r24, 0x03	; 3
+ 58a:	ef de       	rcall	.-546    	; 0x36a <puts1>
+					USART1_Transmit(0x22);
+ 58c:	82 e2       	ldi	r24, 0x22	; 34
+ 58e:	8c de       	rcall	.-744    	; 0x2a8 <USART1_Transmit>
+					USART1_Transmit(',');
+ 590:	8c e2       	ldi	r24, 0x2C	; 44
+ 592:	8a de       	rcall	.-748    	; 0x2a8 <USART1_Transmit>
+					puts1(port);
+ 594:	ce 01       	movw	r24, r28
+ 596:	46 96       	adiw	r24, 0x16	; 22
+ 598:	e8 de       	rcall	.-560    	; 0x36a <puts1>
+					USART1_Transmit('\r');
+ 59a:	8d e0       	ldi	r24, 0x0D	; 13
+ 59c:	85 de       	rcall	.-758    	; 0x2a8 <USART1_Transmit>
+					USART1_Transmit('\n');
+ 59e:	8a e0       	ldi	r24, 0x0A	; 10
+ 5a0:	83 de       	rcall	.-762    	; 0x2a8 <USART1_Transmit>
+					delay(10000);
+ 5a2:	80 e1       	ldi	r24, 0x10	; 16
+ 5a4:	97 e2       	ldi	r25, 0x27	; 39
+ 5a6:	94 dd       	rcall	.-1240   	; 0xd0 <delay>
+					puts1("AT+CIPMODE=1\r\n");
+ 5a8:	8b e4       	ldi	r24, 0x4B	; 75
+ 5aa:	91 e0       	ldi	r25, 0x01	; 1
+ 5ac:	de de       	rcall	.-580    	; 0x36a <puts1>
+					delay(10000);
+ 5ae:	80 e1       	ldi	r24, 0x10	; 16
+ 5b0:	97 e2       	ldi	r25, 0x27	; 39
+ 5b2:	8e dd       	rcall	.-1252   	; 0xd0 <delay>
+					puts1("AT+CIPSEND\r\n");
+ 5b4:	8a e5       	ldi	r24, 0x5A	; 90
+ 5b6:	91 e0       	ldi	r25, 0x01	; 1
+ 5b8:	d8 de       	rcall	.-592    	; 0x36a <puts1>
+					delay(10000);
+ 5ba:	80 e1       	ldi	r24, 0x10	; 16
+ 5bc:	97 e2       	ldi	r25, 0x27	; 39
+ 5be:	88 dd       	rcall	.-1264   	; 0xd0 <delay>
+					puts1("wifimodule ok");
+ 5c0:	87 e6       	ldi	r24, 0x67	; 103
+ 5c2:	91 e0       	ldi	r25, 0x01	; 1
+ 5c4:	d2 de       	rcall	.-604    	; 0x36a <puts1>
+ 5c6:	24 c0       	rjmp	.+72     	; 0x610 <main+0x26e>
+					
+				}
+				else//低电平配置4G
+				{
+					puts2("config,set,paramsrc,1\r\n");
+ 5c8:	85 e7       	ldi	r24, 0x75	; 117
+ 5ca:	91 e0       	ldi	r25, 0x01	; 1
+ 5cc:	dc de       	rcall	.-584    	; 0x386 <puts2>
+					delay(10000);
+ 5ce:	80 e1       	ldi	r24, 0x10	; 16
+ 5d0:	97 e2       	ldi	r25, 0x27	; 39
+ 5d2:	7e dd       	rcall	.-1284   	; 0xd0 <delay>
+					puts2("config,set,tcp,1,ttluart,1,1,,1,");
+ 5d4:	8d e8       	ldi	r24, 0x8D	; 141
+ 5d6:	91 e0       	ldi	r25, 0x01	; 1
+ 5d8:	d6 de       	rcall	.-596    	; 0x386 <puts2>
+					puts2(ip);
+ 5da:	ce 01       	movw	r24, r28
+ 5dc:	03 96       	adiw	r24, 0x03	; 3
+ 5de:	d3 de       	rcall	.-602    	; 0x386 <puts2>
+					puts2(",");
+ 5e0:	89 e4       	ldi	r24, 0x49	; 73
+ 5e2:	91 e0       	ldi	r25, 0x01	; 1
+ 5e4:	d0 de       	rcall	.-608    	; 0x386 <puts2>
+					puts2(port);
+ 5e6:	ce 01       	movw	r24, r28
+ 5e8:	46 96       	adiw	r24, 0x16	; 22
+ 5ea:	cd de       	rcall	.-614    	; 0x386 <puts2>
+					puts2(",0,0,0,0,0,0\r\n");
+ 5ec:	8e ea       	ldi	r24, 0xAE	; 174
+ 5ee:	91 e0       	ldi	r25, 0x01	; 1
+ 5f0:	ca de       	rcall	.-620    	; 0x386 <puts2>
+					delay(10000);
+ 5f2:	80 e1       	ldi	r24, 0x10	; 16
+ 5f4:	97 e2       	ldi	r25, 0x27	; 39
+ 5f6:	6c dd       	rcall	.-1320   	; 0xd0 <delay>
+					puts2("config,set,save\r\n");
+ 5f8:	8d eb       	ldi	r24, 0xBD	; 189
+ 5fa:	91 e0       	ldi	r25, 0x01	; 1
+ 5fc:	c4 de       	rcall	.-632    	; 0x386 <puts2>
+					delay(10000);
+ 5fe:	80 e1       	ldi	r24, 0x10	; 16
+ 600:	97 e2       	ldi	r25, 0x27	; 39
+ 602:	66 dd       	rcall	.-1332   	; 0xd0 <delay>
+					delay(10000);
+ 604:	80 e1       	ldi	r24, 0x10	; 16
+ 606:	97 e2       	ldi	r25, 0x27	; 39
+ 608:	63 dd       	rcall	.-1338   	; 0xd0 <delay>
+					puts2("4Gmodule ok");
+ 60a:	8f ec       	ldi	r24, 0xCF	; 207
+ 60c:	91 e0       	ldi	r25, 0x01	; 1
+ 60e:	bb de       	rcall	.-650    	; 0x386 <puts2>
+		}
+		
+		
+		//发送给16
+		
+		if(UARTbufQueue.front!=UARTbufQueue.rear){
+ 610:	f3 01       	movw	r30, r6
+ 612:	20 81       	ld	r18, Z
+ 614:	31 81       	ldd	r19, Z+1	; 0x01
+ 616:	f2 01       	movw	r30, r4
+ 618:	80 81       	ld	r24, Z
+ 61a:	91 81       	ldd	r25, Z+1	; 0x01
+ 61c:	28 17       	cp	r18, r24
+ 61e:	39 07       	cpc	r19, r25
+ 620:	09 f4       	brne	.+2      	; 0x624 <main+0x282>
+ 622:	37 c0       	rjmp	.+110    	; 0x692 <main+0x2f0>
+			
+          while(!(PORTB&(1<<0)));//等待SS电平为高
+ 624:	c0 9b       	sbis	0x18, 0	; 24
+ 626:	fe cf       	rjmp	.-4      	; 0x624 <main+0x282>
+          delay(10);
+ 628:	8a e0       	ldi	r24, 0x0A	; 10
+ 62a:	90 e0       	ldi	r25, 0x00	; 0
+ 62c:	51 dd       	rcall	.-1374   	; 0xd0 <delay>
+          PORTB &= (~(1<<0));//拉低ss
+ 62e:	c0 98       	cbi	0x18, 0	; 24
+          SPCR &= ~(1<<7);  // 关闭SPI中断SPIE
+ 630:	6f 98       	cbi	0x0d, 7	; 13
+		  //delay(1000);
+		 // SREG&=~1<<7;
+	      SPI_MasterInitInit();
+ 632:	7f dd       	rcall	.-1282   	; 0x132 <SPI_MasterInitInit>
+		 delay(10);
+ 634:	8a e0       	ldi	r24, 0x0A	; 10
+ 636:	90 e0       	ldi	r25, 0x00	; 0
+ 638:	4b dd       	rcall	.-1386   	; 0xd0 <delay>
+		  while(UARTbufQueue.front!=UARTbufQueue.rear)
+ 63a:	f3 01       	movw	r30, r6
+ 63c:	20 81       	ld	r18, Z
+ 63e:	31 81       	ldd	r19, Z+1	; 0x01
+ 640:	f2 01       	movw	r30, r4
+ 642:	80 81       	ld	r24, Z
+ 644:	91 81       	ldd	r25, Z+1	; 0x01
+ 646:	28 17       	cp	r18, r24
+ 648:	39 07       	cpc	r19, r25
+ 64a:	91 f0       	breq	.+36     	; 0x670 <main+0x2ce>
+		  { 
+			DeQueue(&UARTbufQueue,&a);
+ 64c:	be 01       	movw	r22, r28
+ 64e:	6e 5f       	subi	r22, 0xFE	; 254
+ 650:	7f 4f       	sbci	r23, 0xFF	; 255
+ 652:	84 e4       	ldi	r24, 0x44	; 68
+ 654:	92 e0       	ldi	r25, 0x02	; 2
+ 656:	e0 dd       	rcall	.-1088   	; 0x218 <DeQueue>
+			//USART2_Transmit(a);
+			
+			SPI_MasterTransmit(a);
+ 658:	8a 81       	ldd	r24, Y+2	; 0x02
+ 65a:	90 e0       	ldi	r25, 0x00	; 0
+ 65c:	78 dd       	rcall	.-1296   	; 0x14e <SPI_MasterTransmit>
+          SPCR &= ~(1<<7);  // 关闭SPI中断SPIE
+		  //delay(1000);
+		 // SREG&=~1<<7;
+	      SPI_MasterInitInit();
+		 delay(10);
+		  while(UARTbufQueue.front!=UARTbufQueue.rear)
+ 65e:	f3 01       	movw	r30, r6
+ 660:	20 81       	ld	r18, Z
+ 662:	31 81       	ldd	r19, Z+1	; 0x01
+ 664:	f2 01       	movw	r30, r4
+ 666:	80 81       	ld	r24, Z
+ 668:	91 81       	ldd	r25, Z+1	; 0x01
+ 66a:	28 17       	cp	r18, r24
+ 66c:	39 07       	cpc	r19, r25
+ 66e:	71 f7       	brne	.-36     	; 0x64c <main+0x2aa>
+			//USART2_Transmit(a);
+			
+			SPI_MasterTransmit(a);
+			//delay(10);
+		   }
+		   a = SPDR; //读取SPDR保证SPIF不会自动置位
+ 670:	8f b1       	in	r24, 0x0f	; 15
+ 672:	8a 83       	std	Y+2, r24	; 0x02
+		   	SPI_Init();
+ 674:	4d dd       	rcall	.-1382   	; 0x110 <SPI_Init>
+ 676:	0d c0       	rjmp	.+26     	; 0x692 <main+0x2f0>
+	  
+		//发给4G/wifi
+		while(SPIbufQueue.front!=SPIbufQueue.rear)
+		{
+			
+			DeQueue(&SPIbufQueue,&e);
+ 678:	be 01       	movw	r22, r28
+ 67a:	6f 5f       	subi	r22, 0xFF	; 255
+ 67c:	7f 4f       	sbci	r23, 0xFF	; 255
+ 67e:	8c ed       	ldi	r24, 0xDC	; 220
+ 680:	91 e0       	ldi	r25, 0x01	; 1
+ 682:	ca dd       	rcall	.-1132   	; 0x218 <DeQueue>
+			
+			dianping=PINE&(1<<7);
+			if(dianping)//高电平
+ 684:	0f 9b       	sbis	0x01, 7	; 1
+ 686:	03 c0       	rjmp	.+6      	; 0x68e <main+0x2ec>
+			{
+				USART1_Transmit(e);
+ 688:	89 81       	ldd	r24, Y+1	; 0x01
+ 68a:	0e de       	rcall	.-996    	; 0x2a8 <USART1_Transmit>
+ 68c:	02 c0       	rjmp	.+4      	; 0x692 <main+0x2f0>
+				
+		}
+		else
+		{      
+				USART2_Transmit(e);//发给4G
+ 68e:	89 81       	ldd	r24, Y+1	; 0x01
+ 690:	0f de       	rcall	.-994    	; 0x2b0 <USART2_Transmit>
+	  }
+	  
+	  
+	  
+		//发给4G/wifi
+		while(SPIbufQueue.front!=SPIbufQueue.rear)
+ 692:	f5 01       	movw	r30, r10
+ 694:	20 81       	ld	r18, Z
+ 696:	31 81       	ldd	r19, Z+1	; 0x01
+ 698:	f6 01       	movw	r30, r12
+ 69a:	80 81       	ld	r24, Z
+ 69c:	91 81       	ldd	r25, Z+1	; 0x01
+ 69e:	28 17       	cp	r18, r24
+ 6a0:	39 07       	cpc	r19, r25
+ 6a2:	51 f7       	brne	.-44     	; 0x678 <main+0x2d6>
+ 6a4:	b8 ce       	rjmp	.-656    	; 0x416 <main+0x74>
+					if(charnum==0){ip[ipnum++]=char1;}
+					else if(charnum==1){port[portnum++]=char1;}
+					else if (charnum==2){wifiname[wifinamenum++]=char1;}
+					else{wifipass[wifipassnum++]=char1;}
+				}
+				char1=EEPROM_READ(address++);
+ 6a6:	89 2f       	mov	r24, r25
+ 6a8:	90 e0       	ldi	r25, 0x00	; 0
+ 6aa:	0e dd       	rcall	.-1508   	; 0xc8 <EEPROM_READ>
+ 6ac:	d6 ce       	rjmp	.-596    	; 0x45a <main+0xb8>
+
+000006ae <__divmodhi4>:
+ 6ae:	97 fb       	bst	r25, 7
+ 6b0:	07 2e       	mov	r0, r23
+ 6b2:	16 f4       	brtc	.+4      	; 0x6b8 <__divmodhi4+0xa>
+ 6b4:	00 94       	com	r0
+ 6b6:	06 d0       	rcall	.+12     	; 0x6c4 <__divmodhi4_neg1>
+ 6b8:	77 fd       	sbrc	r23, 7
+ 6ba:	08 d0       	rcall	.+16     	; 0x6cc <__divmodhi4_neg2>
+ 6bc:	0b d0       	rcall	.+22     	; 0x6d4 <__udivmodhi4>
+ 6be:	07 fc       	sbrc	r0, 7
+ 6c0:	05 d0       	rcall	.+10     	; 0x6cc <__divmodhi4_neg2>
+ 6c2:	3e f4       	brtc	.+14     	; 0x6d2 <__divmodhi4_exit>
+
+000006c4 <__divmodhi4_neg1>:
+ 6c4:	90 95       	com	r25
+ 6c6:	81 95       	neg	r24
+ 6c8:	9f 4f       	sbci	r25, 0xFF	; 255
+ 6ca:	08 95       	ret
+
+000006cc <__divmodhi4_neg2>:
+ 6cc:	70 95       	com	r23
+ 6ce:	61 95       	neg	r22
+ 6d0:	7f 4f       	sbci	r23, 0xFF	; 255
+
+000006d2 <__divmodhi4_exit>:
+ 6d2:	08 95       	ret
+
+000006d4 <__udivmodhi4>:
+ 6d4:	aa 1b       	sub	r26, r26
+ 6d6:	bb 1b       	sub	r27, r27
+ 6d8:	51 e1       	ldi	r21, 0x11	; 17
+ 6da:	07 c0       	rjmp	.+14     	; 0x6ea <__udivmodhi4_ep>
+
+000006dc <__udivmodhi4_loop>:
+ 6dc:	aa 1f       	adc	r26, r26
+ 6de:	bb 1f       	adc	r27, r27
+ 6e0:	a6 17       	cp	r26, r22
+ 6e2:	b7 07       	cpc	r27, r23
+ 6e4:	10 f0       	brcs	.+4      	; 0x6ea <__udivmodhi4_ep>
+ 6e6:	a6 1b       	sub	r26, r22
+ 6e8:	b7 0b       	sbc	r27, r23
+
+000006ea <__udivmodhi4_ep>:
+ 6ea:	88 1f       	adc	r24, r24
+ 6ec:	99 1f       	adc	r25, r25
+ 6ee:	5a 95       	dec	r21
+ 6f0:	a9 f7       	brne	.-22     	; 0x6dc <__udivmodhi4_loop>
+ 6f2:	80 95       	com	r24
+ 6f4:	90 95       	com	r25
+ 6f6:	bc 01       	movw	r22, r24
+ 6f8:	cd 01       	movw	r24, r26
+ 6fa:	08 95       	ret
+
+000006fc <__eerd_byte_m128>:
+ 6fc:	e1 99       	sbic	0x1c, 1	; 28
+ 6fe:	fe cf       	rjmp	.-4      	; 0x6fc <__eerd_byte_m128>
+ 700:	9f bb       	out	0x1f, r25	; 31
+ 702:	8e bb       	out	0x1e, r24	; 30
+ 704:	e0 9a       	sbi	0x1c, 0	; 28
+ 706:	99 27       	eor	r25, r25
+ 708:	8d b3       	in	r24, 0x1d	; 29
+ 70a:	08 95       	ret
+
+0000070c <_exit>:
+ 70c:	f8 94       	cli
+
+0000070e <__stop_program>:
+ 70e:	ff cf       	rjmp	.-2      	; 0x70e <__stop_program>

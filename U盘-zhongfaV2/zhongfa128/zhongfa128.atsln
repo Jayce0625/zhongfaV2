@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "zhongfa128", "zhongfa128\zhongfa128.cproj", "{B2988A06-61D0-4893-B071-9677F538DAA4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2988A06-61D0-4893-B071-9677F538DAA4}.Debug|AVR.ActiveCfg = Debug|AVR
+		{B2988A06-61D0-4893-B071-9677F538DAA4}.Debug|AVR.Build.0 = Debug|AVR
+		{B2988A06-61D0-4893-B071-9677F538DAA4}.Release|AVR.ActiveCfg = Release|AVR
+		{B2988A06-61D0-4893-B071-9677F538DAA4}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

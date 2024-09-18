@@ -1,0 +1,3073 @@
+
+128.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         0000014c  00800100  00001624  000016b8  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00001624  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          000000ec  0080024c  0080024c  00001804  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00001804  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000190  00000000  00000000  00001834  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000ec0  00000000  00000000  000019c4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000005cf  00000000  00000000  00002884  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000908  00000000  00000000  00002e53  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000550  00000000  00000000  0000375c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000003ae  00000000  00000000  00003cac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000a9c  00000000  00000000  0000405a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000130  00000000  00000000  00004af6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+       0:	0c 94 46 00 	jmp	0x8c	; 0x8c <__ctors_end>
+       4:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+       8:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+       c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      10:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      14:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      18:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      1c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      20:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      24:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      28:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      2c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      30:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      34:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      38:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      3c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      40:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      44:	0c 94 6d 02 	jmp	0x4da	; 0x4da <__vector_17>
+      48:	0c 94 46 04 	jmp	0x88c	; 0x88c <__vector_18>
+      4c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      50:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      54:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      58:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      5c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      60:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      64:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      68:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      6c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      70:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      74:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      78:	0c 94 82 04 	jmp	0x904	; 0x904 <__vector_30>
+      7c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      80:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      84:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+      88:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+
+0000008c <__ctors_end>:
+      8c:	11 24       	eor	r1, r1
+      8e:	1f be       	out	0x3f, r1	; 63
+      90:	cf ef       	ldi	r28, 0xFF	; 255
+      92:	d0 e1       	ldi	r29, 0x10	; 16
+      94:	de bf       	out	0x3e, r29	; 62
+      96:	cd bf       	out	0x3d, r28	; 61
+
+00000098 <__do_copy_data>:
+      98:	12 e0       	ldi	r17, 0x02	; 2
+      9a:	a0 e0       	ldi	r26, 0x00	; 0
+      9c:	b1 e0       	ldi	r27, 0x01	; 1
+      9e:	e4 e2       	ldi	r30, 0x24	; 36
+      a0:	f6 e1       	ldi	r31, 0x16	; 22
+      a2:	00 e0       	ldi	r16, 0x00	; 0
+      a4:	0b bf       	out	0x3b, r16	; 59
+      a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
+      a8:	07 90       	elpm	r0, Z+
+      aa:	0d 92       	st	X+, r0
+      ac:	ac 34       	cpi	r26, 0x4C	; 76
+      ae:	b1 07       	cpc	r27, r17
+      b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
+
+000000b2 <__do_clear_bss>:
+      b2:	23 e0       	ldi	r18, 0x03	; 3
+      b4:	ac e4       	ldi	r26, 0x4C	; 76
+      b6:	b2 e0       	ldi	r27, 0x02	; 2
+      b8:	01 c0       	rjmp	.+2      	; 0xbc <.do_clear_bss_start>
+
+000000ba <.do_clear_bss_loop>:
+      ba:	1d 92       	st	X+, r1
+
+000000bc <.do_clear_bss_start>:
+      bc:	a8 33       	cpi	r26, 0x38	; 56
+      be:	b2 07       	cpc	r27, r18
+      c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
+      c2:	0e 94 60 06 	call	0xcc0	; 0xcc0 <main>
+      c6:	0c 94 10 0b 	jmp	0x1620	; 0x1620 <_exit>
+
+000000ca <__bad_interrupt>:
+      ca:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000ce <EEPROM_READ>:
+      ce:	cf 93       	push	r28
+      d0:	df 93       	push	r29
+      d2:	00 d0       	rcall	.+0      	; 0xd4 <EEPROM_READ+0x6>
+      d4:	cd b7       	in	r28, 0x3d	; 61
+      d6:	de b7       	in	r29, 0x3e	; 62
+      d8:	9a 83       	std	Y+2, r25	; 0x02
+      da:	89 83       	std	Y+1, r24	; 0x01
+      dc:	8c e3       	ldi	r24, 0x3C	; 60
+      de:	90 e0       	ldi	r25, 0x00	; 0
+      e0:	fc 01       	movw	r30, r24
+      e2:	80 81       	ld	r24, Z
+      e4:	88 2f       	mov	r24, r24
+      e6:	90 e0       	ldi	r25, 0x00	; 0
+      e8:	82 70       	andi	r24, 0x02	; 2
+      ea:	99 27       	eor	r25, r25
+      ec:	00 97       	sbiw	r24, 0x00	; 0
+      ee:	b1 f7       	brne	.-20     	; 0xdc <EEPROM_READ+0xe>
+      f0:	89 81       	ldd	r24, Y+1	; 0x01
+      f2:	9a 81       	ldd	r25, Y+2	; 0x02
+      f4:	0e 94 fb 0a 	call	0x15f6	; 0x15f6 <__eerd_byte_m128>
+      f8:	0f 90       	pop	r0
+      fa:	0f 90       	pop	r0
+      fc:	df 91       	pop	r29
+      fe:	cf 91       	pop	r28
+     100:	08 95       	ret
+
+00000102 <EEPROM_WRITE>:
+     102:	cf 93       	push	r28
+     104:	df 93       	push	r29
+     106:	00 d0       	rcall	.+0      	; 0x108 <EEPROM_WRITE+0x6>
+     108:	1f 92       	push	r1
+     10a:	cd b7       	in	r28, 0x3d	; 61
+     10c:	de b7       	in	r29, 0x3e	; 62
+     10e:	9a 83       	std	Y+2, r25	; 0x02
+     110:	89 83       	std	Y+1, r24	; 0x01
+     112:	6b 83       	std	Y+3, r22	; 0x03
+     114:	8c e3       	ldi	r24, 0x3C	; 60
+     116:	90 e0       	ldi	r25, 0x00	; 0
+     118:	fc 01       	movw	r30, r24
+     11a:	80 81       	ld	r24, Z
+     11c:	88 2f       	mov	r24, r24
+     11e:	90 e0       	ldi	r25, 0x00	; 0
+     120:	82 70       	andi	r24, 0x02	; 2
+     122:	99 27       	eor	r25, r25
+     124:	00 97       	sbiw	r24, 0x00	; 0
+     126:	b1 f7       	brne	.-20     	; 0x114 <EEPROM_WRITE+0x12>
+     128:	89 81       	ldd	r24, Y+1	; 0x01
+     12a:	9a 81       	ldd	r25, Y+2	; 0x02
+     12c:	6b 81       	ldd	r22, Y+3	; 0x03
+     12e:	0e 94 03 0b 	call	0x1606	; 0x1606 <__eewr_byte_m128>
+     132:	0f 90       	pop	r0
+     134:	0f 90       	pop	r0
+     136:	0f 90       	pop	r0
+     138:	df 91       	pop	r29
+     13a:	cf 91       	pop	r28
+     13c:	08 95       	ret
+
+0000013e <delay>:
+     13e:	cf 93       	push	r28
+     140:	df 93       	push	r29
+     142:	00 d0       	rcall	.+0      	; 0x144 <delay+0x6>
+     144:	00 d0       	rcall	.+0      	; 0x146 <delay+0x8>
+     146:	00 d0       	rcall	.+0      	; 0x148 <delay+0xa>
+     148:	cd b7       	in	r28, 0x3d	; 61
+     14a:	de b7       	in	r29, 0x3e	; 62
+     14c:	9e 83       	std	Y+6, r25	; 0x06
+     14e:	8d 83       	std	Y+5, r24	; 0x05
+     150:	1a 82       	std	Y+2, r1	; 0x02
+     152:	19 82       	std	Y+1, r1	; 0x01
+     154:	13 c0       	rjmp	.+38     	; 0x17c <delay+0x3e>
+     156:	1c 82       	std	Y+4, r1	; 0x04
+     158:	1b 82       	std	Y+3, r1	; 0x03
+     15a:	05 c0       	rjmp	.+10     	; 0x166 <delay+0x28>
+     15c:	8b 81       	ldd	r24, Y+3	; 0x03
+     15e:	9c 81       	ldd	r25, Y+4	; 0x04
+     160:	01 96       	adiw	r24, 0x01	; 1
+     162:	9c 83       	std	Y+4, r25	; 0x04
+     164:	8b 83       	std	Y+3, r24	; 0x03
+     166:	8b 81       	ldd	r24, Y+3	; 0x03
+     168:	9c 81       	ldd	r25, Y+4	; 0x04
+     16a:	85 37       	cpi	r24, 0x75	; 117
+     16c:	24 e0       	ldi	r18, 0x04	; 4
+     16e:	92 07       	cpc	r25, r18
+     170:	a8 f3       	brcs	.-22     	; 0x15c <delay+0x1e>
+     172:	89 81       	ldd	r24, Y+1	; 0x01
+     174:	9a 81       	ldd	r25, Y+2	; 0x02
+     176:	01 96       	adiw	r24, 0x01	; 1
+     178:	9a 83       	std	Y+2, r25	; 0x02
+     17a:	89 83       	std	Y+1, r24	; 0x01
+     17c:	29 81       	ldd	r18, Y+1	; 0x01
+     17e:	3a 81       	ldd	r19, Y+2	; 0x02
+     180:	8d 81       	ldd	r24, Y+5	; 0x05
+     182:	9e 81       	ldd	r25, Y+6	; 0x06
+     184:	28 17       	cp	r18, r24
+     186:	39 07       	cpc	r19, r25
+     188:	30 f3       	brcs	.-52     	; 0x156 <delay+0x18>
+     18a:	26 96       	adiw	r28, 0x06	; 6
+     18c:	0f b6       	in	r0, 0x3f	; 63
+     18e:	f8 94       	cli
+     190:	de bf       	out	0x3e, r29	; 62
+     192:	0f be       	out	0x3f, r0	; 63
+     194:	cd bf       	out	0x3d, r28	; 61
+     196:	df 91       	pop	r29
+     198:	cf 91       	pop	r28
+     19a:	08 95       	ret
+
+0000019c <Led_Init>:
+     19c:	cf 93       	push	r28
+     19e:	df 93       	push	r29
+     1a0:	cd b7       	in	r28, 0x3d	; 61
+     1a2:	de b7       	in	r29, 0x3e	; 62
+     1a4:	8a e3       	ldi	r24, 0x3A	; 58
+     1a6:	90 e0       	ldi	r25, 0x00	; 0
+     1a8:	2a e3       	ldi	r18, 0x3A	; 58
+     1aa:	30 e0       	ldi	r19, 0x00	; 0
+     1ac:	f9 01       	movw	r30, r18
+     1ae:	20 81       	ld	r18, Z
+     1b0:	27 60       	ori	r18, 0x07	; 7
+     1b2:	fc 01       	movw	r30, r24
+     1b4:	20 83       	st	Z, r18
+     1b6:	8b e3       	ldi	r24, 0x3B	; 59
+     1b8:	90 e0       	ldi	r25, 0x00	; 0
+     1ba:	2b e3       	ldi	r18, 0x3B	; 59
+     1bc:	30 e0       	ldi	r19, 0x00	; 0
+     1be:	f9 01       	movw	r30, r18
+     1c0:	20 81       	ld	r18, Z
+     1c2:	2e 7f       	andi	r18, 0xFE	; 254
+     1c4:	fc 01       	movw	r30, r24
+     1c6:	20 83       	st	Z, r18
+     1c8:	8b e3       	ldi	r24, 0x3B	; 59
+     1ca:	90 e0       	ldi	r25, 0x00	; 0
+     1cc:	2b e3       	ldi	r18, 0x3B	; 59
+     1ce:	30 e0       	ldi	r19, 0x00	; 0
+     1d0:	f9 01       	movw	r30, r18
+     1d2:	20 81       	ld	r18, Z
+     1d4:	26 60       	ori	r18, 0x06	; 6
+     1d6:	fc 01       	movw	r30, r24
+     1d8:	20 83       	st	Z, r18
+     1da:	df 91       	pop	r29
+     1dc:	cf 91       	pop	r28
+     1de:	08 95       	ret
+
+000001e0 <LedRedOn>:
+     1e0:	cf 93       	push	r28
+     1e2:	df 93       	push	r29
+     1e4:	cd b7       	in	r28, 0x3d	; 61
+     1e6:	de b7       	in	r29, 0x3e	; 62
+     1e8:	8b e3       	ldi	r24, 0x3B	; 59
+     1ea:	90 e0       	ldi	r25, 0x00	; 0
+     1ec:	2b e3       	ldi	r18, 0x3B	; 59
+     1ee:	30 e0       	ldi	r19, 0x00	; 0
+     1f0:	f9 01       	movw	r30, r18
+     1f2:	20 81       	ld	r18, Z
+     1f4:	2b 7f       	andi	r18, 0xFB	; 251
+     1f6:	fc 01       	movw	r30, r24
+     1f8:	20 83       	st	Z, r18
+     1fa:	df 91       	pop	r29
+     1fc:	cf 91       	pop	r28
+     1fe:	08 95       	ret
+
+00000200 <LedGreenOn>:
+     200:	cf 93       	push	r28
+     202:	df 93       	push	r29
+     204:	00 d0       	rcall	.+0      	; 0x206 <LedGreenOn+0x6>
+     206:	cd b7       	in	r28, 0x3d	; 61
+     208:	de b7       	in	r29, 0x3e	; 62
+     20a:	9a 83       	std	Y+2, r25	; 0x02
+     20c:	89 83       	std	Y+1, r24	; 0x01
+     20e:	8b e3       	ldi	r24, 0x3B	; 59
+     210:	90 e0       	ldi	r25, 0x00	; 0
+     212:	2b e3       	ldi	r18, 0x3B	; 59
+     214:	30 e0       	ldi	r19, 0x00	; 0
+     216:	f9 01       	movw	r30, r18
+     218:	20 81       	ld	r18, Z
+     21a:	2d 7f       	andi	r18, 0xFD	; 253
+     21c:	fc 01       	movw	r30, r24
+     21e:	20 83       	st	Z, r18
+     220:	0f 90       	pop	r0
+     222:	0f 90       	pop	r0
+     224:	df 91       	pop	r29
+     226:	cf 91       	pop	r28
+     228:	08 95       	ret
+
+0000022a <LedYellowOn>:
+     22a:	cf 93       	push	r28
+     22c:	df 93       	push	r29
+     22e:	cd b7       	in	r28, 0x3d	; 61
+     230:	de b7       	in	r29, 0x3e	; 62
+     232:	8b e3       	ldi	r24, 0x3B	; 59
+     234:	90 e0       	ldi	r25, 0x00	; 0
+     236:	2b e3       	ldi	r18, 0x3B	; 59
+     238:	30 e0       	ldi	r19, 0x00	; 0
+     23a:	f9 01       	movw	r30, r18
+     23c:	20 81       	ld	r18, Z
+     23e:	2e 7f       	andi	r18, 0xFE	; 254
+     240:	fc 01       	movw	r30, r24
+     242:	20 83       	st	Z, r18
+     244:	df 91       	pop	r29
+     246:	cf 91       	pop	r28
+     248:	08 95       	ret
+
+0000024a <LedRedOff>:
+     24a:	cf 93       	push	r28
+     24c:	df 93       	push	r29
+     24e:	cd b7       	in	r28, 0x3d	; 61
+     250:	de b7       	in	r29, 0x3e	; 62
+     252:	8b e3       	ldi	r24, 0x3B	; 59
+     254:	90 e0       	ldi	r25, 0x00	; 0
+     256:	2b e3       	ldi	r18, 0x3B	; 59
+     258:	30 e0       	ldi	r19, 0x00	; 0
+     25a:	f9 01       	movw	r30, r18
+     25c:	20 81       	ld	r18, Z
+     25e:	24 60       	ori	r18, 0x04	; 4
+     260:	fc 01       	movw	r30, r24
+     262:	20 83       	st	Z, r18
+     264:	df 91       	pop	r29
+     266:	cf 91       	pop	r28
+     268:	08 95       	ret
+
+0000026a <LedGreenOff>:
+     26a:	cf 93       	push	r28
+     26c:	df 93       	push	r29
+     26e:	cd b7       	in	r28, 0x3d	; 61
+     270:	de b7       	in	r29, 0x3e	; 62
+     272:	8b e3       	ldi	r24, 0x3B	; 59
+     274:	90 e0       	ldi	r25, 0x00	; 0
+     276:	2b e3       	ldi	r18, 0x3B	; 59
+     278:	30 e0       	ldi	r19, 0x00	; 0
+     27a:	f9 01       	movw	r30, r18
+     27c:	20 81       	ld	r18, Z
+     27e:	22 60       	ori	r18, 0x02	; 2
+     280:	fc 01       	movw	r30, r24
+     282:	20 83       	st	Z, r18
+     284:	df 91       	pop	r29
+     286:	cf 91       	pop	r28
+     288:	08 95       	ret
+
+0000028a <LedYellowOff>:
+     28a:	cf 93       	push	r28
+     28c:	df 93       	push	r29
+     28e:	cd b7       	in	r28, 0x3d	; 61
+     290:	de b7       	in	r29, 0x3e	; 62
+     292:	8b e3       	ldi	r24, 0x3B	; 59
+     294:	90 e0       	ldi	r25, 0x00	; 0
+     296:	2b e3       	ldi	r18, 0x3B	; 59
+     298:	30 e0       	ldi	r19, 0x00	; 0
+     29a:	f9 01       	movw	r30, r18
+     29c:	20 81       	ld	r18, Z
+     29e:	21 60       	ori	r18, 0x01	; 1
+     2a0:	fc 01       	movw	r30, r24
+     2a2:	20 83       	st	Z, r18
+     2a4:	df 91       	pop	r29
+     2a6:	cf 91       	pop	r28
+     2a8:	08 95       	ret
+
+000002aa <SPI_Init>:
+     2aa:	cf 93       	push	r28
+     2ac:	df 93       	push	r29
+     2ae:	cd b7       	in	r28, 0x3d	; 61
+     2b0:	de b7       	in	r29, 0x3e	; 62
+     2b2:	8d e2       	ldi	r24, 0x2D	; 45
+     2b4:	90 e0       	ldi	r25, 0x00	; 0
+     2b6:	2d e2       	ldi	r18, 0x2D	; 45
+     2b8:	30 e0       	ldi	r19, 0x00	; 0
+     2ba:	f9 01       	movw	r30, r18
+     2bc:	20 81       	ld	r18, Z
+     2be:	2f 7b       	andi	r18, 0xBF	; 191
+     2c0:	fc 01       	movw	r30, r24
+     2c2:	20 83       	st	Z, r18
+     2c4:	8d e2       	ldi	r24, 0x2D	; 45
+     2c6:	90 e0       	ldi	r25, 0x00	; 0
+     2c8:	2d e2       	ldi	r18, 0x2D	; 45
+     2ca:	30 e0       	ldi	r19, 0x00	; 0
+     2cc:	f9 01       	movw	r30, r18
+     2ce:	20 81       	ld	r18, Z
+     2d0:	2f 77       	andi	r18, 0x7F	; 127
+     2d2:	fc 01       	movw	r30, r24
+     2d4:	20 83       	st	Z, r18
+     2d6:	8e e2       	ldi	r24, 0x2E	; 46
+     2d8:	90 e0       	ldi	r25, 0x00	; 0
+     2da:	2e e2       	ldi	r18, 0x2E	; 46
+     2dc:	30 e0       	ldi	r19, 0x00	; 0
+     2de:	f9 01       	movw	r30, r18
+     2e0:	20 81       	ld	r18, Z
+     2e2:	2f 77       	andi	r18, 0x7F	; 127
+     2e4:	fc 01       	movw	r30, r24
+     2e6:	20 83       	st	Z, r18
+     2e8:	8d e2       	ldi	r24, 0x2D	; 45
+     2ea:	90 e0       	ldi	r25, 0x00	; 0
+     2ec:	2d e2       	ldi	r18, 0x2D	; 45
+     2ee:	30 e0       	ldi	r19, 0x00	; 0
+     2f0:	f9 01       	movw	r30, r18
+     2f2:	20 81       	ld	r18, Z
+     2f4:	2f 7e       	andi	r18, 0xEF	; 239
+     2f6:	fc 01       	movw	r30, r24
+     2f8:	20 83       	st	Z, r18
+     2fa:	87 e3       	ldi	r24, 0x37	; 55
+     2fc:	90 e0       	ldi	r25, 0x00	; 0
+     2fe:	27 e3       	ldi	r18, 0x37	; 55
+     300:	30 e0       	ldi	r19, 0x00	; 0
+     302:	f9 01       	movw	r30, r18
+     304:	20 81       	ld	r18, Z
+     306:	28 60       	ori	r18, 0x08	; 8
+     308:	fc 01       	movw	r30, r24
+     30a:	20 83       	st	Z, r18
+     30c:	87 e3       	ldi	r24, 0x37	; 55
+     30e:	90 e0       	ldi	r25, 0x00	; 0
+     310:	27 e3       	ldi	r18, 0x37	; 55
+     312:	30 e0       	ldi	r19, 0x00	; 0
+     314:	f9 01       	movw	r30, r18
+     316:	20 81       	ld	r18, Z
+     318:	2d 7f       	andi	r18, 0xFD	; 253
+     31a:	fc 01       	movw	r30, r24
+     31c:	20 83       	st	Z, r18
+     31e:	87 e3       	ldi	r24, 0x37	; 55
+     320:	90 e0       	ldi	r25, 0x00	; 0
+     322:	27 e3       	ldi	r18, 0x37	; 55
+     324:	30 e0       	ldi	r19, 0x00	; 0
+     326:	f9 01       	movw	r30, r18
+     328:	20 81       	ld	r18, Z
+     32a:	2b 7f       	andi	r18, 0xFB	; 251
+     32c:	fc 01       	movw	r30, r24
+     32e:	20 83       	st	Z, r18
+     330:	87 e3       	ldi	r24, 0x37	; 55
+     332:	90 e0       	ldi	r25, 0x00	; 0
+     334:	27 e3       	ldi	r18, 0x37	; 55
+     336:	30 e0       	ldi	r19, 0x00	; 0
+     338:	f9 01       	movw	r30, r18
+     33a:	20 81       	ld	r18, Z
+     33c:	2e 7f       	andi	r18, 0xFE	; 254
+     33e:	fc 01       	movw	r30, r24
+     340:	20 83       	st	Z, r18
+     342:	88 e3       	ldi	r24, 0x38	; 56
+     344:	90 e0       	ldi	r25, 0x00	; 0
+     346:	28 e3       	ldi	r18, 0x38	; 56
+     348:	30 e0       	ldi	r19, 0x00	; 0
+     34a:	f9 01       	movw	r30, r18
+     34c:	20 81       	ld	r18, Z
+     34e:	21 60       	ori	r18, 0x01	; 1
+     350:	fc 01       	movw	r30, r24
+     352:	20 83       	st	Z, r18
+     354:	8d e2       	ldi	r24, 0x2D	; 45
+     356:	90 e0       	ldi	r25, 0x00	; 0
+     358:	2d e2       	ldi	r18, 0x2D	; 45
+     35a:	30 e0       	ldi	r19, 0x00	; 0
+     35c:	f9 01       	movw	r30, r18
+     35e:	20 81       	ld	r18, Z
+     360:	23 60       	ori	r18, 0x03	; 3
+     362:	fc 01       	movw	r30, r24
+     364:	20 83       	st	Z, r18
+     366:	8e e2       	ldi	r24, 0x2E	; 46
+     368:	90 e0       	ldi	r25, 0x00	; 0
+     36a:	2e e2       	ldi	r18, 0x2E	; 46
+     36c:	30 e0       	ldi	r19, 0x00	; 0
+     36e:	f9 01       	movw	r30, r18
+     370:	20 81       	ld	r18, Z
+     372:	2f 77       	andi	r18, 0x7F	; 127
+     374:	fc 01       	movw	r30, r24
+     376:	20 83       	st	Z, r18
+     378:	8d e2       	ldi	r24, 0x2D	; 45
+     37a:	90 e0       	ldi	r25, 0x00	; 0
+     37c:	2d e2       	ldi	r18, 0x2D	; 45
+     37e:	30 e0       	ldi	r19, 0x00	; 0
+     380:	f9 01       	movw	r30, r18
+     382:	20 81       	ld	r18, Z
+     384:	20 6c       	ori	r18, 0xC0	; 192
+     386:	fc 01       	movw	r30, r24
+     388:	20 83       	st	Z, r18
+     38a:	df 91       	pop	r29
+     38c:	cf 91       	pop	r28
+     38e:	08 95       	ret
+
+00000390 <SPI_MasterInitInit>:
+     390:	cf 93       	push	r28
+     392:	df 93       	push	r29
+     394:	cd b7       	in	r28, 0x3d	; 61
+     396:	de b7       	in	r29, 0x3e	; 62
+     398:	00 00       	nop
+     39a:	88 e3       	ldi	r24, 0x38	; 56
+     39c:	90 e0       	ldi	r25, 0x00	; 0
+     39e:	fc 01       	movw	r30, r24
+     3a0:	80 81       	ld	r24, Z
+     3a2:	88 2f       	mov	r24, r24
+     3a4:	90 e0       	ldi	r25, 0x00	; 0
+     3a6:	81 70       	andi	r24, 0x01	; 1
+     3a8:	99 27       	eor	r25, r25
+     3aa:	00 97       	sbiw	r24, 0x00	; 0
+     3ac:	b1 f3       	breq	.-20     	; 0x39a <SPI_MasterInitInit+0xa>
+     3ae:	8a e0       	ldi	r24, 0x0A	; 10
+     3b0:	90 e0       	ldi	r25, 0x00	; 0
+     3b2:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+     3b6:	88 e3       	ldi	r24, 0x38	; 56
+     3b8:	90 e0       	ldi	r25, 0x00	; 0
+     3ba:	28 e3       	ldi	r18, 0x38	; 56
+     3bc:	30 e0       	ldi	r19, 0x00	; 0
+     3be:	f9 01       	movw	r30, r18
+     3c0:	20 81       	ld	r18, Z
+     3c2:	2e 7f       	andi	r18, 0xFE	; 254
+     3c4:	fc 01       	movw	r30, r24
+     3c6:	20 83       	st	Z, r18
+     3c8:	8d e2       	ldi	r24, 0x2D	; 45
+     3ca:	90 e0       	ldi	r25, 0x00	; 0
+     3cc:	2d e2       	ldi	r18, 0x2D	; 45
+     3ce:	30 e0       	ldi	r19, 0x00	; 0
+     3d0:	f9 01       	movw	r30, r18
+     3d2:	20 81       	ld	r18, Z
+     3d4:	2f 77       	andi	r18, 0x7F	; 127
+     3d6:	fc 01       	movw	r30, r24
+     3d8:	20 83       	st	Z, r18
+     3da:	8d e2       	ldi	r24, 0x2D	; 45
+     3dc:	90 e0       	ldi	r25, 0x00	; 0
+     3de:	2d e2       	ldi	r18, 0x2D	; 45
+     3e0:	30 e0       	ldi	r19, 0x00	; 0
+     3e2:	f9 01       	movw	r30, r18
+     3e4:	20 81       	ld	r18, Z
+     3e6:	2f 77       	andi	r18, 0x7F	; 127
+     3e8:	fc 01       	movw	r30, r24
+     3ea:	20 83       	st	Z, r18
+     3ec:	8e e2       	ldi	r24, 0x2E	; 46
+     3ee:	90 e0       	ldi	r25, 0x00	; 0
+     3f0:	2e e2       	ldi	r18, 0x2E	; 46
+     3f2:	30 e0       	ldi	r19, 0x00	; 0
+     3f4:	f9 01       	movw	r30, r18
+     3f6:	20 81       	ld	r18, Z
+     3f8:	2f 77       	andi	r18, 0x7F	; 127
+     3fa:	fc 01       	movw	r30, r24
+     3fc:	20 83       	st	Z, r18
+     3fe:	8d e2       	ldi	r24, 0x2D	; 45
+     400:	90 e0       	ldi	r25, 0x00	; 0
+     402:	2d e2       	ldi	r18, 0x2D	; 45
+     404:	30 e0       	ldi	r19, 0x00	; 0
+     406:	f9 01       	movw	r30, r18
+     408:	20 81       	ld	r18, Z
+     40a:	20 61       	ori	r18, 0x10	; 16
+     40c:	fc 01       	movw	r30, r24
+     40e:	20 83       	st	Z, r18
+     410:	87 e3       	ldi	r24, 0x37	; 55
+     412:	90 e0       	ldi	r25, 0x00	; 0
+     414:	27 e3       	ldi	r18, 0x37	; 55
+     416:	30 e0       	ldi	r19, 0x00	; 0
+     418:	f9 01       	movw	r30, r18
+     41a:	20 81       	ld	r18, Z
+     41c:	27 7f       	andi	r18, 0xF7	; 247
+     41e:	fc 01       	movw	r30, r24
+     420:	20 83       	st	Z, r18
+     422:	87 e3       	ldi	r24, 0x37	; 55
+     424:	90 e0       	ldi	r25, 0x00	; 0
+     426:	27 e3       	ldi	r18, 0x37	; 55
+     428:	30 e0       	ldi	r19, 0x00	; 0
+     42a:	f9 01       	movw	r30, r18
+     42c:	20 81       	ld	r18, Z
+     42e:	22 60       	ori	r18, 0x02	; 2
+     430:	fc 01       	movw	r30, r24
+     432:	20 83       	st	Z, r18
+     434:	87 e3       	ldi	r24, 0x37	; 55
+     436:	90 e0       	ldi	r25, 0x00	; 0
+     438:	27 e3       	ldi	r18, 0x37	; 55
+     43a:	30 e0       	ldi	r19, 0x00	; 0
+     43c:	f9 01       	movw	r30, r18
+     43e:	20 81       	ld	r18, Z
+     440:	24 60       	ori	r18, 0x04	; 4
+     442:	fc 01       	movw	r30, r24
+     444:	20 83       	st	Z, r18
+     446:	87 e3       	ldi	r24, 0x37	; 55
+     448:	90 e0       	ldi	r25, 0x00	; 0
+     44a:	27 e3       	ldi	r18, 0x37	; 55
+     44c:	30 e0       	ldi	r19, 0x00	; 0
+     44e:	f9 01       	movw	r30, r18
+     450:	20 81       	ld	r18, Z
+     452:	21 60       	ori	r18, 0x01	; 1
+     454:	fc 01       	movw	r30, r24
+     456:	20 83       	st	Z, r18
+     458:	88 e3       	ldi	r24, 0x38	; 56
+     45a:	90 e0       	ldi	r25, 0x00	; 0
+     45c:	28 e3       	ldi	r18, 0x38	; 56
+     45e:	30 e0       	ldi	r19, 0x00	; 0
+     460:	f9 01       	movw	r30, r18
+     462:	20 81       	ld	r18, Z
+     464:	2e 7f       	andi	r18, 0xFE	; 254
+     466:	fc 01       	movw	r30, r24
+     468:	20 83       	st	Z, r18
+     46a:	8d e2       	ldi	r24, 0x2D	; 45
+     46c:	90 e0       	ldi	r25, 0x00	; 0
+     46e:	2d e2       	ldi	r18, 0x2D	; 45
+     470:	30 e0       	ldi	r19, 0x00	; 0
+     472:	f9 01       	movw	r30, r18
+     474:	20 81       	ld	r18, Z
+     476:	23 60       	ori	r18, 0x03	; 3
+     478:	fc 01       	movw	r30, r24
+     47a:	20 83       	st	Z, r18
+     47c:	8e e2       	ldi	r24, 0x2E	; 46
+     47e:	90 e0       	ldi	r25, 0x00	; 0
+     480:	2e e2       	ldi	r18, 0x2E	; 46
+     482:	30 e0       	ldi	r19, 0x00	; 0
+     484:	f9 01       	movw	r30, r18
+     486:	20 81       	ld	r18, Z
+     488:	2f 77       	andi	r18, 0x7F	; 127
+     48a:	fc 01       	movw	r30, r24
+     48c:	20 83       	st	Z, r18
+     48e:	8d e2       	ldi	r24, 0x2D	; 45
+     490:	90 e0       	ldi	r25, 0x00	; 0
+     492:	2d e2       	ldi	r18, 0x2D	; 45
+     494:	30 e0       	ldi	r19, 0x00	; 0
+     496:	f9 01       	movw	r30, r18
+     498:	20 81       	ld	r18, Z
+     49a:	20 64       	ori	r18, 0x40	; 64
+     49c:	fc 01       	movw	r30, r24
+     49e:	20 83       	st	Z, r18
+     4a0:	8a e0       	ldi	r24, 0x0A	; 10
+     4a2:	90 e0       	ldi	r25, 0x00	; 0
+     4a4:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+     4a8:	df 91       	pop	r29
+     4aa:	cf 91       	pop	r28
+     4ac:	08 95       	ret
+
+000004ae <SPI_MasterTransmit>:
+     4ae:	cf 93       	push	r28
+     4b0:	df 93       	push	r29
+     4b2:	1f 92       	push	r1
+     4b4:	cd b7       	in	r28, 0x3d	; 61
+     4b6:	de b7       	in	r29, 0x3e	; 62
+     4b8:	89 83       	std	Y+1, r24	; 0x01
+     4ba:	8f e2       	ldi	r24, 0x2F	; 47
+     4bc:	90 e0       	ldi	r25, 0x00	; 0
+     4be:	29 81       	ldd	r18, Y+1	; 0x01
+     4c0:	fc 01       	movw	r30, r24
+     4c2:	20 83       	st	Z, r18
+     4c4:	00 00       	nop
+     4c6:	8e e2       	ldi	r24, 0x2E	; 46
+     4c8:	90 e0       	ldi	r25, 0x00	; 0
+     4ca:	fc 01       	movw	r30, r24
+     4cc:	80 81       	ld	r24, Z
+     4ce:	88 23       	and	r24, r24
+     4d0:	d4 f7       	brge	.-12     	; 0x4c6 <SPI_MasterTransmit+0x18>
+     4d2:	0f 90       	pop	r0
+     4d4:	df 91       	pop	r29
+     4d6:	cf 91       	pop	r28
+     4d8:	08 95       	ret
+
+000004da <__vector_17>:
+     4da:	1f 92       	push	r1
+     4dc:	0f 92       	push	r0
+     4de:	00 90 5f 00 	lds	r0, 0x005F
+     4e2:	0f 92       	push	r0
+     4e4:	11 24       	eor	r1, r1
+     4e6:	00 90 5b 00 	lds	r0, 0x005B
+     4ea:	0f 92       	push	r0
+     4ec:	2f 93       	push	r18
+     4ee:	3f 93       	push	r19
+     4f0:	4f 93       	push	r20
+     4f2:	5f 93       	push	r21
+     4f4:	6f 93       	push	r22
+     4f6:	7f 93       	push	r23
+     4f8:	8f 93       	push	r24
+     4fa:	9f 93       	push	r25
+     4fc:	af 93       	push	r26
+     4fe:	bf 93       	push	r27
+     500:	ef 93       	push	r30
+     502:	ff 93       	push	r31
+     504:	cf 93       	push	r28
+     506:	df 93       	push	r29
+     508:	1f 92       	push	r1
+     50a:	cd b7       	in	r28, 0x3d	; 61
+     50c:	de b7       	in	r29, 0x3e	; 62
+     50e:	8f e2       	ldi	r24, 0x2F	; 47
+     510:	90 e0       	ldi	r25, 0x00	; 0
+     512:	fc 01       	movw	r30, r24
+     514:	80 81       	ld	r24, Z
+     516:	89 83       	std	Y+1, r24	; 0x01
+     518:	69 81       	ldd	r22, Y+1	; 0x01
+     51a:	8c e4       	ldi	r24, 0x4C	; 76
+     51c:	92 e0       	ldi	r25, 0x02	; 2
+     51e:	0e 94 04 03 	call	0x608	; 0x608 <enQueue>
+     522:	0f 90       	pop	r0
+     524:	df 91       	pop	r29
+     526:	cf 91       	pop	r28
+     528:	ff 91       	pop	r31
+     52a:	ef 91       	pop	r30
+     52c:	bf 91       	pop	r27
+     52e:	af 91       	pop	r26
+     530:	9f 91       	pop	r25
+     532:	8f 91       	pop	r24
+     534:	7f 91       	pop	r23
+     536:	6f 91       	pop	r22
+     538:	5f 91       	pop	r21
+     53a:	4f 91       	pop	r20
+     53c:	3f 91       	pop	r19
+     53e:	2f 91       	pop	r18
+     540:	0f 90       	pop	r0
+     542:	00 92 5b 00 	sts	0x005B, r0
+     546:	0f 90       	pop	r0
+     548:	00 92 5f 00 	sts	0x005F, r0
+     54c:	0f 90       	pop	r0
+     54e:	1f 90       	pop	r1
+     550:	18 95       	reti
+
+00000552 <SPIputs>:
+     552:	cf 93       	push	r28
+     554:	df 93       	push	r29
+     556:	00 d0       	rcall	.+0      	; 0x558 <SPIputs+0x6>
+     558:	cd b7       	in	r28, 0x3d	; 61
+     55a:	de b7       	in	r29, 0x3e	; 62
+     55c:	9a 83       	std	Y+2, r25	; 0x02
+     55e:	89 83       	std	Y+1, r24	; 0x01
+     560:	0e 94 c8 01 	call	0x390	; 0x390 <SPI_MasterInitInit>
+     564:	0b c0       	rjmp	.+22     	; 0x57c <SPIputs+0x2a>
+     566:	89 81       	ldd	r24, Y+1	; 0x01
+     568:	9a 81       	ldd	r25, Y+2	; 0x02
+     56a:	fc 01       	movw	r30, r24
+     56c:	80 81       	ld	r24, Z
+     56e:	0e 94 57 02 	call	0x4ae	; 0x4ae <SPI_MasterTransmit>
+     572:	89 81       	ldd	r24, Y+1	; 0x01
+     574:	9a 81       	ldd	r25, Y+2	; 0x02
+     576:	01 96       	adiw	r24, 0x01	; 1
+     578:	9a 83       	std	Y+2, r25	; 0x02
+     57a:	89 83       	std	Y+1, r24	; 0x01
+     57c:	89 81       	ldd	r24, Y+1	; 0x01
+     57e:	9a 81       	ldd	r25, Y+2	; 0x02
+     580:	fc 01       	movw	r30, r24
+     582:	80 81       	ld	r24, Z
+     584:	88 23       	and	r24, r24
+     586:	79 f7       	brne	.-34     	; 0x566 <SPIputs+0x14>
+     588:	0e 94 55 01 	call	0x2aa	; 0x2aa <SPI_Init>
+     58c:	0f 90       	pop	r0
+     58e:	0f 90       	pop	r0
+     590:	df 91       	pop	r29
+     592:	cf 91       	pop	r28
+     594:	08 95       	ret
+
+00000596 <initqueue>:
+     596:	cf 93       	push	r28
+     598:	df 93       	push	r29
+     59a:	00 d0       	rcall	.+0      	; 0x59c <initqueue+0x6>
+     59c:	00 d0       	rcall	.+0      	; 0x59e <initqueue+0x8>
+     59e:	cd b7       	in	r28, 0x3d	; 61
+     5a0:	de b7       	in	r29, 0x3e	; 62
+     5a2:	9c 83       	std	Y+4, r25	; 0x04
+     5a4:	8b 83       	std	Y+3, r24	; 0x03
+     5a6:	1a 82       	std	Y+2, r1	; 0x02
+     5a8:	19 82       	std	Y+1, r1	; 0x01
+     5aa:	0d c0       	rjmp	.+26     	; 0x5c6 <initqueue+0x30>
+     5ac:	2b 81       	ldd	r18, Y+3	; 0x03
+     5ae:	3c 81       	ldd	r19, Y+4	; 0x04
+     5b0:	89 81       	ldd	r24, Y+1	; 0x01
+     5b2:	9a 81       	ldd	r25, Y+2	; 0x02
+     5b4:	82 0f       	add	r24, r18
+     5b6:	93 1f       	adc	r25, r19
+     5b8:	fc 01       	movw	r30, r24
+     5ba:	10 82       	st	Z, r1
+     5bc:	89 81       	ldd	r24, Y+1	; 0x01
+     5be:	9a 81       	ldd	r25, Y+2	; 0x02
+     5c0:	01 96       	adiw	r24, 0x01	; 1
+     5c2:	9a 83       	std	Y+2, r25	; 0x02
+     5c4:	89 83       	std	Y+1, r24	; 0x01
+     5c6:	89 81       	ldd	r24, Y+1	; 0x01
+     5c8:	9a 81       	ldd	r25, Y+2	; 0x02
+     5ca:	84 36       	cpi	r24, 0x64	; 100
+     5cc:	91 05       	cpc	r25, r1
+     5ce:	74 f3       	brlt	.-36     	; 0x5ac <initqueue+0x16>
+     5d0:	8b 81       	ldd	r24, Y+3	; 0x03
+     5d2:	9c 81       	ldd	r25, Y+4	; 0x04
+     5d4:	8a 59       	subi	r24, 0x9A	; 154
+     5d6:	9f 4f       	sbci	r25, 0xFF	; 255
+     5d8:	fc 01       	movw	r30, r24
+     5da:	11 82       	std	Z+1, r1	; 0x01
+     5dc:	10 82       	st	Z, r1
+     5de:	8b 81       	ldd	r24, Y+3	; 0x03
+     5e0:	9c 81       	ldd	r25, Y+4	; 0x04
+     5e2:	8a 59       	subi	r24, 0x9A	; 154
+     5e4:	9f 4f       	sbci	r25, 0xFF	; 255
+     5e6:	fc 01       	movw	r30, r24
+     5e8:	20 81       	ld	r18, Z
+     5ea:	31 81       	ldd	r19, Z+1	; 0x01
+     5ec:	8b 81       	ldd	r24, Y+3	; 0x03
+     5ee:	9c 81       	ldd	r25, Y+4	; 0x04
+     5f0:	8c 59       	subi	r24, 0x9C	; 156
+     5f2:	9f 4f       	sbci	r25, 0xFF	; 255
+     5f4:	fc 01       	movw	r30, r24
+     5f6:	31 83       	std	Z+1, r19	; 0x01
+     5f8:	20 83       	st	Z, r18
+     5fa:	0f 90       	pop	r0
+     5fc:	0f 90       	pop	r0
+     5fe:	0f 90       	pop	r0
+     600:	0f 90       	pop	r0
+     602:	df 91       	pop	r29
+     604:	cf 91       	pop	r28
+     606:	08 95       	ret
+
+00000608 <enQueue>:
+     608:	cf 93       	push	r28
+     60a:	df 93       	push	r29
+     60c:	cd b7       	in	r28, 0x3d	; 61
+     60e:	de b7       	in	r29, 0x3e	; 62
+     610:	27 97       	sbiw	r28, 0x07	; 7
+     612:	0f b6       	in	r0, 0x3f	; 63
+     614:	f8 94       	cli
+     616:	de bf       	out	0x3e, r29	; 62
+     618:	0f be       	out	0x3f, r0	; 63
+     61a:	cd bf       	out	0x3d, r28	; 61
+     61c:	9a 83       	std	Y+2, r25	; 0x02
+     61e:	89 83       	std	Y+1, r24	; 0x01
+     620:	6b 83       	std	Y+3, r22	; 0x03
+     622:	89 81       	ldd	r24, Y+1	; 0x01
+     624:	9a 81       	ldd	r25, Y+2	; 0x02
+     626:	8a 59       	subi	r24, 0x9A	; 154
+     628:	9f 4f       	sbci	r25, 0xFF	; 255
+     62a:	fc 01       	movw	r30, r24
+     62c:	80 81       	ld	r24, Z
+     62e:	91 81       	ldd	r25, Z+1	; 0x01
+     630:	01 96       	adiw	r24, 0x01	; 1
+     632:	24 e6       	ldi	r18, 0x64	; 100
+     634:	30 e0       	ldi	r19, 0x00	; 0
+     636:	b9 01       	movw	r22, r18
+     638:	0e 94 d3 0a 	call	0x15a6	; 0x15a6 <__divmodhi4>
+     63c:	9c 01       	movw	r18, r24
+     63e:	89 81       	ldd	r24, Y+1	; 0x01
+     640:	9a 81       	ldd	r25, Y+2	; 0x02
+     642:	8c 59       	subi	r24, 0x9C	; 156
+     644:	9f 4f       	sbci	r25, 0xFF	; 255
+     646:	fc 01       	movw	r30, r24
+     648:	80 81       	ld	r24, Z
+     64a:	91 81       	ldd	r25, Z+1	; 0x01
+     64c:	28 17       	cp	r18, r24
+     64e:	39 07       	cpc	r19, r25
+     650:	19 f4       	brne	.+6      	; 0x658 <enQueue+0x50>
+     652:	80 e0       	ldi	r24, 0x00	; 0
+     654:	90 e0       	ldi	r25, 0x00	; 0
+     656:	25 c0       	rjmp	.+74     	; 0x6a2 <enQueue+0x9a>
+     658:	89 81       	ldd	r24, Y+1	; 0x01
+     65a:	9a 81       	ldd	r25, Y+2	; 0x02
+     65c:	8a 59       	subi	r24, 0x9A	; 154
+     65e:	9f 4f       	sbci	r25, 0xFF	; 255
+     660:	fc 01       	movw	r30, r24
+     662:	80 81       	ld	r24, Z
+     664:	91 81       	ldd	r25, Z+1	; 0x01
+     666:	29 81       	ldd	r18, Y+1	; 0x01
+     668:	3a 81       	ldd	r19, Y+2	; 0x02
+     66a:	82 0f       	add	r24, r18
+     66c:	93 1f       	adc	r25, r19
+     66e:	2b 81       	ldd	r18, Y+3	; 0x03
+     670:	fc 01       	movw	r30, r24
+     672:	20 83       	st	Z, r18
+     674:	89 81       	ldd	r24, Y+1	; 0x01
+     676:	9a 81       	ldd	r25, Y+2	; 0x02
+     678:	8a 59       	subi	r24, 0x9A	; 154
+     67a:	9f 4f       	sbci	r25, 0xFF	; 255
+     67c:	fc 01       	movw	r30, r24
+     67e:	80 81       	ld	r24, Z
+     680:	91 81       	ldd	r25, Z+1	; 0x01
+     682:	01 96       	adiw	r24, 0x01	; 1
+     684:	24 e6       	ldi	r18, 0x64	; 100
+     686:	30 e0       	ldi	r19, 0x00	; 0
+     688:	b9 01       	movw	r22, r18
+     68a:	0e 94 d3 0a 	call	0x15a6	; 0x15a6 <__divmodhi4>
+     68e:	9c 01       	movw	r18, r24
+     690:	89 81       	ldd	r24, Y+1	; 0x01
+     692:	9a 81       	ldd	r25, Y+2	; 0x02
+     694:	8a 59       	subi	r24, 0x9A	; 154
+     696:	9f 4f       	sbci	r25, 0xFF	; 255
+     698:	fc 01       	movw	r30, r24
+     69a:	31 83       	std	Z+1, r19	; 0x01
+     69c:	20 83       	st	Z, r18
+     69e:	81 e0       	ldi	r24, 0x01	; 1
+     6a0:	90 e0       	ldi	r25, 0x00	; 0
+     6a2:	27 96       	adiw	r28, 0x07	; 7
+     6a4:	0f b6       	in	r0, 0x3f	; 63
+     6a6:	f8 94       	cli
+     6a8:	de bf       	out	0x3e, r29	; 62
+     6aa:	0f be       	out	0x3f, r0	; 63
+     6ac:	cd bf       	out	0x3d, r28	; 61
+     6ae:	df 91       	pop	r29
+     6b0:	cf 91       	pop	r28
+     6b2:	08 95       	ret
+
+000006b4 <DeQueue>:
+     6b4:	cf 93       	push	r28
+     6b6:	df 93       	push	r29
+     6b8:	00 d0       	rcall	.+0      	; 0x6ba <DeQueue+0x6>
+     6ba:	00 d0       	rcall	.+0      	; 0x6bc <DeQueue+0x8>
+     6bc:	00 d0       	rcall	.+0      	; 0x6be <DeQueue+0xa>
+     6be:	cd b7       	in	r28, 0x3d	; 61
+     6c0:	de b7       	in	r29, 0x3e	; 62
+     6c2:	9a 83       	std	Y+2, r25	; 0x02
+     6c4:	89 83       	std	Y+1, r24	; 0x01
+     6c6:	7c 83       	std	Y+4, r23	; 0x04
+     6c8:	6b 83       	std	Y+3, r22	; 0x03
+     6ca:	89 81       	ldd	r24, Y+1	; 0x01
+     6cc:	9a 81       	ldd	r25, Y+2	; 0x02
+     6ce:	8c 59       	subi	r24, 0x9C	; 156
+     6d0:	9f 4f       	sbci	r25, 0xFF	; 255
+     6d2:	fc 01       	movw	r30, r24
+     6d4:	20 81       	ld	r18, Z
+     6d6:	31 81       	ldd	r19, Z+1	; 0x01
+     6d8:	89 81       	ldd	r24, Y+1	; 0x01
+     6da:	9a 81       	ldd	r25, Y+2	; 0x02
+     6dc:	8a 59       	subi	r24, 0x9A	; 154
+     6de:	9f 4f       	sbci	r25, 0xFF	; 255
+     6e0:	fc 01       	movw	r30, r24
+     6e2:	80 81       	ld	r24, Z
+     6e4:	91 81       	ldd	r25, Z+1	; 0x01
+     6e6:	28 17       	cp	r18, r24
+     6e8:	39 07       	cpc	r19, r25
+     6ea:	19 f4       	brne	.+6      	; 0x6f2 <DeQueue+0x3e>
+     6ec:	80 e0       	ldi	r24, 0x00	; 0
+     6ee:	90 e0       	ldi	r25, 0x00	; 0
+     6f0:	28 c0       	rjmp	.+80     	; 0x742 <DeQueue+0x8e>
+     6f2:	89 81       	ldd	r24, Y+1	; 0x01
+     6f4:	9a 81       	ldd	r25, Y+2	; 0x02
+     6f6:	8c 59       	subi	r24, 0x9C	; 156
+     6f8:	9f 4f       	sbci	r25, 0xFF	; 255
+     6fa:	fc 01       	movw	r30, r24
+     6fc:	80 81       	ld	r24, Z
+     6fe:	91 81       	ldd	r25, Z+1	; 0x01
+     700:	29 81       	ldd	r18, Y+1	; 0x01
+     702:	3a 81       	ldd	r19, Y+2	; 0x02
+     704:	82 0f       	add	r24, r18
+     706:	93 1f       	adc	r25, r19
+     708:	fc 01       	movw	r30, r24
+     70a:	20 81       	ld	r18, Z
+     70c:	8b 81       	ldd	r24, Y+3	; 0x03
+     70e:	9c 81       	ldd	r25, Y+4	; 0x04
+     710:	fc 01       	movw	r30, r24
+     712:	20 83       	st	Z, r18
+     714:	89 81       	ldd	r24, Y+1	; 0x01
+     716:	9a 81       	ldd	r25, Y+2	; 0x02
+     718:	8c 59       	subi	r24, 0x9C	; 156
+     71a:	9f 4f       	sbci	r25, 0xFF	; 255
+     71c:	fc 01       	movw	r30, r24
+     71e:	80 81       	ld	r24, Z
+     720:	91 81       	ldd	r25, Z+1	; 0x01
+     722:	01 96       	adiw	r24, 0x01	; 1
+     724:	24 e6       	ldi	r18, 0x64	; 100
+     726:	30 e0       	ldi	r19, 0x00	; 0
+     728:	b9 01       	movw	r22, r18
+     72a:	0e 94 d3 0a 	call	0x15a6	; 0x15a6 <__divmodhi4>
+     72e:	9c 01       	movw	r18, r24
+     730:	89 81       	ldd	r24, Y+1	; 0x01
+     732:	9a 81       	ldd	r25, Y+2	; 0x02
+     734:	8c 59       	subi	r24, 0x9C	; 156
+     736:	9f 4f       	sbci	r25, 0xFF	; 255
+     738:	fc 01       	movw	r30, r24
+     73a:	31 83       	std	Z+1, r19	; 0x01
+     73c:	20 83       	st	Z, r18
+     73e:	81 e0       	ldi	r24, 0x01	; 1
+     740:	90 e0       	ldi	r25, 0x00	; 0
+     742:	26 96       	adiw	r28, 0x06	; 6
+     744:	0f b6       	in	r0, 0x3f	; 63
+     746:	f8 94       	cli
+     748:	de bf       	out	0x3e, r29	; 62
+     74a:	0f be       	out	0x3f, r0	; 63
+     74c:	cd bf       	out	0x3d, r28	; 61
+     74e:	df 91       	pop	r29
+     750:	cf 91       	pop	r28
+     752:	08 95       	ret
+
+00000754 <USART1_Init>:
+     754:	cf 93       	push	r28
+     756:	df 93       	push	r29
+     758:	cd b7       	in	r28, 0x3d	; 61
+     75a:	de b7       	in	r29, 0x3e	; 62
+     75c:	8b e2       	ldi	r24, 0x2B	; 43
+     75e:	90 e0       	ldi	r25, 0x00	; 0
+     760:	fc 01       	movw	r30, r24
+     762:	10 82       	st	Z, r1
+     764:	8a e2       	ldi	r24, 0x2A	; 42
+     766:	90 e0       	ldi	r25, 0x00	; 0
+     768:	fc 01       	movw	r30, r24
+     76a:	10 82       	st	Z, r1
+     76c:	85 e9       	ldi	r24, 0x95	; 149
+     76e:	90 e0       	ldi	r25, 0x00	; 0
+     770:	26 e0       	ldi	r18, 0x06	; 6
+     772:	fc 01       	movw	r30, r24
+     774:	20 83       	st	Z, r18
+     776:	85 e9       	ldi	r24, 0x95	; 149
+     778:	90 e0       	ldi	r25, 0x00	; 0
+     77a:	25 e9       	ldi	r18, 0x95	; 149
+     77c:	30 e0       	ldi	r19, 0x00	; 0
+     77e:	f9 01       	movw	r30, r18
+     780:	20 81       	ld	r18, Z
+     782:	27 7f       	andi	r18, 0xF7	; 247
+     784:	fc 01       	movw	r30, r24
+     786:	20 83       	st	Z, r18
+     788:	89 e2       	ldi	r24, 0x29	; 41
+     78a:	90 e0       	ldi	r25, 0x00	; 0
+     78c:	28 e0       	ldi	r18, 0x08	; 8
+     78e:	fc 01       	movw	r30, r24
+     790:	20 83       	st	Z, r18
+     792:	80 e9       	ldi	r24, 0x90	; 144
+     794:	90 e0       	ldi	r25, 0x00	; 0
+     796:	fc 01       	movw	r30, r24
+     798:	10 82       	st	Z, r1
+     79a:	8a e2       	ldi	r24, 0x2A	; 42
+     79c:	90 e0       	ldi	r25, 0x00	; 0
+     79e:	28 e9       	ldi	r18, 0x98	; 152
+     7a0:	fc 01       	movw	r30, r24
+     7a2:	20 83       	st	Z, r18
+     7a4:	82 e2       	ldi	r24, 0x22	; 34
+     7a6:	90 e0       	ldi	r25, 0x00	; 0
+     7a8:	22 e2       	ldi	r18, 0x22	; 34
+     7aa:	30 e0       	ldi	r19, 0x00	; 0
+     7ac:	f9 01       	movw	r30, r18
+     7ae:	20 81       	ld	r18, Z
+     7b0:	22 60       	ori	r18, 0x02	; 2
+     7b2:	fc 01       	movw	r30, r24
+     7b4:	20 83       	st	Z, r18
+     7b6:	df 91       	pop	r29
+     7b8:	cf 91       	pop	r28
+     7ba:	08 95       	ret
+
+000007bc <USART2_Init>:
+     7bc:	cf 93       	push	r28
+     7be:	df 93       	push	r29
+     7c0:	cd b7       	in	r28, 0x3d	; 61
+     7c2:	de b7       	in	r29, 0x3e	; 62
+     7c4:	8b e9       	ldi	r24, 0x9B	; 155
+     7c6:	90 e0       	ldi	r25, 0x00	; 0
+     7c8:	fc 01       	movw	r30, r24
+     7ca:	10 82       	st	Z, r1
+     7cc:	8a e9       	ldi	r24, 0x9A	; 154
+     7ce:	90 e0       	ldi	r25, 0x00	; 0
+     7d0:	fc 01       	movw	r30, r24
+     7d2:	10 82       	st	Z, r1
+     7d4:	8d e9       	ldi	r24, 0x9D	; 157
+     7d6:	90 e0       	ldi	r25, 0x00	; 0
+     7d8:	26 e0       	ldi	r18, 0x06	; 6
+     7da:	fc 01       	movw	r30, r24
+     7dc:	20 83       	st	Z, r18
+     7de:	8d e9       	ldi	r24, 0x9D	; 157
+     7e0:	90 e0       	ldi	r25, 0x00	; 0
+     7e2:	2d e9       	ldi	r18, 0x9D	; 157
+     7e4:	30 e0       	ldi	r19, 0x00	; 0
+     7e6:	f9 01       	movw	r30, r18
+     7e8:	20 81       	ld	r18, Z
+     7ea:	27 7f       	andi	r18, 0xF7	; 247
+     7ec:	fc 01       	movw	r30, r24
+     7ee:	20 83       	st	Z, r18
+     7f0:	89 e9       	ldi	r24, 0x99	; 153
+     7f2:	90 e0       	ldi	r25, 0x00	; 0
+     7f4:	27 e6       	ldi	r18, 0x67	; 103
+     7f6:	fc 01       	movw	r30, r24
+     7f8:	20 83       	st	Z, r18
+     7fa:	88 e9       	ldi	r24, 0x98	; 152
+     7fc:	90 e0       	ldi	r25, 0x00	; 0
+     7fe:	fc 01       	movw	r30, r24
+     800:	10 82       	st	Z, r1
+     802:	8a e9       	ldi	r24, 0x9A	; 154
+     804:	90 e0       	ldi	r25, 0x00	; 0
+     806:	28 e9       	ldi	r18, 0x98	; 152
+     808:	fc 01       	movw	r30, r24
+     80a:	20 83       	st	Z, r18
+     80c:	81 e3       	ldi	r24, 0x31	; 49
+     80e:	90 e0       	ldi	r25, 0x00	; 0
+     810:	21 e3       	ldi	r18, 0x31	; 49
+     812:	30 e0       	ldi	r19, 0x00	; 0
+     814:	f9 01       	movw	r30, r18
+     816:	20 81       	ld	r18, Z
+     818:	28 60       	ori	r18, 0x08	; 8
+     81a:	fc 01       	movw	r30, r24
+     81c:	20 83       	st	Z, r18
+     81e:	df 91       	pop	r29
+     820:	cf 91       	pop	r28
+     822:	08 95       	ret
+
+00000824 <USART1_Transmit>:
+     824:	cf 93       	push	r28
+     826:	df 93       	push	r29
+     828:	1f 92       	push	r1
+     82a:	cd b7       	in	r28, 0x3d	; 61
+     82c:	de b7       	in	r29, 0x3e	; 62
+     82e:	89 83       	std	Y+1, r24	; 0x01
+     830:	00 00       	nop
+     832:	8b e2       	ldi	r24, 0x2B	; 43
+     834:	90 e0       	ldi	r25, 0x00	; 0
+     836:	fc 01       	movw	r30, r24
+     838:	80 81       	ld	r24, Z
+     83a:	88 2f       	mov	r24, r24
+     83c:	90 e0       	ldi	r25, 0x00	; 0
+     83e:	80 72       	andi	r24, 0x20	; 32
+     840:	99 27       	eor	r25, r25
+     842:	00 97       	sbiw	r24, 0x00	; 0
+     844:	b1 f3       	breq	.-20     	; 0x832 <USART1_Transmit+0xe>
+     846:	8c e2       	ldi	r24, 0x2C	; 44
+     848:	90 e0       	ldi	r25, 0x00	; 0
+     84a:	29 81       	ldd	r18, Y+1	; 0x01
+     84c:	fc 01       	movw	r30, r24
+     84e:	20 83       	st	Z, r18
+     850:	0f 90       	pop	r0
+     852:	df 91       	pop	r29
+     854:	cf 91       	pop	r28
+     856:	08 95       	ret
+
+00000858 <USART2_Transmit>:
+     858:	cf 93       	push	r28
+     85a:	df 93       	push	r29
+     85c:	1f 92       	push	r1
+     85e:	cd b7       	in	r28, 0x3d	; 61
+     860:	de b7       	in	r29, 0x3e	; 62
+     862:	89 83       	std	Y+1, r24	; 0x01
+     864:	00 00       	nop
+     866:	8b e9       	ldi	r24, 0x9B	; 155
+     868:	90 e0       	ldi	r25, 0x00	; 0
+     86a:	fc 01       	movw	r30, r24
+     86c:	80 81       	ld	r24, Z
+     86e:	88 2f       	mov	r24, r24
+     870:	90 e0       	ldi	r25, 0x00	; 0
+     872:	80 72       	andi	r24, 0x20	; 32
+     874:	99 27       	eor	r25, r25
+     876:	00 97       	sbiw	r24, 0x00	; 0
+     878:	b1 f3       	breq	.-20     	; 0x866 <USART2_Transmit+0xe>
+     87a:	8c e9       	ldi	r24, 0x9C	; 156
+     87c:	90 e0       	ldi	r25, 0x00	; 0
+     87e:	29 81       	ldd	r18, Y+1	; 0x01
+     880:	fc 01       	movw	r30, r24
+     882:	20 83       	st	Z, r18
+     884:	0f 90       	pop	r0
+     886:	df 91       	pop	r29
+     888:	cf 91       	pop	r28
+     88a:	08 95       	ret
+
+0000088c <__vector_18>:
+     88c:	1f 92       	push	r1
+     88e:	0f 92       	push	r0
+     890:	00 90 5f 00 	lds	r0, 0x005F
+     894:	0f 92       	push	r0
+     896:	11 24       	eor	r1, r1
+     898:	00 90 5b 00 	lds	r0, 0x005B
+     89c:	0f 92       	push	r0
+     89e:	2f 93       	push	r18
+     8a0:	3f 93       	push	r19
+     8a2:	4f 93       	push	r20
+     8a4:	5f 93       	push	r21
+     8a6:	6f 93       	push	r22
+     8a8:	7f 93       	push	r23
+     8aa:	8f 93       	push	r24
+     8ac:	9f 93       	push	r25
+     8ae:	af 93       	push	r26
+     8b0:	bf 93       	push	r27
+     8b2:	ef 93       	push	r30
+     8b4:	ff 93       	push	r31
+     8b6:	cf 93       	push	r28
+     8b8:	df 93       	push	r29
+     8ba:	1f 92       	push	r1
+     8bc:	cd b7       	in	r28, 0x3d	; 61
+     8be:	de b7       	in	r29, 0x3e	; 62
+     8c0:	8c e2       	ldi	r24, 0x2C	; 44
+     8c2:	90 e0       	ldi	r25, 0x00	; 0
+     8c4:	fc 01       	movw	r30, r24
+     8c6:	80 81       	ld	r24, Z
+     8c8:	89 83       	std	Y+1, r24	; 0x01
+     8ca:	69 81       	ldd	r22, Y+1	; 0x01
+     8cc:	84 eb       	ldi	r24, 0xB4	; 180
+     8ce:	92 e0       	ldi	r25, 0x02	; 2
+     8d0:	0e 94 04 03 	call	0x608	; 0x608 <enQueue>
+     8d4:	0f 90       	pop	r0
+     8d6:	df 91       	pop	r29
+     8d8:	cf 91       	pop	r28
+     8da:	ff 91       	pop	r31
+     8dc:	ef 91       	pop	r30
+     8de:	bf 91       	pop	r27
+     8e0:	af 91       	pop	r26
+     8e2:	9f 91       	pop	r25
+     8e4:	8f 91       	pop	r24
+     8e6:	7f 91       	pop	r23
+     8e8:	6f 91       	pop	r22
+     8ea:	5f 91       	pop	r21
+     8ec:	4f 91       	pop	r20
+     8ee:	3f 91       	pop	r19
+     8f0:	2f 91       	pop	r18
+     8f2:	0f 90       	pop	r0
+     8f4:	00 92 5b 00 	sts	0x005B, r0
+     8f8:	0f 90       	pop	r0
+     8fa:	00 92 5f 00 	sts	0x005F, r0
+     8fe:	0f 90       	pop	r0
+     900:	1f 90       	pop	r1
+     902:	18 95       	reti
+
+00000904 <__vector_30>:
+     904:	1f 92       	push	r1
+     906:	0f 92       	push	r0
+     908:	00 90 5f 00 	lds	r0, 0x005F
+     90c:	0f 92       	push	r0
+     90e:	11 24       	eor	r1, r1
+     910:	00 90 5b 00 	lds	r0, 0x005B
+     914:	0f 92       	push	r0
+     916:	2f 93       	push	r18
+     918:	3f 93       	push	r19
+     91a:	4f 93       	push	r20
+     91c:	5f 93       	push	r21
+     91e:	6f 93       	push	r22
+     920:	7f 93       	push	r23
+     922:	8f 93       	push	r24
+     924:	9f 93       	push	r25
+     926:	af 93       	push	r26
+     928:	bf 93       	push	r27
+     92a:	ef 93       	push	r30
+     92c:	ff 93       	push	r31
+     92e:	cf 93       	push	r28
+     930:	df 93       	push	r29
+     932:	1f 92       	push	r1
+     934:	cd b7       	in	r28, 0x3d	; 61
+     936:	de b7       	in	r29, 0x3e	; 62
+     938:	8c e9       	ldi	r24, 0x9C	; 156
+     93a:	90 e0       	ldi	r25, 0x00	; 0
+     93c:	fc 01       	movw	r30, r24
+     93e:	80 81       	ld	r24, Z
+     940:	89 83       	std	Y+1, r24	; 0x01
+     942:	69 81       	ldd	r22, Y+1	; 0x01
+     944:	84 eb       	ldi	r24, 0xB4	; 180
+     946:	92 e0       	ldi	r25, 0x02	; 2
+     948:	0e 94 04 03 	call	0x608	; 0x608 <enQueue>
+     94c:	0f 90       	pop	r0
+     94e:	df 91       	pop	r29
+     950:	cf 91       	pop	r28
+     952:	ff 91       	pop	r31
+     954:	ef 91       	pop	r30
+     956:	bf 91       	pop	r27
+     958:	af 91       	pop	r26
+     95a:	9f 91       	pop	r25
+     95c:	8f 91       	pop	r24
+     95e:	7f 91       	pop	r23
+     960:	6f 91       	pop	r22
+     962:	5f 91       	pop	r21
+     964:	4f 91       	pop	r20
+     966:	3f 91       	pop	r19
+     968:	2f 91       	pop	r18
+     96a:	0f 90       	pop	r0
+     96c:	00 92 5b 00 	sts	0x005B, r0
+     970:	0f 90       	pop	r0
+     972:	00 92 5f 00 	sts	0x005F, r0
+     976:	0f 90       	pop	r0
+     978:	1f 90       	pop	r1
+     97a:	18 95       	reti
+
+0000097c <puts1>:
+     97c:	cf 93       	push	r28
+     97e:	df 93       	push	r29
+     980:	00 d0       	rcall	.+0      	; 0x982 <puts1+0x6>
+     982:	cd b7       	in	r28, 0x3d	; 61
+     984:	de b7       	in	r29, 0x3e	; 62
+     986:	9a 83       	std	Y+2, r25	; 0x02
+     988:	89 83       	std	Y+1, r24	; 0x01
+     98a:	0b c0       	rjmp	.+22     	; 0x9a2 <puts1+0x26>
+     98c:	89 81       	ldd	r24, Y+1	; 0x01
+     98e:	9a 81       	ldd	r25, Y+2	; 0x02
+     990:	fc 01       	movw	r30, r24
+     992:	80 81       	ld	r24, Z
+     994:	0e 94 12 04 	call	0x824	; 0x824 <USART1_Transmit>
+     998:	89 81       	ldd	r24, Y+1	; 0x01
+     99a:	9a 81       	ldd	r25, Y+2	; 0x02
+     99c:	01 96       	adiw	r24, 0x01	; 1
+     99e:	9a 83       	std	Y+2, r25	; 0x02
+     9a0:	89 83       	std	Y+1, r24	; 0x01
+     9a2:	89 81       	ldd	r24, Y+1	; 0x01
+     9a4:	9a 81       	ldd	r25, Y+2	; 0x02
+     9a6:	fc 01       	movw	r30, r24
+     9a8:	80 81       	ld	r24, Z
+     9aa:	88 23       	and	r24, r24
+     9ac:	79 f7       	brne	.-34     	; 0x98c <puts1+0x10>
+     9ae:	0f 90       	pop	r0
+     9b0:	0f 90       	pop	r0
+     9b2:	df 91       	pop	r29
+     9b4:	cf 91       	pop	r28
+     9b6:	08 95       	ret
+
+000009b8 <puts2>:
+     9b8:	cf 93       	push	r28
+     9ba:	df 93       	push	r29
+     9bc:	00 d0       	rcall	.+0      	; 0x9be <puts2+0x6>
+     9be:	cd b7       	in	r28, 0x3d	; 61
+     9c0:	de b7       	in	r29, 0x3e	; 62
+     9c2:	9a 83       	std	Y+2, r25	; 0x02
+     9c4:	89 83       	std	Y+1, r24	; 0x01
+     9c6:	0b c0       	rjmp	.+22     	; 0x9de <puts2+0x26>
+     9c8:	89 81       	ldd	r24, Y+1	; 0x01
+     9ca:	9a 81       	ldd	r25, Y+2	; 0x02
+     9cc:	fc 01       	movw	r30, r24
+     9ce:	80 81       	ld	r24, Z
+     9d0:	0e 94 2c 04 	call	0x858	; 0x858 <USART2_Transmit>
+     9d4:	89 81       	ldd	r24, Y+1	; 0x01
+     9d6:	9a 81       	ldd	r25, Y+2	; 0x02
+     9d8:	01 96       	adiw	r24, 0x01	; 1
+     9da:	9a 83       	std	Y+2, r25	; 0x02
+     9dc:	89 83       	std	Y+1, r24	; 0x01
+     9de:	89 81       	ldd	r24, Y+1	; 0x01
+     9e0:	9a 81       	ldd	r25, Y+2	; 0x02
+     9e2:	fc 01       	movw	r30, r24
+     9e4:	80 81       	ld	r24, Z
+     9e6:	88 23       	and	r24, r24
+     9e8:	79 f7       	brne	.-34     	; 0x9c8 <puts2+0x10>
+     9ea:	0f 90       	pop	r0
+     9ec:	0f 90       	pop	r0
+     9ee:	df 91       	pop	r29
+     9f0:	cf 91       	pop	r28
+     9f2:	08 95       	ret
+
+000009f4 <rx_ok>:
+     9f4:	cf 93       	push	r28
+     9f6:	df 93       	push	r29
+     9f8:	00 d0       	rcall	.+0      	; 0x9fa <rx_ok+0x6>
+     9fa:	cd b7       	in	r28, 0x3d	; 61
+     9fc:	de b7       	in	r29, 0x3e	; 62
+     9fe:	89 83       	std	Y+1, r24	; 0x01
+     a00:	6a 83       	std	Y+2, r22	; 0x02
+     a02:	1a c0       	rjmp	.+52     	; 0xa38 <rx_ok+0x44>
+     a04:	0e 94 c8 01 	call	0x390	; 0x390 <SPI_MasterInitInit>
+     a08:	8a 81       	ldd	r24, Y+2	; 0x02
+     a0a:	88 2f       	mov	r24, r24
+     a0c:	90 e0       	ldi	r25, 0x00	; 0
+     a0e:	0e 94 57 02 	call	0x4ae	; 0x4ae <SPI_MasterTransmit>
+     a12:	0e 94 55 01 	call	0x2aa	; 0x2aa <SPI_Init>
+     a16:	91 e0       	ldi	r25, 0x01	; 1
+     a18:	89 81       	ldd	r24, Y+1	; 0x01
+     a1a:	8f 34       	cpi	r24, 0x4F	; 79
+     a1c:	09 f0       	breq	.+2      	; 0xa20 <rx_ok+0x2c>
+     a1e:	90 e0       	ldi	r25, 0x00	; 0
+     a20:	2a 81       	ldd	r18, Y+2	; 0x02
+     a22:	81 e0       	ldi	r24, 0x01	; 1
+     a24:	2b 34       	cpi	r18, 0x4B	; 75
+     a26:	09 f0       	breq	.+2      	; 0xa2a <rx_ok+0x36>
+     a28:	80 e0       	ldi	r24, 0x00	; 0
+     a2a:	89 23       	and	r24, r25
+     a2c:	88 23       	and	r24, r24
+     a2e:	11 f0       	breq	.+4      	; 0xa34 <rx_ok+0x40>
+     a30:	81 e0       	ldi	r24, 0x01	; 1
+     a32:	0c c0       	rjmp	.+24     	; 0xa4c <rx_ok+0x58>
+     a34:	8a 81       	ldd	r24, Y+2	; 0x02
+     a36:	89 83       	std	Y+1, r24	; 0x01
+     a38:	ce 01       	movw	r24, r28
+     a3a:	02 96       	adiw	r24, 0x02	; 2
+     a3c:	bc 01       	movw	r22, r24
+     a3e:	84 eb       	ldi	r24, 0xB4	; 180
+     a40:	92 e0       	ldi	r25, 0x02	; 2
+     a42:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+     a46:	00 97       	sbiw	r24, 0x00	; 0
+     a48:	e9 f6       	brne	.-70     	; 0xa04 <rx_ok+0x10>
+     a4a:	80 e0       	ldi	r24, 0x00	; 0
+     a4c:	0f 90       	pop	r0
+     a4e:	0f 90       	pop	r0
+     a50:	df 91       	pop	r29
+     a52:	cf 91       	pop	r28
+     a54:	08 95       	ret
+
+00000a56 <rx_smallok>:
+     a56:	cf 93       	push	r28
+     a58:	df 93       	push	r29
+     a5a:	00 d0       	rcall	.+0      	; 0xa5c <rx_smallok+0x6>
+     a5c:	cd b7       	in	r28, 0x3d	; 61
+     a5e:	de b7       	in	r29, 0x3e	; 62
+     a60:	89 83       	std	Y+1, r24	; 0x01
+     a62:	6a 83       	std	Y+2, r22	; 0x02
+     a64:	1a c0       	rjmp	.+52     	; 0xa9a <rx_smallok+0x44>
+     a66:	0e 94 c8 01 	call	0x390	; 0x390 <SPI_MasterInitInit>
+     a6a:	8a 81       	ldd	r24, Y+2	; 0x02
+     a6c:	88 2f       	mov	r24, r24
+     a6e:	90 e0       	ldi	r25, 0x00	; 0
+     a70:	0e 94 57 02 	call	0x4ae	; 0x4ae <SPI_MasterTransmit>
+     a74:	0e 94 55 01 	call	0x2aa	; 0x2aa <SPI_Init>
+     a78:	91 e0       	ldi	r25, 0x01	; 1
+     a7a:	89 81       	ldd	r24, Y+1	; 0x01
+     a7c:	8f 36       	cpi	r24, 0x6F	; 111
+     a7e:	09 f0       	breq	.+2      	; 0xa82 <rx_smallok+0x2c>
+     a80:	90 e0       	ldi	r25, 0x00	; 0
+     a82:	2a 81       	ldd	r18, Y+2	; 0x02
+     a84:	81 e0       	ldi	r24, 0x01	; 1
+     a86:	2b 36       	cpi	r18, 0x6B	; 107
+     a88:	09 f0       	breq	.+2      	; 0xa8c <rx_smallok+0x36>
+     a8a:	80 e0       	ldi	r24, 0x00	; 0
+     a8c:	89 23       	and	r24, r25
+     a8e:	88 23       	and	r24, r24
+     a90:	11 f0       	breq	.+4      	; 0xa96 <rx_smallok+0x40>
+     a92:	81 e0       	ldi	r24, 0x01	; 1
+     a94:	0c c0       	rjmp	.+24     	; 0xaae <rx_smallok+0x58>
+     a96:	8a 81       	ldd	r24, Y+2	; 0x02
+     a98:	89 83       	std	Y+1, r24	; 0x01
+     a9a:	ce 01       	movw	r24, r28
+     a9c:	02 96       	adiw	r24, 0x02	; 2
+     a9e:	bc 01       	movw	r22, r24
+     aa0:	84 eb       	ldi	r24, 0xB4	; 180
+     aa2:	92 e0       	ldi	r25, 0x02	; 2
+     aa4:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+     aa8:	00 97       	sbiw	r24, 0x00	; 0
+     aaa:	e9 f6       	brne	.-70     	; 0xa66 <rx_smallok+0x10>
+     aac:	80 e0       	ldi	r24, 0x00	; 0
+     aae:	0f 90       	pop	r0
+     ab0:	0f 90       	pop	r0
+     ab2:	df 91       	pop	r29
+     ab4:	cf 91       	pop	r28
+     ab6:	08 95       	ret
+
+00000ab8 <set_server>:
+     ab8:	cf 93       	push	r28
+     aba:	df 93       	push	r29
+     abc:	00 d0       	rcall	.+0      	; 0xabe <set_server+0x6>
+     abe:	1f 92       	push	r1
+     ac0:	cd b7       	in	r28, 0x3d	; 61
+     ac2:	de b7       	in	r29, 0x3e	; 62
+     ac4:	8a 83       	std	Y+2, r24	; 0x02
+     ac6:	6b 83       	std	Y+3, r22	; 0x03
+     ac8:	0e 94 00 01 	call	0x200	; 0x200 <LedGreenOn>
+     acc:	00 00       	nop
+     ace:	ce 01       	movw	r24, r28
+     ad0:	03 96       	adiw	r24, 0x03	; 3
+     ad2:	bc 01       	movw	r22, r24
+     ad4:	84 eb       	ldi	r24, 0xB4	; 180
+     ad6:	92 e0       	ldi	r25, 0x02	; 2
+     ad8:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+     adc:	00 97       	sbiw	r24, 0x00	; 0
+     ade:	b9 f7       	brne	.-18     	; 0xace <set_server+0x16>
+     ae0:	80 e0       	ldi	r24, 0x00	; 0
+     ae2:	91 e0       	ldi	r25, 0x01	; 1
+     ae4:	0e 94 be 04 	call	0x97c	; 0x97c <puts1>
+     ae8:	88 ee       	ldi	r24, 0xE8	; 232
+     aea:	93 e0       	ldi	r25, 0x03	; 3
+     aec:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+     af0:	00 00       	nop
+     af2:	ce 01       	movw	r24, r28
+     af4:	03 96       	adiw	r24, 0x03	; 3
+     af6:	bc 01       	movw	r22, r24
+     af8:	84 eb       	ldi	r24, 0xB4	; 180
+     afa:	92 e0       	ldi	r25, 0x02	; 2
+     afc:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+     b00:	00 97       	sbiw	r24, 0x00	; 0
+     b02:	b9 f3       	breq	.-18     	; 0xaf2 <set_server+0x3a>
+     b04:	8b 81       	ldd	r24, Y+3	; 0x03
+     b06:	89 83       	std	Y+1, r24	; 0x01
+     b08:	0e 94 c8 01 	call	0x390	; 0x390 <SPI_MasterInitInit>
+     b0c:	8b 81       	ldd	r24, Y+3	; 0x03
+     b0e:	88 2f       	mov	r24, r24
+     b10:	90 e0       	ldi	r25, 0x00	; 0
+     b12:	0e 94 57 02 	call	0x4ae	; 0x4ae <SPI_MasterTransmit>
+     b16:	0e 94 55 01 	call	0x2aa	; 0x2aa <SPI_Init>
+     b1a:	8b 81       	ldd	r24, Y+3	; 0x03
+     b1c:	68 2f       	mov	r22, r24
+     b1e:	89 81       	ldd	r24, Y+1	; 0x01
+     b20:	0e 94 fa 04 	call	0x9f4	; 0x9f4 <rx_ok>
+     b24:	88 23       	and	r24, r24
+     b26:	09 f4       	brne	.+2      	; 0xb2a <set_server+0x72>
+     b28:	c5 c0       	rjmp	.+394    	; 0xcb4 <set_server+0x1fc>
+     b2a:	00 00       	nop
+     b2c:	ce 01       	movw	r24, r28
+     b2e:	03 96       	adiw	r24, 0x03	; 3
+     b30:	bc 01       	movw	r22, r24
+     b32:	84 eb       	ldi	r24, 0xB4	; 180
+     b34:	92 e0       	ldi	r25, 0x02	; 2
+     b36:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+     b3a:	00 97       	sbiw	r24, 0x00	; 0
+     b3c:	b9 f7       	brne	.-18     	; 0xb2c <set_server+0x74>
+     b3e:	8e e0       	ldi	r24, 0x0E	; 14
+     b40:	91 e0       	ldi	r25, 0x01	; 1
+     b42:	0e 94 be 04 	call	0x97c	; 0x97c <puts1>
+     b46:	82 e2       	ldi	r24, 0x22	; 34
+     b48:	0e 94 12 04 	call	0x824	; 0x824 <USART1_Transmit>
+     b4c:	8d e1       	ldi	r24, 0x1D	; 29
+     b4e:	93 e0       	ldi	r25, 0x03	; 3
+     b50:	0e 94 be 04 	call	0x97c	; 0x97c <puts1>
+     b54:	82 e2       	ldi	r24, 0x22	; 34
+     b56:	0e 94 12 04 	call	0x824	; 0x824 <USART1_Transmit>
+     b5a:	8c e2       	ldi	r24, 0x2C	; 44
+     b5c:	0e 94 12 04 	call	0x824	; 0x824 <USART1_Transmit>
+     b60:	80 e3       	ldi	r24, 0x30	; 48
+     b62:	93 e0       	ldi	r25, 0x03	; 3
+     b64:	0e 94 be 04 	call	0x97c	; 0x97c <puts1>
+     b68:	8d e0       	ldi	r24, 0x0D	; 13
+     b6a:	0e 94 12 04 	call	0x824	; 0x824 <USART1_Transmit>
+     b6e:	8a e0       	ldi	r24, 0x0A	; 10
+     b70:	0e 94 12 04 	call	0x824	; 0x824 <USART1_Transmit>
+     b74:	88 ee       	ldi	r24, 0xE8	; 232
+     b76:	93 e0       	ldi	r25, 0x03	; 3
+     b78:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+     b7c:	00 00       	nop
+     b7e:	ce 01       	movw	r24, r28
+     b80:	03 96       	adiw	r24, 0x03	; 3
+     b82:	bc 01       	movw	r22, r24
+     b84:	84 eb       	ldi	r24, 0xB4	; 180
+     b86:	92 e0       	ldi	r25, 0x02	; 2
+     b88:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+     b8c:	00 97       	sbiw	r24, 0x00	; 0
+     b8e:	b9 f3       	breq	.-18     	; 0xb7e <set_server+0xc6>
+     b90:	8b 81       	ldd	r24, Y+3	; 0x03
+     b92:	89 83       	std	Y+1, r24	; 0x01
+     b94:	0e 94 c8 01 	call	0x390	; 0x390 <SPI_MasterInitInit>
+     b98:	8b 81       	ldd	r24, Y+3	; 0x03
+     b9a:	88 2f       	mov	r24, r24
+     b9c:	90 e0       	ldi	r25, 0x00	; 0
+     b9e:	0e 94 57 02 	call	0x4ae	; 0x4ae <SPI_MasterTransmit>
+     ba2:	0e 94 55 01 	call	0x2aa	; 0x2aa <SPI_Init>
+     ba6:	8b 81       	ldd	r24, Y+3	; 0x03
+     ba8:	68 2f       	mov	r22, r24
+     baa:	89 81       	ldd	r24, Y+1	; 0x01
+     bac:	0e 94 fa 04 	call	0x9f4	; 0x9f4 <rx_ok>
+     bb0:	88 23       	and	r24, r24
+     bb2:	09 f4       	brne	.+2      	; 0xbb6 <set_server+0xfe>
+     bb4:	7f c0       	rjmp	.+254    	; 0xcb4 <set_server+0x1fc>
+     bb6:	00 00       	nop
+     bb8:	ce 01       	movw	r24, r28
+     bba:	03 96       	adiw	r24, 0x03	; 3
+     bbc:	bc 01       	movw	r22, r24
+     bbe:	84 eb       	ldi	r24, 0xB4	; 180
+     bc0:	92 e0       	ldi	r25, 0x02	; 2
+     bc2:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+     bc6:	00 97       	sbiw	r24, 0x00	; 0
+     bc8:	b9 f7       	brne	.-18     	; 0xbb8 <set_server+0x100>
+     bca:	81 e2       	ldi	r24, 0x21	; 33
+     bcc:	91 e0       	ldi	r25, 0x01	; 1
+     bce:	0e 94 be 04 	call	0x97c	; 0x97c <puts1>
+     bd2:	88 ee       	ldi	r24, 0xE8	; 232
+     bd4:	93 e0       	ldi	r25, 0x03	; 3
+     bd6:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+     bda:	00 00       	nop
+     bdc:	ce 01       	movw	r24, r28
+     bde:	03 96       	adiw	r24, 0x03	; 3
+     be0:	bc 01       	movw	r22, r24
+     be2:	84 eb       	ldi	r24, 0xB4	; 180
+     be4:	92 e0       	ldi	r25, 0x02	; 2
+     be6:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+     bea:	00 97       	sbiw	r24, 0x00	; 0
+     bec:	b9 f3       	breq	.-18     	; 0xbdc <set_server+0x124>
+     bee:	8b 81       	ldd	r24, Y+3	; 0x03
+     bf0:	89 83       	std	Y+1, r24	; 0x01
+     bf2:	0e 94 c8 01 	call	0x390	; 0x390 <SPI_MasterInitInit>
+     bf6:	8b 81       	ldd	r24, Y+3	; 0x03
+     bf8:	88 2f       	mov	r24, r24
+     bfa:	90 e0       	ldi	r25, 0x00	; 0
+     bfc:	0e 94 57 02 	call	0x4ae	; 0x4ae <SPI_MasterTransmit>
+     c00:	0e 94 55 01 	call	0x2aa	; 0x2aa <SPI_Init>
+     c04:	8b 81       	ldd	r24, Y+3	; 0x03
+     c06:	68 2f       	mov	r22, r24
+     c08:	89 81       	ldd	r24, Y+1	; 0x01
+     c0a:	0e 94 fa 04 	call	0x9f4	; 0x9f4 <rx_ok>
+     c0e:	88 23       	and	r24, r24
+     c10:	09 f4       	brne	.+2      	; 0xc14 <set_server+0x15c>
+     c12:	50 c0       	rjmp	.+160    	; 0xcb4 <set_server+0x1fc>
+     c14:	00 00       	nop
+     c16:	ce 01       	movw	r24, r28
+     c18:	03 96       	adiw	r24, 0x03	; 3
+     c1a:	bc 01       	movw	r22, r24
+     c1c:	84 eb       	ldi	r24, 0xB4	; 180
+     c1e:	92 e0       	ldi	r25, 0x02	; 2
+     c20:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+     c24:	00 97       	sbiw	r24, 0x00	; 0
+     c26:	b9 f7       	brne	.-18     	; 0xc16 <set_server+0x15e>
+     c28:	80 e3       	ldi	r24, 0x30	; 48
+     c2a:	91 e0       	ldi	r25, 0x01	; 1
+     c2c:	0e 94 be 04 	call	0x97c	; 0x97c <puts1>
+     c30:	88 ee       	ldi	r24, 0xE8	; 232
+     c32:	93 e0       	ldi	r25, 0x03	; 3
+     c34:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+     c38:	00 00       	nop
+     c3a:	ce 01       	movw	r24, r28
+     c3c:	03 96       	adiw	r24, 0x03	; 3
+     c3e:	bc 01       	movw	r22, r24
+     c40:	84 eb       	ldi	r24, 0xB4	; 180
+     c42:	92 e0       	ldi	r25, 0x02	; 2
+     c44:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+     c48:	00 97       	sbiw	r24, 0x00	; 0
+     c4a:	b9 f3       	breq	.-18     	; 0xc3a <set_server+0x182>
+     c4c:	8b 81       	ldd	r24, Y+3	; 0x03
+     c4e:	89 83       	std	Y+1, r24	; 0x01
+     c50:	0e 94 c8 01 	call	0x390	; 0x390 <SPI_MasterInitInit>
+     c54:	8b 81       	ldd	r24, Y+3	; 0x03
+     c56:	88 2f       	mov	r24, r24
+     c58:	90 e0       	ldi	r25, 0x00	; 0
+     c5a:	0e 94 57 02 	call	0x4ae	; 0x4ae <SPI_MasterTransmit>
+     c5e:	0e 94 55 01 	call	0x2aa	; 0x2aa <SPI_Init>
+     c62:	8b 81       	ldd	r24, Y+3	; 0x03
+     c64:	68 2f       	mov	r22, r24
+     c66:	89 81       	ldd	r24, Y+1	; 0x01
+     c68:	0e 94 fa 04 	call	0x9f4	; 0x9f4 <rx_ok>
+     c6c:	88 23       	and	r24, r24
+     c6e:	11 f1       	breq	.+68     	; 0xcb4 <set_server+0x1fc>
+     c70:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LedRedOn>
+     c74:	8d e3       	ldi	r24, 0x3D	; 61
+     c76:	91 e0       	ldi	r25, 0x01	; 1
+     c78:	0e 94 be 04 	call	0x97c	; 0x97c <puts1>
+     c7c:	8d e2       	ldi	r24, 0x2D	; 45
+     c7e:	90 e0       	ldi	r25, 0x00	; 0
+     c80:	2d e2       	ldi	r18, 0x2D	; 45
+     c82:	30 e0       	ldi	r19, 0x00	; 0
+     c84:	f9 01       	movw	r30, r18
+     c86:	20 81       	ld	r18, Z
+     c88:	2f 77       	andi	r18, 0x7F	; 127
+     c8a:	fc 01       	movw	r30, r24
+     c8c:	20 83       	st	Z, r18
+     c8e:	00 00       	nop
+     c90:	ce 01       	movw	r24, r28
+     c92:	03 96       	adiw	r24, 0x03	; 3
+     c94:	bc 01       	movw	r22, r24
+     c96:	8c e4       	ldi	r24, 0x4C	; 76
+     c98:	92 e0       	ldi	r25, 0x02	; 2
+     c9a:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+     c9e:	00 97       	sbiw	r24, 0x00	; 0
+     ca0:	b9 f7       	brne	.-18     	; 0xc90 <set_server+0x1d8>
+     ca2:	8d e2       	ldi	r24, 0x2D	; 45
+     ca4:	90 e0       	ldi	r25, 0x00	; 0
+     ca6:	2d e2       	ldi	r18, 0x2D	; 45
+     ca8:	30 e0       	ldi	r19, 0x00	; 0
+     caa:	f9 01       	movw	r30, r18
+     cac:	20 81       	ld	r18, Z
+     cae:	20 68       	ori	r18, 0x80	; 128
+     cb0:	fc 01       	movw	r30, r24
+     cb2:	20 83       	st	Z, r18
+     cb4:	0f 90       	pop	r0
+     cb6:	0f 90       	pop	r0
+     cb8:	0f 90       	pop	r0
+     cba:	df 91       	pop	r29
+     cbc:	cf 91       	pop	r28
+     cbe:	08 95       	ret
+
+00000cc0 <main>:
+extern Queue UARTbufQueue;
+char ip[19],port[8];  //WiFi密码最多16位，WiFi名字英文最多32位，中文10位，即20个ASIC码
+
+
+int main(void)
+{
+     cc0:	cf 93       	push	r28
+     cc2:	df 93       	push	r29
+     cc4:	cd b7       	in	r28, 0x3d	; 61
+     cc6:	de b7       	in	r29, 0x3e	; 62
+     cc8:	69 97       	sbiw	r28, 0x19	; 25
+     cca:	0f b6       	in	r0, 0x3f	; 63
+     ccc:	f8 94       	cli
+     cce:	de bf       	out	0x3e, r29	; 62
+     cd0:	0f be       	out	0x3f, r0	; 63
+     cd2:	cd bf       	out	0x3d, r28	; 61
+    delay(2000);
+     cd4:	80 ed       	ldi	r24, 0xD0	; 208
+     cd6:	97 e0       	ldi	r25, 0x07	; 7
+     cd8:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+	SREG &= (~(1<<7));  // 全局中断关闭
+     cdc:	8f e5       	ldi	r24, 0x5F	; 95
+     cde:	90 e0       	ldi	r25, 0x00	; 0
+     ce0:	2f e5       	ldi	r18, 0x5F	; 95
+     ce2:	30 e0       	ldi	r19, 0x00	; 0
+     ce4:	f9 01       	movw	r30, r18
+     ce6:	20 81       	ld	r18, Z
+     ce8:	2f 77       	andi	r18, 0x7F	; 127
+     cea:	fc 01       	movw	r30, r24
+     cec:	20 83       	st	Z, r18
+    Led_Init();  // LED灯初始化,黄灯常量，红绿亮灯不亮
+     cee:	0e 94 ce 00 	call	0x19c	; 0x19c <Led_Init>
+    SPI_Init();  // SPI通信初始化
+     cf2:	0e 94 55 01 	call	0x2aa	; 0x2aa <SPI_Init>
+	//拨动按钮初始化
+	DDRE  &= ~(1<<7);  // PE7输入
+     cf6:	82 e2       	ldi	r24, 0x22	; 34
+     cf8:	90 e0       	ldi	r25, 0x00	; 0
+     cfa:	22 e2       	ldi	r18, 0x22	; 34
+     cfc:	30 e0       	ldi	r19, 0x00	; 0
+     cfe:	f9 01       	movw	r30, r18
+     d00:	20 81       	ld	r18, Z
+     d02:	2f 77       	andi	r18, 0x7F	; 127
+     d04:	fc 01       	movw	r30, r24
+     d06:	20 83       	st	Z, r18
+	PORTE |= (1<<7);  // PE7输出高电平
+     d08:	83 e2       	ldi	r24, 0x23	; 35
+     d0a:	90 e0       	ldi	r25, 0x00	; 0
+     d0c:	23 e2       	ldi	r18, 0x23	; 35
+     d0e:	30 e0       	ldi	r19, 0x00	; 0
+     d10:	f9 01       	movw	r30, r18
+     d12:	20 81       	ld	r18, Z
+     d14:	20 68       	ori	r18, 0x80	; 128
+     d16:	fc 01       	movw	r30, r24
+     d18:	20 83       	st	Z, r18
+	//独立按键初始化
+	DDRE  &= ~(1<<3);  // PE7输入
+     d1a:	82 e2       	ldi	r24, 0x22	; 34
+     d1c:	90 e0       	ldi	r25, 0x00	; 0
+     d1e:	22 e2       	ldi	r18, 0x22	; 34
+     d20:	30 e0       	ldi	r19, 0x00	; 0
+     d22:	f9 01       	movw	r30, r18
+     d24:	20 81       	ld	r18, Z
+     d26:	27 7f       	andi	r18, 0xF7	; 247
+     d28:	fc 01       	movw	r30, r24
+     d2a:	20 83       	st	Z, r18
+	PORTE |= (1<<3);  // PE7输出高电平
+     d2c:	83 e2       	ldi	r24, 0x23	; 35
+     d2e:	90 e0       	ldi	r25, 0x00	; 0
+     d30:	23 e2       	ldi	r18, 0x23	; 35
+     d32:	30 e0       	ldi	r19, 0x00	; 0
+     d34:	f9 01       	movw	r30, r18
+     d36:	20 81       	ld	r18, Z
+     d38:	28 60       	ori	r18, 0x08	; 8
+     d3a:	fc 01       	movw	r30, r24
+     d3c:	20 83       	st	Z, r18
+	//SPI_MasterInitInit();
+	USART1_Init();
+     d3e:	0e 94 aa 03 	call	0x754	; 0x754 <USART1_Init>
+    USART2_Init();
+     d42:	0e 94 de 03 	call	0x7bc	; 0x7bc <USART2_Init>
+    initqueue(&UARTbufQueue);
+     d46:	84 eb       	ldi	r24, 0xB4	; 180
+     d48:	92 e0       	ldi	r25, 0x02	; 2
+     d4a:	0e 94 cb 02 	call	0x596	; 0x596 <initqueue>
+	initqueue(&SPIbufQueue);
+     d4e:	8c e4       	ldi	r24, 0x4C	; 76
+     d50:	92 e0       	ldi	r25, 0x02	; 2
+     d52:	0e 94 cb 02 	call	0x596	; 0x596 <initqueue>
+	char dianping,key;
+    // 协议标志位
+    char a = 0;
+     d56:	19 82       	std	Y+1, r1	; 0x01
+    char b = 0;
+     d58:	1a 82       	std	Y+2, r1	; 0x02
+	char c = 0;
+     d5a:	1f 8a       	std	Y+23, r1	; 0x17
+	char d;
+	char e = 0;
+     d5c:	1b 82       	std	Y+3, r1	; 0x03
+	char f = 0;
+     d5e:	19 8e       	std	Y+25, r1	; 0x19
+	int flagnum,flag;  // 存EEPROM标志位
+	int wifi_ok_flag;  // WIFI是否配置成功标志位
+	int tcp_ok_flag;
+	//char ip[19],port[8];  //WiFi密码最多16位，WiFi名字英文最多32位，中文10位，即20个ASIC码
+	int ipnum=0,portnum=0,charnum=0;  //字符串位数、特殊字符数量
+     d60:	1d 86       	std	Y+13, r1	; 0x0d
+     d62:	1c 86       	std	Y+12, r1	; 0x0c
+     d64:	1f 86       	std	Y+15, r1	; 0x0f
+     d66:	1e 86       	std	Y+14, r1	; 0x0e
+     d68:	19 8a       	std	Y+17, r1	; 0x11
+     d6a:	18 8a       	std	Y+16, r1	; 0x10
+	char address=0x00; 
+     d6c:	1a 8a       	std	Y+18, r1	; 0x12
+	char addressread=0x00; 
+     d6e:	1b 8a       	std	Y+19, r1	; 0x13
+	char char1;
+	SREG |= (1<<7);  // 全局中断开启
+     d70:	8f e5       	ldi	r24, 0x5F	; 95
+     d72:	90 e0       	ldi	r25, 0x00	; 0
+     d74:	2f e5       	ldi	r18, 0x5F	; 95
+     d76:	30 e0       	ldi	r19, 0x00	; 0
+     d78:	f9 01       	movw	r30, r18
+     d7a:	20 81       	ld	r18, Z
+     d7c:	20 68       	ori	r18, 0x80	; 128
+     d7e:	fc 01       	movw	r30, r24
+     d80:	20 83       	st	Z, r18
+	//ip[1]=',';
+	//ip[2]='"';
+	
+    while(1)
+    {	
+		delay(100);
+     d82:	84 e6       	ldi	r24, 0x64	; 100
+     d84:	90 e0       	ldi	r25, 0x00	; 0
+     d86:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+		key = PINE & (1<<3);
+     d8a:	81 e2       	ldi	r24, 0x21	; 33
+     d8c:	90 e0       	ldi	r25, 0x00	; 0
+     d8e:	fc 01       	movw	r30, r24
+     d90:	80 81       	ld	r24, Z
+     d92:	88 70       	andi	r24, 0x08	; 8
+     d94:	8d 8b       	std	Y+21, r24	; 0x15
+		if (!key)  // ----------------------------------------------------如果按下配网按钮，开始配网
+     d96:	8d 89       	ldd	r24, Y+21	; 0x15
+     d98:	88 23       	and	r24, r24
+     d9a:	09 f0       	breq	.+2      	; 0xd9e <main+0xde>
+     d9c:	39 c3       	rjmp	.+1650   	; 0x1410 <__stack+0x311>
+		{
+			//--------------------------------------------灯光
+			LedGreenOff();
+     d9e:	0e 94 35 01 	call	0x26a	; 0x26a <LedGreenOff>
+			LedRedOff();
+     da2:	0e 94 25 01 	call	0x24a	; 0x24a <LedRedOff>
+            wifi_ok_flag = 0;
+     da6:	19 86       	std	Y+9, r1	; 0x09
+     da8:	18 86       	std	Y+8, r1	; 0x08
+			tcp_ok_flag = 0;
+     daa:	1b 86       	std	Y+11, r1	; 0x0b
+     dac:	1a 86       	std	Y+10, r1	; 0x0a
+            LedYellowOff();
+     dae:	0e 94 45 01 	call	0x28a	; 0x28a <LedYellowOff>
+			delay(1000);
+     db2:	88 ee       	ldi	r24, 0xE8	; 232
+     db4:	93 e0       	ldi	r25, 0x03	; 3
+     db6:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+			LedYellowOn();
+     dba:	0e 94 15 01 	call	0x22a	; 0x22a <LedYellowOn>
+			puts1("+++");
+     dbe:	8b e4       	ldi	r24, 0x4B	; 75
+     dc0:	91 e0       	ldi	r25, 0x01	; 1
+     dc2:	0e 94 be 04 	call	0x97c	; 0x97c <puts1>
+			delay(2000);
+     dc6:	80 ed       	ldi	r24, 0xD0	; 208
+     dc8:	97 e0       	ldi	r25, 0x07	; 7
+     dca:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+			
+			
+			//-------------------------------------------从EEPROM读取字符
+			addressread = 0X00;
+     dce:	1b 8a       	std	Y+19, r1	; 0x13
+			char1=EEPROM_READ(addressread++);
+     dd0:	8b 89       	ldd	r24, Y+19	; 0x13
+     dd2:	91 e0       	ldi	r25, 0x01	; 1
+     dd4:	98 0f       	add	r25, r24
+     dd6:	9b 8b       	std	Y+19, r25	; 0x13
+     dd8:	88 2f       	mov	r24, r24
+     dda:	90 e0       	ldi	r25, 0x00	; 0
+     ddc:	0e 94 67 00 	call	0xce	; 0xce <EEPROM_READ>
+     de0:	8c 8b       	std	Y+20, r24	; 0x14
+		    while (charnum<2)  //读完停止
+     de2:	2f c0       	rjmp	.+94     	; 0xe42 <main+0x182>
+			{
+				if (char1=='@'){charnum++;}
+     de4:	8c 89       	ldd	r24, Y+20	; 0x14
+     de6:	80 34       	cpi	r24, 0x40	; 64
+     de8:	31 f4       	brne	.+12     	; 0xdf6 <main+0x136>
+     dea:	88 89       	ldd	r24, Y+16	; 0x10
+     dec:	99 89       	ldd	r25, Y+17	; 0x11
+     dee:	01 96       	adiw	r24, 0x01	; 1
+     df0:	99 8b       	std	Y+17, r25	; 0x11
+     df2:	88 8b       	std	Y+16, r24	; 0x10
+     df4:	1d c0       	rjmp	.+58     	; 0xe30 <main+0x170>
+				else
+				{
+					if(charnum==0){ip[ipnum++]=char1;}
+     df6:	88 89       	ldd	r24, Y+16	; 0x10
+     df8:	99 89       	ldd	r25, Y+17	; 0x11
+     dfa:	00 97       	sbiw	r24, 0x00	; 0
+     dfc:	69 f4       	brne	.+26     	; 0xe18 <main+0x158>
+     dfe:	8c 85       	ldd	r24, Y+12	; 0x0c
+     e00:	9d 85       	ldd	r25, Y+13	; 0x0d
+     e02:	9c 01       	movw	r18, r24
+     e04:	2f 5f       	subi	r18, 0xFF	; 255
+     e06:	3f 4f       	sbci	r19, 0xFF	; 255
+     e08:	3d 87       	std	Y+13, r19	; 0x0d
+     e0a:	2c 87       	std	Y+12, r18	; 0x0c
+     e0c:	83 5e       	subi	r24, 0xE3	; 227
+     e0e:	9c 4f       	sbci	r25, 0xFC	; 252
+     e10:	2c 89       	ldd	r18, Y+20	; 0x14
+     e12:	fc 01       	movw	r30, r24
+     e14:	20 83       	st	Z, r18
+     e16:	0c c0       	rjmp	.+24     	; 0xe30 <main+0x170>
+					else{port[portnum++]=char1;}
+     e18:	8e 85       	ldd	r24, Y+14	; 0x0e
+     e1a:	9f 85       	ldd	r25, Y+15	; 0x0f
+     e1c:	9c 01       	movw	r18, r24
+     e1e:	2f 5f       	subi	r18, 0xFF	; 255
+     e20:	3f 4f       	sbci	r19, 0xFF	; 255
+     e22:	3f 87       	std	Y+15, r19	; 0x0f
+     e24:	2e 87       	std	Y+14, r18	; 0x0e
+     e26:	80 5d       	subi	r24, 0xD0	; 208
+     e28:	9c 4f       	sbci	r25, 0xFC	; 252
+     e2a:	2c 89       	ldd	r18, Y+20	; 0x14
+     e2c:	fc 01       	movw	r30, r24
+     e2e:	20 83       	st	Z, r18
+				}
+				char1=EEPROM_READ(addressread++);
+     e30:	8b 89       	ldd	r24, Y+19	; 0x13
+     e32:	91 e0       	ldi	r25, 0x01	; 1
+     e34:	98 0f       	add	r25, r24
+     e36:	9b 8b       	std	Y+19, r25	; 0x13
+     e38:	88 2f       	mov	r24, r24
+     e3a:	90 e0       	ldi	r25, 0x00	; 0
+     e3c:	0e 94 67 00 	call	0xce	; 0xce <EEPROM_READ>
+     e40:	8c 8b       	std	Y+20, r24	; 0x14
+			
+			
+			//-------------------------------------------从EEPROM读取字符
+			addressread = 0X00;
+			char1=EEPROM_READ(addressread++);
+		    while (charnum<2)  //读完停止
+     e42:	88 89       	ldd	r24, Y+16	; 0x10
+     e44:	99 89       	ldd	r25, Y+17	; 0x11
+     e46:	82 30       	cpi	r24, 0x02	; 2
+     e48:	91 05       	cpc	r25, r1
+     e4a:	64 f2       	brlt	.-104    	; 0xde4 <main+0x124>
+					else{port[portnum++]=char1;}
+				}
+				char1=EEPROM_READ(addressread++);
+				//USART1_Transmit(char1);
+			}
+			ip[ipnum]='\0';
+     e4c:	8c 85       	ldd	r24, Y+12	; 0x0c
+     e4e:	9d 85       	ldd	r25, Y+13	; 0x0d
+     e50:	83 5e       	subi	r24, 0xE3	; 227
+     e52:	9c 4f       	sbci	r25, 0xFC	; 252
+     e54:	fc 01       	movw	r30, r24
+     e56:	10 82       	st	Z, r1
+			port[portnum]='\0';
+     e58:	8e 85       	ldd	r24, Y+14	; 0x0e
+     e5a:	9f 85       	ldd	r25, Y+15	; 0x0f
+     e5c:	80 5d       	subi	r24, 0xD0	; 208
+     e5e:	9c 4f       	sbci	r25, 0xFC	; 252
+     e60:	fc 01       	movw	r30, r24
+     e62:	10 82       	st	Z, r1
+			addressread=0x00;
+     e64:	1b 8a       	std	Y+19, r1	; 0x13
+			ipnum=0;portnum=0;charnum=0;
+     e66:	1d 86       	std	Y+13, r1	; 0x0d
+     e68:	1c 86       	std	Y+12, r1	; 0x0c
+     e6a:	1f 86       	std	Y+15, r1	; 0x0f
+     e6c:	1e 86       	std	Y+14, r1	; 0x0e
+     e6e:	19 8a       	std	Y+17, r1	; 0x11
+     e70:	18 8a       	std	Y+16, r1	; 0x10
+			SPIputs(ip);
+     e72:	8d e1       	ldi	r24, 0x1D	; 29
+     e74:	93 e0       	ldi	r25, 0x03	; 3
+     e76:	0e 94 a9 02 	call	0x552	; 0x552 <SPIputs>
+			SPIputs(port);
+     e7a:	80 e3       	ldi	r24, 0x30	; 48
+     e7c:	93 e0       	ldi	r25, 0x03	; 3
+     e7e:	0e 94 a9 02 	call	0x552	; 0x552 <SPIputs>
+			
+			dianping=PINE&(1<<7);
+     e82:	81 e2       	ldi	r24, 0x21	; 33
+     e84:	90 e0       	ldi	r25, 0x00	; 0
+     e86:	fc 01       	movw	r30, r24
+     e88:	80 81       	ld	r24, Z
+     e8a:	80 78       	andi	r24, 0x80	; 128
+     e8c:	8e 8b       	std	Y+22, r24	; 0x16
+			if(dianping)//--------------------------------------------------------高电平配置WiFi
+     e8e:	8e 89       	ldd	r24, Y+22	; 0x16
+     e90:	88 23       	and	r24, r24
+     e92:	09 f4       	brne	.+2      	; 0xe96 <main+0x1d6>
+     e94:	ed c1       	rjmp	.+986    	; 0x1270 <__stack+0x171>
+			{	
+				while (DeQueue(&UARTbufQueue,&c)); //排空队列
+     e96:	00 00       	nop
+     e98:	ce 01       	movw	r24, r28
+     e9a:	47 96       	adiw	r24, 0x17	; 23
+     e9c:	bc 01       	movw	r22, r24
+     e9e:	84 eb       	ldi	r24, 0xB4	; 180
+     ea0:	92 e0       	ldi	r25, 0x02	; 2
+     ea2:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+     ea6:	00 97       	sbiw	r24, 0x00	; 0
+     ea8:	b9 f7       	brne	.-18     	; 0xe98 <main+0x1d8>
+				puts1("AT+CIPSTATUS\r\n");
+     eaa:	8f e4       	ldi	r24, 0x4F	; 79
+     eac:	91 e0       	ldi	r25, 0x01	; 1
+     eae:	0e 94 be 04 	call	0x97c	; 0x97c <puts1>
+				delay(1000);
+     eb2:	88 ee       	ldi	r24, 0xE8	; 232
+     eb4:	93 e0       	ldi	r25, 0x03	; 3
+     eb6:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+				while (!DeQueue(&UARTbufQueue,&c)); //等待队列非空
+     eba:	00 00       	nop
+     ebc:	ce 01       	movw	r24, r28
+     ebe:	47 96       	adiw	r24, 0x17	; 23
+     ec0:	bc 01       	movw	r22, r24
+     ec2:	84 eb       	ldi	r24, 0xB4	; 180
+     ec4:	92 e0       	ldi	r25, 0x02	; 2
+     ec6:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+     eca:	00 97       	sbiw	r24, 0x00	; 0
+     ecc:	b9 f3       	breq	.-18     	; 0xebc <main+0x1fc>
+			    a=b;
+     ece:	8a 81       	ldd	r24, Y+2	; 0x02
+     ed0:	89 83       	std	Y+1, r24	; 0x01
+				b=c;
+     ed2:	8f 89       	ldd	r24, Y+23	; 0x17
+     ed4:	8a 83       	std	Y+2, r24	; 0x02
+				SPI_MasterInitInit();
+     ed6:	0e 94 c8 01 	call	0x390	; 0x390 <SPI_MasterInitInit>
+				SPI_MasterTransmit(c);
+     eda:	8f 89       	ldd	r24, Y+23	; 0x17
+     edc:	88 2f       	mov	r24, r24
+     ede:	90 e0       	ldi	r25, 0x00	; 0
+     ee0:	0e 94 57 02 	call	0x4ae	; 0x4ae <SPI_MasterTransmit>
+				SPI_Init();
+     ee4:	0e 94 55 01 	call	0x2aa	; 0x2aa <SPI_Init>
+				while (DeQueue(&UARTbufQueue,&c))
+     ee8:	4c c0       	rjmp	.+152    	; 0xf82 <main+0x2c2>
+				{
+					SPI_MasterInitInit();
+     eea:	0e 94 c8 01 	call	0x390	; 0x390 <SPI_MasterInitInit>
+					SPI_MasterTransmit(c);
+     eee:	8f 89       	ldd	r24, Y+23	; 0x17
+     ef0:	88 2f       	mov	r24, r24
+     ef2:	90 e0       	ldi	r25, 0x00	; 0
+     ef4:	0e 94 57 02 	call	0x4ae	; 0x4ae <SPI_MasterTransmit>
+					SPI_Init();
+     ef8:	0e 94 55 01 	call	0x2aa	; 0x2aa <SPI_Init>
+					if (((a == 'S')&(b == ':')&(c == '2'))|((a == 'S')&(b == ':')&(c == '4')))
+     efc:	91 e0       	ldi	r25, 0x01	; 1
+     efe:	89 81       	ldd	r24, Y+1	; 0x01
+     f00:	83 35       	cpi	r24, 0x53	; 83
+     f02:	09 f0       	breq	.+2      	; 0xf06 <main+0x246>
+     f04:	90 e0       	ldi	r25, 0x00	; 0
+     f06:	81 e0       	ldi	r24, 0x01	; 1
+     f08:	2a 81       	ldd	r18, Y+2	; 0x02
+     f0a:	2a 33       	cpi	r18, 0x3A	; 58
+     f0c:	09 f0       	breq	.+2      	; 0xf10 <main+0x250>
+     f0e:	80 e0       	ldi	r24, 0x00	; 0
+     f10:	89 23       	and	r24, r25
+     f12:	28 2f       	mov	r18, r24
+     f14:	30 e0       	ldi	r19, 0x00	; 0
+     f16:	8f 89       	ldd	r24, Y+23	; 0x17
+     f18:	91 e0       	ldi	r25, 0x01	; 1
+     f1a:	82 33       	cpi	r24, 0x32	; 50
+     f1c:	09 f0       	breq	.+2      	; 0xf20 <main+0x260>
+     f1e:	90 e0       	ldi	r25, 0x00	; 0
+     f20:	4f 89       	ldd	r20, Y+23	; 0x17
+     f22:	81 e0       	ldi	r24, 0x01	; 1
+     f24:	44 33       	cpi	r20, 0x34	; 52
+     f26:	09 f0       	breq	.+2      	; 0xf2a <main+0x26a>
+     f28:	80 e0       	ldi	r24, 0x00	; 0
+     f2a:	89 2b       	or	r24, r25
+     f2c:	88 2f       	mov	r24, r24
+     f2e:	90 e0       	ldi	r25, 0x00	; 0
+     f30:	82 23       	and	r24, r18
+     f32:	93 23       	and	r25, r19
+     f34:	00 97       	sbiw	r24, 0x00	; 0
+     f36:	29 f0       	breq	.+10     	; 0xf42 <main+0x282>
+					{
+						wifi_ok_flag = 1;
+     f38:	81 e0       	ldi	r24, 0x01	; 1
+     f3a:	90 e0       	ldi	r25, 0x00	; 0
+     f3c:	99 87       	std	Y+9, r25	; 0x09
+     f3e:	88 87       	std	Y+8, r24	; 0x08
+     f40:	1c c0       	rjmp	.+56     	; 0xf7a <main+0x2ba>
+					}
+					else if ((a == 'S')&(b == ':')&(c == '3')) 
+     f42:	91 e0       	ldi	r25, 0x01	; 1
+     f44:	89 81       	ldd	r24, Y+1	; 0x01
+     f46:	83 35       	cpi	r24, 0x53	; 83
+     f48:	09 f0       	breq	.+2      	; 0xf4c <main+0x28c>
+     f4a:	90 e0       	ldi	r25, 0x00	; 0
+     f4c:	81 e0       	ldi	r24, 0x01	; 1
+     f4e:	2a 81       	ldd	r18, Y+2	; 0x02
+     f50:	2a 33       	cpi	r18, 0x3A	; 58
+     f52:	09 f0       	breq	.+2      	; 0xf56 <main+0x296>
+     f54:	80 e0       	ldi	r24, 0x00	; 0
+     f56:	89 23       	and	r24, r25
+     f58:	28 2f       	mov	r18, r24
+     f5a:	30 e0       	ldi	r19, 0x00	; 0
+     f5c:	9f 89       	ldd	r25, Y+23	; 0x17
+     f5e:	81 e0       	ldi	r24, 0x01	; 1
+     f60:	93 33       	cpi	r25, 0x33	; 51
+     f62:	09 f0       	breq	.+2      	; 0xf66 <main+0x2a6>
+     f64:	80 e0       	ldi	r24, 0x00	; 0
+     f66:	88 2f       	mov	r24, r24
+     f68:	90 e0       	ldi	r25, 0x00	; 0
+     f6a:	82 23       	and	r24, r18
+     f6c:	93 23       	and	r25, r19
+     f6e:	00 97       	sbiw	r24, 0x00	; 0
+     f70:	21 f0       	breq	.+8      	; 0xf7a <main+0x2ba>
+					{
+						tcp_ok_flag = 1;
+     f72:	81 e0       	ldi	r24, 0x01	; 1
+     f74:	90 e0       	ldi	r25, 0x00	; 0
+     f76:	9b 87       	std	Y+11, r25	; 0x0b
+     f78:	8a 87       	std	Y+10, r24	; 0x0a
+					}
+					a = b;
+     f7a:	8a 81       	ldd	r24, Y+2	; 0x02
+     f7c:	89 83       	std	Y+1, r24	; 0x01
+					b = c;
+     f7e:	8f 89       	ldd	r24, Y+23	; 0x17
+     f80:	8a 83       	std	Y+2, r24	; 0x02
+			    a=b;
+				b=c;
+				SPI_MasterInitInit();
+				SPI_MasterTransmit(c);
+				SPI_Init();
+				while (DeQueue(&UARTbufQueue,&c))
+     f82:	ce 01       	movw	r24, r28
+     f84:	47 96       	adiw	r24, 0x17	; 23
+     f86:	bc 01       	movw	r22, r24
+     f88:	84 eb       	ldi	r24, 0xB4	; 180
+     f8a:	92 e0       	ldi	r25, 0x02	; 2
+     f8c:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+     f90:	00 97       	sbiw	r24, 0x00	; 0
+     f92:	09 f0       	breq	.+2      	; 0xf96 <main+0x2d6>
+     f94:	aa cf       	rjmp	.-172    	; 0xeea <main+0x22a>
+						tcp_ok_flag = 1;
+					}
+					a = b;
+					b = c;
+				}
+				if (tcp_ok_flag)  //-------------------------------------------------------------- 若TCP连接已存在则直接开启透传
+     f96:	8a 85       	ldd	r24, Y+10	; 0x0a
+     f98:	9b 85       	ldd	r25, Y+11	; 0x0b
+     f9a:	00 97       	sbiw	r24, 0x00	; 0
+     f9c:	09 f4       	brne	.+2      	; 0xfa0 <main+0x2e0>
+     f9e:	58 c0       	rjmp	.+176    	; 0x1050 <main+0x390>
+				{
+					while (DeQueue(&UARTbufQueue,&f)); //排空队列
+     fa0:	00 00       	nop
+     fa2:	ce 01       	movw	r24, r28
+     fa4:	49 96       	adiw	r24, 0x19	; 25
+     fa6:	bc 01       	movw	r22, r24
+     fa8:	84 eb       	ldi	r24, 0xB4	; 180
+     faa:	92 e0       	ldi	r25, 0x02	; 2
+     fac:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+     fb0:	00 97       	sbiw	r24, 0x00	; 0
+     fb2:	b9 f7       	brne	.-18     	; 0xfa2 <main+0x2e2>
+					puts1("AT+CIPSEND\r\n");
+     fb4:	8e e5       	ldi	r24, 0x5E	; 94
+     fb6:	91 e0       	ldi	r25, 0x01	; 1
+     fb8:	0e 94 be 04 	call	0x97c	; 0x97c <puts1>
+					delay(1000);
+     fbc:	88 ee       	ldi	r24, 0xE8	; 232
+     fbe:	93 e0       	ldi	r25, 0x03	; 3
+     fc0:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+					while (!DeQueue(&UARTbufQueue,&f));
+     fc4:	00 00       	nop
+     fc6:	ce 01       	movw	r24, r28
+     fc8:	49 96       	adiw	r24, 0x19	; 25
+     fca:	bc 01       	movw	r22, r24
+     fcc:	84 eb       	ldi	r24, 0xB4	; 180
+     fce:	92 e0       	ldi	r25, 0x02	; 2
+     fd0:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+     fd4:	00 97       	sbiw	r24, 0x00	; 0
+     fd6:	b9 f3       	breq	.-18     	; 0xfc6 <main+0x306>
+					e=f;
+     fd8:	89 8d       	ldd	r24, Y+25	; 0x19
+     fda:	8b 83       	std	Y+3, r24	; 0x03
+					SPI_MasterInitInit();
+     fdc:	0e 94 c8 01 	call	0x390	; 0x390 <SPI_MasterInitInit>
+					SPI_MasterTransmit(f);
+     fe0:	89 8d       	ldd	r24, Y+25	; 0x19
+     fe2:	88 2f       	mov	r24, r24
+     fe4:	90 e0       	ldi	r25, 0x00	; 0
+     fe6:	0e 94 57 02 	call	0x4ae	; 0x4ae <SPI_MasterTransmit>
+					SPI_Init();
+     fea:	0e 94 55 01 	call	0x2aa	; 0x2aa <SPI_Init>
+					if (rx_ok(e,f))
+     fee:	89 8d       	ldd	r24, Y+25	; 0x19
+     ff0:	28 2f       	mov	r18, r24
+     ff2:	30 e0       	ldi	r19, 0x00	; 0
+     ff4:	8b 81       	ldd	r24, Y+3	; 0x03
+     ff6:	88 2f       	mov	r24, r24
+     ff8:	90 e0       	ldi	r25, 0x00	; 0
+     ffa:	b9 01       	movw	r22, r18
+     ffc:	0e 94 fa 04 	call	0x9f4	; 0x9f4 <rx_ok>
+    1000:	00 97       	sbiw	r24, 0x00	; 0
+    1002:	29 f1       	breq	.+74     	; 0x104e <main+0x38e>
+					{
+						LedGreenOn();
+    1004:	0e 94 00 01 	call	0x200	; 0x200 <LedGreenOn>
+						LedRedOn();
+    1008:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LedRedOn>
+						puts1("wifimodule ok");
+    100c:	8b e6       	ldi	r24, 0x6B	; 107
+    100e:	91 e0       	ldi	r25, 0x01	; 1
+    1010:	0e 94 be 04 	call	0x97c	; 0x97c <puts1>
+						SPCR &= ~(1<<7);  // 关闭SPI中断SPIE
+    1014:	8d e2       	ldi	r24, 0x2D	; 45
+    1016:	90 e0       	ldi	r25, 0x00	; 0
+    1018:	2d e2       	ldi	r18, 0x2D	; 45
+    101a:	30 e0       	ldi	r19, 0x00	; 0
+    101c:	f9 01       	movw	r30, r18
+    101e:	20 81       	ld	r18, Z
+    1020:	2f 77       	andi	r18, 0x7F	; 127
+    1022:	fc 01       	movw	r30, r24
+    1024:	20 83       	st	Z, r18
+						while (DeQueue(&SPIbufQueue,&f)); 
+    1026:	00 00       	nop
+    1028:	ce 01       	movw	r24, r28
+    102a:	49 96       	adiw	r24, 0x19	; 25
+    102c:	bc 01       	movw	r22, r24
+    102e:	8c e4       	ldi	r24, 0x4C	; 76
+    1030:	92 e0       	ldi	r25, 0x02	; 2
+    1032:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+    1036:	00 97       	sbiw	r24, 0x00	; 0
+    1038:	b9 f7       	brne	.-18     	; 0x1028 <main+0x368>
+						SPCR |= (1<<7);  // 开启SPI中断SPIE
+    103a:	8d e2       	ldi	r24, 0x2D	; 45
+    103c:	90 e0       	ldi	r25, 0x00	; 0
+    103e:	2d e2       	ldi	r18, 0x2D	; 45
+    1040:	30 e0       	ldi	r19, 0x00	; 0
+    1042:	f9 01       	movw	r30, r18
+    1044:	20 81       	ld	r18, Z
+    1046:	20 68       	ori	r18, 0x80	; 128
+    1048:	fc 01       	movw	r30, r24
+    104a:	20 83       	st	Z, r18
+    104c:	10 c1       	rjmp	.+544    	; 0x126e <__stack+0x16f>
+    104e:	0f c1       	rjmp	.+542    	; 0x126e <__stack+0x16f>
+					}
+				}
+				else
+				{
+					//----------------------------------------------------------查询wifi是否连接成功
+					if (!wifi_ok_flag)//------------------------------------------若wifi连接不成功，则从头配置
+    1050:	88 85       	ldd	r24, Y+8	; 0x08
+    1052:	99 85       	ldd	r25, Y+9	; 0x09
+    1054:	00 97       	sbiw	r24, 0x00	; 0
+    1056:	09 f0       	breq	.+2      	; 0x105a <main+0x39a>
+    1058:	fc c0       	rjmp	.+504    	; 0x1252 <__stack+0x153>
+					{
+						while (DeQueue(&UARTbufQueue,&f)); //排空队列
+    105a:	00 00       	nop
+    105c:	ce 01       	movw	r24, r28
+    105e:	49 96       	adiw	r24, 0x19	; 25
+    1060:	bc 01       	movw	r22, r24
+    1062:	84 eb       	ldi	r24, 0xB4	; 180
+    1064:	92 e0       	ldi	r25, 0x02	; 2
+    1066:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+    106a:	00 97       	sbiw	r24, 0x00	; 0
+    106c:	b9 f7       	brne	.-18     	; 0x105c <main+0x39c>
+						puts1("AT+CWMODE=1\r\n");  // 8266设置为STA模式
+    106e:	89 e7       	ldi	r24, 0x79	; 121
+    1070:	91 e0       	ldi	r25, 0x01	; 1
+    1072:	0e 94 be 04 	call	0x97c	; 0x97c <puts1>
+						delay(1000);
+    1076:	88 ee       	ldi	r24, 0xE8	; 232
+    1078:	93 e0       	ldi	r25, 0x03	; 3
+    107a:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+						while (!DeQueue(&UARTbufQueue,&f));//等待非空
+    107e:	00 00       	nop
+    1080:	ce 01       	movw	r24, r28
+    1082:	49 96       	adiw	r24, 0x19	; 25
+    1084:	bc 01       	movw	r22, r24
+    1086:	84 eb       	ldi	r24, 0xB4	; 180
+    1088:	92 e0       	ldi	r25, 0x02	; 2
+    108a:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+    108e:	00 97       	sbiw	r24, 0x00	; 0
+    1090:	b9 f3       	breq	.-18     	; 0x1080 <main+0x3c0>
+						e=f;
+    1092:	89 8d       	ldd	r24, Y+25	; 0x19
+    1094:	8b 83       	std	Y+3, r24	; 0x03
+						SPI_MasterInitInit();
+    1096:	0e 94 c8 01 	call	0x390	; 0x390 <SPI_MasterInitInit>
+						SPI_MasterTransmit(f);
+    109a:	89 8d       	ldd	r24, Y+25	; 0x19
+    109c:	88 2f       	mov	r24, r24
+    109e:	90 e0       	ldi	r25, 0x00	; 0
+    10a0:	0e 94 57 02 	call	0x4ae	; 0x4ae <SPI_MasterTransmit>
+						SPI_Init();
+    10a4:	0e 94 55 01 	call	0x2aa	; 0x2aa <SPI_Init>
+						if (rx_ok(e,f))
+    10a8:	89 8d       	ldd	r24, Y+25	; 0x19
+    10aa:	28 2f       	mov	r18, r24
+    10ac:	30 e0       	ldi	r19, 0x00	; 0
+    10ae:	8b 81       	ldd	r24, Y+3	; 0x03
+    10b0:	88 2f       	mov	r24, r24
+    10b2:	90 e0       	ldi	r25, 0x00	; 0
+    10b4:	b9 01       	movw	r22, r18
+    10b6:	0e 94 fa 04 	call	0x9f4	; 0x9f4 <rx_ok>
+    10ba:	00 97       	sbiw	r24, 0x00	; 0
+    10bc:	09 f4       	brne	.+2      	; 0x10c0 <main+0x400>
+    10be:	c9 c0       	rjmp	.+402    	; 0x1252 <__stack+0x153>
+						{
+							while (DeQueue(&UARTbufQueue,&f));//排空
+    10c0:	00 00       	nop
+    10c2:	ce 01       	movw	r24, r28
+    10c4:	49 96       	adiw	r24, 0x19	; 25
+    10c6:	bc 01       	movw	r22, r24
+    10c8:	84 eb       	ldi	r24, 0xB4	; 180
+    10ca:	92 e0       	ldi	r25, 0x02	; 2
+    10cc:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+    10d0:	00 97       	sbiw	r24, 0x00	; 0
+    10d2:	b9 f7       	brne	.-18     	; 0x10c2 <main+0x402>
+							puts1("AT+CWAUTOCONN=1\r\n");  //上电自动连接AP
+    10d4:	87 e8       	ldi	r24, 0x87	; 135
+    10d6:	91 e0       	ldi	r25, 0x01	; 1
+    10d8:	0e 94 be 04 	call	0x97c	; 0x97c <puts1>
+							delay(1000);
+    10dc:	88 ee       	ldi	r24, 0xE8	; 232
+    10de:	93 e0       	ldi	r25, 0x03	; 3
+    10e0:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+							while (!DeQueue(&UARTbufQueue,&f));
+    10e4:	00 00       	nop
+    10e6:	ce 01       	movw	r24, r28
+    10e8:	49 96       	adiw	r24, 0x19	; 25
+    10ea:	bc 01       	movw	r22, r24
+    10ec:	84 eb       	ldi	r24, 0xB4	; 180
+    10ee:	92 e0       	ldi	r25, 0x02	; 2
+    10f0:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+    10f4:	00 97       	sbiw	r24, 0x00	; 0
+    10f6:	b9 f3       	breq	.-18     	; 0x10e6 <main+0x426>
+							e=f;
+    10f8:	89 8d       	ldd	r24, Y+25	; 0x19
+    10fa:	8b 83       	std	Y+3, r24	; 0x03
+							SPI_MasterInitInit();
+    10fc:	0e 94 c8 01 	call	0x390	; 0x390 <SPI_MasterInitInit>
+							SPI_MasterTransmit(f);
+    1100:	89 8d       	ldd	r24, Y+25	; 0x19
+    1102:	88 2f       	mov	r24, r24
+    1104:	90 e0       	ldi	r25, 0x00	; 0
+    1106:	0e 94 57 02 	call	0x4ae	; 0x4ae <SPI_MasterTransmit>
+							SPI_Init();
+    110a:	0e 94 55 01 	call	0x2aa	; 0x2aa <SPI_Init>
+						    //while(1);
+							if (rx_ok(e,f))
+    110e:	89 8d       	ldd	r24, Y+25	; 0x19
+    1110:	28 2f       	mov	r18, r24
+    1112:	30 e0       	ldi	r19, 0x00	; 0
+    1114:	8b 81       	ldd	r24, Y+3	; 0x03
+    1116:	88 2f       	mov	r24, r24
+    1118:	90 e0       	ldi	r25, 0x00	; 0
+    111a:	b9 01       	movw	r22, r18
+    111c:	0e 94 fa 04 	call	0x9f4	; 0x9f4 <rx_ok>
+    1120:	00 97       	sbiw	r24, 0x00	; 0
+    1122:	09 f4       	brne	.+2      	; 0x1126 <__stack+0x27>
+    1124:	96 c0       	rjmp	.+300    	; 0x1252 <__stack+0x153>
+							{
+								while (DeQueue(&UARTbufQueue,&f));//排空
+    1126:	00 00       	nop
+    1128:	ce 01       	movw	r24, r28
+    112a:	49 96       	adiw	r24, 0x19	; 25
+    112c:	bc 01       	movw	r22, r24
+    112e:	84 eb       	ldi	r24, 0xB4	; 180
+    1130:	92 e0       	ldi	r25, 0x02	; 2
+    1132:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+    1136:	00 97       	sbiw	r24, 0x00	; 0
+    1138:	b9 f7       	brne	.-18     	; 0x1128 <__stack+0x29>
+								puts1("AT+CWSTARTSMART=3\r\n");   //开启ESP-TOUCH+Airkiss配网
+    113a:	89 e9       	ldi	r24, 0x99	; 153
+    113c:	91 e0       	ldi	r25, 0x01	; 1
+    113e:	0e 94 be 04 	call	0x97c	; 0x97c <puts1>
+								delay(1000);
+    1142:	88 ee       	ldi	r24, 0xE8	; 232
+    1144:	93 e0       	ldi	r25, 0x03	; 3
+    1146:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+								while (!DeQueue(&UARTbufQueue,&f));
+    114a:	00 00       	nop
+    114c:	ce 01       	movw	r24, r28
+    114e:	49 96       	adiw	r24, 0x19	; 25
+    1150:	bc 01       	movw	r22, r24
+    1152:	84 eb       	ldi	r24, 0xB4	; 180
+    1154:	92 e0       	ldi	r25, 0x02	; 2
+    1156:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+    115a:	00 97       	sbiw	r24, 0x00	; 0
+    115c:	b9 f3       	breq	.-18     	; 0x114c <__stack+0x4d>
+								e=f;
+    115e:	89 8d       	ldd	r24, Y+25	; 0x19
+    1160:	8b 83       	std	Y+3, r24	; 0x03
+								SPI_MasterInitInit();
+    1162:	0e 94 c8 01 	call	0x390	; 0x390 <SPI_MasterInitInit>
+								SPI_MasterTransmit(f);
+    1166:	89 8d       	ldd	r24, Y+25	; 0x19
+    1168:	88 2f       	mov	r24, r24
+    116a:	90 e0       	ldi	r25, 0x00	; 0
+    116c:	0e 94 57 02 	call	0x4ae	; 0x4ae <SPI_MasterTransmit>
+								SPI_Init();
+    1170:	0e 94 55 01 	call	0x2aa	; 0x2aa <SPI_Init>
+								//while(1);
+								if (rx_ok(e,f))
+    1174:	89 8d       	ldd	r24, Y+25	; 0x19
+    1176:	28 2f       	mov	r18, r24
+    1178:	30 e0       	ldi	r19, 0x00	; 0
+    117a:	8b 81       	ldd	r24, Y+3	; 0x03
+    117c:	88 2f       	mov	r24, r24
+    117e:	90 e0       	ldi	r25, 0x00	; 0
+    1180:	b9 01       	movw	r22, r18
+    1182:	0e 94 fa 04 	call	0x9f4	; 0x9f4 <rx_ok>
+    1186:	00 97       	sbiw	r24, 0x00	; 0
+    1188:	09 f4       	brne	.+2      	; 0x118c <__stack+0x8d>
+    118a:	63 c0       	rjmp	.+198    	; 0x1252 <__stack+0x153>
+								{
+									while (DeQueue(&UARTbufQueue,&f));//排空
+    118c:	00 00       	nop
+    118e:	ce 01       	movw	r24, r28
+    1190:	49 96       	adiw	r24, 0x19	; 25
+    1192:	bc 01       	movw	r22, r24
+    1194:	84 eb       	ldi	r24, 0xB4	; 180
+    1196:	92 e0       	ldi	r25, 0x02	; 2
+    1198:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+    119c:	00 97       	sbiw	r24, 0x00	; 0
+    119e:	b9 f7       	brne	.-18     	; 0x118e <__stack+0x8f>
+									puts1("AT+CWSTARTDISCOVER=\"gh_4248324a4d02\",\"aithinker\",10\r\n");
+    11a0:	8d ea       	ldi	r24, 0xAD	; 173
+    11a2:	91 e0       	ldi	r25, 0x01	; 1
+    11a4:	0e 94 be 04 	call	0x97c	; 0x97c <puts1>
+									delay(1000);
+    11a8:	88 ee       	ldi	r24, 0xE8	; 232
+    11aa:	93 e0       	ldi	r25, 0x03	; 3
+    11ac:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+									while (!DeQueue(&UARTbufQueue,&c));  // 等待回复
+    11b0:	00 00       	nop
+    11b2:	ce 01       	movw	r24, r28
+    11b4:	47 96       	adiw	r24, 0x17	; 23
+    11b6:	bc 01       	movw	r22, r24
+    11b8:	84 eb       	ldi	r24, 0xB4	; 180
+    11ba:	92 e0       	ldi	r25, 0x02	; 2
+    11bc:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+    11c0:	00 97       	sbiw	r24, 0x00	; 0
+    11c2:	b9 f3       	breq	.-18     	; 0x11b2 <__stack+0xb3>
+									a=b;
+    11c4:	8a 81       	ldd	r24, Y+2	; 0x02
+    11c6:	89 83       	std	Y+1, r24	; 0x01
+									b=c;
+    11c8:	8f 89       	ldd	r24, Y+23	; 0x17
+    11ca:	8a 83       	std	Y+2, r24	; 0x02
+									SPI_MasterInitInit();
+    11cc:	0e 94 c8 01 	call	0x390	; 0x390 <SPI_MasterInitInit>
+									SPI_MasterTransmit(c);
+    11d0:	8f 89       	ldd	r24, Y+23	; 0x17
+    11d2:	88 2f       	mov	r24, r24
+    11d4:	90 e0       	ldi	r25, 0x00	; 0
+    11d6:	0e 94 57 02 	call	0x4ae	; 0x4ae <SPI_MasterTransmit>
+									SPI_Init();
+    11da:	0e 94 55 01 	call	0x2aa	; 0x2aa <SPI_Init>
+									while (1)  // 因为此时会回传多条信息，为防止时差过长，设死循环
+									{   
+										while (DeQueue(&UARTbufQueue,&c))
+    11de:	29 c0       	rjmp	.+82     	; 0x1232 <__stack+0x133>
+										{
+											SPI_MasterInitInit();
+    11e0:	0e 94 c8 01 	call	0x390	; 0x390 <SPI_MasterInitInit>
+											SPI_MasterTransmit(c);
+    11e4:	8f 89       	ldd	r24, Y+23	; 0x17
+    11e6:	88 2f       	mov	r24, r24
+    11e8:	90 e0       	ldi	r25, 0x00	; 0
+    11ea:	0e 94 57 02 	call	0x4ae	; 0x4ae <SPI_MasterTransmit>
+											SPI_Init();
+    11ee:	0e 94 55 01 	call	0x2aa	; 0x2aa <SPI_Init>
+											if ((a == 't')&(b == 'e')&(c == 'd'))
+    11f2:	91 e0       	ldi	r25, 0x01	; 1
+    11f4:	89 81       	ldd	r24, Y+1	; 0x01
+    11f6:	84 37       	cpi	r24, 0x74	; 116
+    11f8:	09 f0       	breq	.+2      	; 0x11fc <__stack+0xfd>
+    11fa:	90 e0       	ldi	r25, 0x00	; 0
+    11fc:	81 e0       	ldi	r24, 0x01	; 1
+    11fe:	2a 81       	ldd	r18, Y+2	; 0x02
+    1200:	25 36       	cpi	r18, 0x65	; 101
+    1202:	09 f0       	breq	.+2      	; 0x1206 <__stack+0x107>
+    1204:	80 e0       	ldi	r24, 0x00	; 0
+    1206:	89 23       	and	r24, r25
+    1208:	28 2f       	mov	r18, r24
+    120a:	30 e0       	ldi	r19, 0x00	; 0
+    120c:	9f 89       	ldd	r25, Y+23	; 0x17
+    120e:	81 e0       	ldi	r24, 0x01	; 1
+    1210:	94 36       	cpi	r25, 0x64	; 100
+    1212:	09 f0       	breq	.+2      	; 0x1216 <__stack+0x117>
+    1214:	80 e0       	ldi	r24, 0x00	; 0
+    1216:	88 2f       	mov	r24, r24
+    1218:	90 e0       	ldi	r25, 0x00	; 0
+    121a:	82 23       	and	r24, r18
+    121c:	93 23       	and	r25, r19
+    121e:	00 97       	sbiw	r24, 0x00	; 0
+    1220:	21 f0       	breq	.+8      	; 0x122a <__stack+0x12b>
+											{
+												wifi_ok_flag = 1;
+    1222:	81 e0       	ldi	r24, 0x01	; 1
+    1224:	90 e0       	ldi	r25, 0x00	; 0
+    1226:	99 87       	std	Y+9, r25	; 0x09
+    1228:	88 87       	std	Y+8, r24	; 0x08
+											}
+											a = b;
+    122a:	8a 81       	ldd	r24, Y+2	; 0x02
+    122c:	89 83       	std	Y+1, r24	; 0x01
+											b = c;
+    122e:	8f 89       	ldd	r24, Y+23	; 0x17
+    1230:	8a 83       	std	Y+2, r24	; 0x02
+									SPI_MasterInitInit();
+									SPI_MasterTransmit(c);
+									SPI_Init();
+									while (1)  // 因为此时会回传多条信息，为防止时差过长，设死循环
+									{   
+										while (DeQueue(&UARTbufQueue,&c))
+    1232:	ce 01       	movw	r24, r28
+    1234:	47 96       	adiw	r24, 0x17	; 23
+    1236:	bc 01       	movw	r22, r24
+    1238:	84 eb       	ldi	r24, 0xB4	; 180
+    123a:	92 e0       	ldi	r25, 0x02	; 2
+    123c:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+    1240:	00 97       	sbiw	r24, 0x00	; 0
+    1242:	71 f6       	brne	.-100    	; 0x11e0 <__stack+0xe1>
+												wifi_ok_flag = 1;
+											}
+											a = b;
+											b = c;
+										}
+										if (wifi_ok_flag) break;
+    1244:	88 85       	ldd	r24, Y+8	; 0x08
+    1246:	99 85       	ldd	r25, Y+9	; 0x09
+    1248:	00 97       	sbiw	r24, 0x00	; 0
+    124a:	09 f0       	breq	.+2      	; 0x124e <__stack+0x14f>
+    124c:	02 c0       	rjmp	.+4      	; 0x1252 <__stack+0x153>
+									}
+    124e:	00 00       	nop
+									SPI_MasterInitInit();
+									SPI_MasterTransmit(c);
+									SPI_Init();
+									while (1)  // 因为此时会回传多条信息，为防止时差过长，设死循环
+									{   
+										while (DeQueue(&UARTbufQueue,&c))
+    1250:	f0 cf       	rjmp	.-32     	; 0x1232 <__stack+0x133>
+							}
+						}
+					}
+			
+			
+					if (wifi_ok_flag)  //-------------------------------------------------------------- 若wifi已配好开始配置服务器
+    1252:	88 85       	ldd	r24, Y+8	; 0x08
+    1254:	99 85       	ldd	r25, Y+9	; 0x09
+    1256:	00 97       	sbiw	r24, 0x00	; 0
+    1258:	51 f0       	breq	.+20     	; 0x126e <__stack+0x16f>
+					{
+						set_server(e,f);
+    125a:	89 8d       	ldd	r24, Y+25	; 0x19
+    125c:	28 2f       	mov	r18, r24
+    125e:	30 e0       	ldi	r19, 0x00	; 0
+    1260:	8b 81       	ldd	r24, Y+3	; 0x03
+    1262:	88 2f       	mov	r24, r24
+    1264:	90 e0       	ldi	r25, 0x00	; 0
+    1266:	b9 01       	movw	r22, r18
+    1268:	0e 94 5c 05 	call	0xab8	; 0xab8 <set_server>
+    126c:	d1 c0       	rjmp	.+418    	; 0x1410 <__stack+0x311>
+    126e:	d0 c0       	rjmp	.+416    	; 0x1410 <__stack+0x311>
+				
+			}
+			
+			else//----------------------------------------------------------------------------------低电平配置4G
+			{
+				while (DeQueue(&UARTbufQueue,&f)); 
+    1270:	00 00       	nop
+    1272:	ce 01       	movw	r24, r28
+    1274:	49 96       	adiw	r24, 0x19	; 25
+    1276:	bc 01       	movw	r22, r24
+    1278:	84 eb       	ldi	r24, 0xB4	; 180
+    127a:	92 e0       	ldi	r25, 0x02	; 2
+    127c:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+    1280:	00 97       	sbiw	r24, 0x00	; 0
+    1282:	b9 f7       	brne	.-18     	; 0x1272 <__stack+0x173>
+				puts2("config,set,paramsrc,1\r\n");
+    1284:	83 ee       	ldi	r24, 0xE3	; 227
+    1286:	91 e0       	ldi	r25, 0x01	; 1
+    1288:	0e 94 dc 04 	call	0x9b8	; 0x9b8 <puts2>
+				delay(1000);
+    128c:	88 ee       	ldi	r24, 0xE8	; 232
+    128e:	93 e0       	ldi	r25, 0x03	; 3
+    1290:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+				while (!DeQueue(&UARTbufQueue,&f));
+    1294:	00 00       	nop
+    1296:	ce 01       	movw	r24, r28
+    1298:	49 96       	adiw	r24, 0x19	; 25
+    129a:	bc 01       	movw	r22, r24
+    129c:	84 eb       	ldi	r24, 0xB4	; 180
+    129e:	92 e0       	ldi	r25, 0x02	; 2
+    12a0:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+    12a4:	00 97       	sbiw	r24, 0x00	; 0
+    12a6:	b9 f3       	breq	.-18     	; 0x1296 <__stack+0x197>
+				e=f;
+    12a8:	89 8d       	ldd	r24, Y+25	; 0x19
+    12aa:	8b 83       	std	Y+3, r24	; 0x03
+				SPI_MasterInitInit();
+    12ac:	0e 94 c8 01 	call	0x390	; 0x390 <SPI_MasterInitInit>
+				SPI_MasterTransmit(f);
+    12b0:	89 8d       	ldd	r24, Y+25	; 0x19
+    12b2:	88 2f       	mov	r24, r24
+    12b4:	90 e0       	ldi	r25, 0x00	; 0
+    12b6:	0e 94 57 02 	call	0x4ae	; 0x4ae <SPI_MasterTransmit>
+				SPI_Init();
+    12ba:	0e 94 55 01 	call	0x2aa	; 0x2aa <SPI_Init>
+				if (rx_smallok(e,f))
+    12be:	89 8d       	ldd	r24, Y+25	; 0x19
+    12c0:	28 2f       	mov	r18, r24
+    12c2:	30 e0       	ldi	r19, 0x00	; 0
+    12c4:	8b 81       	ldd	r24, Y+3	; 0x03
+    12c6:	88 2f       	mov	r24, r24
+    12c8:	90 e0       	ldi	r25, 0x00	; 0
+    12ca:	b9 01       	movw	r22, r18
+    12cc:	0e 94 2b 05 	call	0xa56	; 0xa56 <rx_smallok>
+    12d0:	00 97       	sbiw	r24, 0x00	; 0
+    12d2:	09 f4       	brne	.+2      	; 0x12d6 <__stack+0x1d7>
+    12d4:	9d c0       	rjmp	.+314    	; 0x1410 <__stack+0x311>
+				{
+					while (DeQueue(&UARTbufQueue,&f)); 
+    12d6:	00 00       	nop
+    12d8:	ce 01       	movw	r24, r28
+    12da:	49 96       	adiw	r24, 0x19	; 25
+    12dc:	bc 01       	movw	r22, r24
+    12de:	84 eb       	ldi	r24, 0xB4	; 180
+    12e0:	92 e0       	ldi	r25, 0x02	; 2
+    12e2:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+    12e6:	00 97       	sbiw	r24, 0x00	; 0
+    12e8:	b9 f7       	brne	.-18     	; 0x12d8 <__stack+0x1d9>
+				    puts2("config,set,tcp,1,ttluart,1,1,,1,");
+    12ea:	8b ef       	ldi	r24, 0xFB	; 251
+    12ec:	91 e0       	ldi	r25, 0x01	; 1
+    12ee:	0e 94 dc 04 	call	0x9b8	; 0x9b8 <puts2>
+				    puts2(ip);
+    12f2:	8d e1       	ldi	r24, 0x1D	; 29
+    12f4:	93 e0       	ldi	r25, 0x03	; 3
+    12f6:	0e 94 dc 04 	call	0x9b8	; 0x9b8 <puts2>
+				    puts2(",");
+    12fa:	8c e1       	ldi	r24, 0x1C	; 28
+    12fc:	92 e0       	ldi	r25, 0x02	; 2
+    12fe:	0e 94 dc 04 	call	0x9b8	; 0x9b8 <puts2>
+				    puts2(port);
+    1302:	80 e3       	ldi	r24, 0x30	; 48
+    1304:	93 e0       	ldi	r25, 0x03	; 3
+    1306:	0e 94 dc 04 	call	0x9b8	; 0x9b8 <puts2>
+				    puts2(",0,0,0,0,0,0\r\n");
+    130a:	8e e1       	ldi	r24, 0x1E	; 30
+    130c:	92 e0       	ldi	r25, 0x02	; 2
+    130e:	0e 94 dc 04 	call	0x9b8	; 0x9b8 <puts2>
+				    delay(1000);
+    1312:	88 ee       	ldi	r24, 0xE8	; 232
+    1314:	93 e0       	ldi	r25, 0x03	; 3
+    1316:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+				    while (!DeQueue(&UARTbufQueue,&f));
+    131a:	00 00       	nop
+    131c:	ce 01       	movw	r24, r28
+    131e:	49 96       	adiw	r24, 0x19	; 25
+    1320:	bc 01       	movw	r22, r24
+    1322:	84 eb       	ldi	r24, 0xB4	; 180
+    1324:	92 e0       	ldi	r25, 0x02	; 2
+    1326:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+    132a:	00 97       	sbiw	r24, 0x00	; 0
+    132c:	b9 f3       	breq	.-18     	; 0x131c <__stack+0x21d>
+				    e=f;
+    132e:	89 8d       	ldd	r24, Y+25	; 0x19
+    1330:	8b 83       	std	Y+3, r24	; 0x03
+				    SPI_MasterInitInit();
+    1332:	0e 94 c8 01 	call	0x390	; 0x390 <SPI_MasterInitInit>
+				    SPI_MasterTransmit(f);
+    1336:	89 8d       	ldd	r24, Y+25	; 0x19
+    1338:	88 2f       	mov	r24, r24
+    133a:	90 e0       	ldi	r25, 0x00	; 0
+    133c:	0e 94 57 02 	call	0x4ae	; 0x4ae <SPI_MasterTransmit>
+				    SPI_Init();
+    1340:	0e 94 55 01 	call	0x2aa	; 0x2aa <SPI_Init>
+					if (rx_smallok(e,f)){
+    1344:	89 8d       	ldd	r24, Y+25	; 0x19
+    1346:	28 2f       	mov	r18, r24
+    1348:	30 e0       	ldi	r19, 0x00	; 0
+    134a:	8b 81       	ldd	r24, Y+3	; 0x03
+    134c:	88 2f       	mov	r24, r24
+    134e:	90 e0       	ldi	r25, 0x00	; 0
+    1350:	b9 01       	movw	r22, r18
+    1352:	0e 94 2b 05 	call	0xa56	; 0xa56 <rx_smallok>
+    1356:	00 97       	sbiw	r24, 0x00	; 0
+    1358:	09 f4       	brne	.+2      	; 0x135c <__stack+0x25d>
+    135a:	5a c0       	rjmp	.+180    	; 0x1410 <__stack+0x311>
+						while (DeQueue(&UARTbufQueue,&f)); 
+    135c:	00 00       	nop
+    135e:	ce 01       	movw	r24, r28
+    1360:	49 96       	adiw	r24, 0x19	; 25
+    1362:	bc 01       	movw	r22, r24
+    1364:	84 eb       	ldi	r24, 0xB4	; 180
+    1366:	92 e0       	ldi	r25, 0x02	; 2
+    1368:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+    136c:	00 97       	sbiw	r24, 0x00	; 0
+    136e:	b9 f7       	brne	.-18     	; 0x135e <__stack+0x25f>
+				        puts2("config,set,save\r\n");
+    1370:	8d e2       	ldi	r24, 0x2D	; 45
+    1372:	92 e0       	ldi	r25, 0x02	; 2
+    1374:	0e 94 dc 04 	call	0x9b8	; 0x9b8 <puts2>
+				        delay(1000);
+    1378:	88 ee       	ldi	r24, 0xE8	; 232
+    137a:	93 e0       	ldi	r25, 0x03	; 3
+    137c:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+				        while (!DeQueue(&UARTbufQueue,&f));
+    1380:	00 00       	nop
+    1382:	ce 01       	movw	r24, r28
+    1384:	49 96       	adiw	r24, 0x19	; 25
+    1386:	bc 01       	movw	r22, r24
+    1388:	84 eb       	ldi	r24, 0xB4	; 180
+    138a:	92 e0       	ldi	r25, 0x02	; 2
+    138c:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+    1390:	00 97       	sbiw	r24, 0x00	; 0
+    1392:	b9 f3       	breq	.-18     	; 0x1382 <__stack+0x283>
+				        e=f;
+    1394:	89 8d       	ldd	r24, Y+25	; 0x19
+    1396:	8b 83       	std	Y+3, r24	; 0x03
+				        SPI_MasterInitInit();
+    1398:	0e 94 c8 01 	call	0x390	; 0x390 <SPI_MasterInitInit>
+				        SPI_MasterTransmit(f);
+    139c:	89 8d       	ldd	r24, Y+25	; 0x19
+    139e:	88 2f       	mov	r24, r24
+    13a0:	90 e0       	ldi	r25, 0x00	; 0
+    13a2:	0e 94 57 02 	call	0x4ae	; 0x4ae <SPI_MasterTransmit>
+				        SPI_Init();
+    13a6:	0e 94 55 01 	call	0x2aa	; 0x2aa <SPI_Init>
+						if (rx_smallok(e,f))
+    13aa:	89 8d       	ldd	r24, Y+25	; 0x19
+    13ac:	28 2f       	mov	r18, r24
+    13ae:	30 e0       	ldi	r19, 0x00	; 0
+    13b0:	8b 81       	ldd	r24, Y+3	; 0x03
+    13b2:	88 2f       	mov	r24, r24
+    13b4:	90 e0       	ldi	r25, 0x00	; 0
+    13b6:	b9 01       	movw	r22, r18
+    13b8:	0e 94 2b 05 	call	0xa56	; 0xa56 <rx_smallok>
+    13bc:	00 97       	sbiw	r24, 0x00	; 0
+    13be:	41 f1       	breq	.+80     	; 0x1410 <__stack+0x311>
+						{
+							delay(5000);
+    13c0:	88 e8       	ldi	r24, 0x88	; 136
+    13c2:	93 e1       	ldi	r25, 0x13	; 19
+    13c4:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+						
+				            puts2("4Gmodule ok");
+    13c8:	8f e3       	ldi	r24, 0x3F	; 63
+    13ca:	92 e0       	ldi	r25, 0x02	; 2
+    13cc:	0e 94 dc 04 	call	0x9b8	; 0x9b8 <puts2>
+							SPCR &= ~(1<<7);  // 关闭SPI中断SPIE
+    13d0:	8d e2       	ldi	r24, 0x2D	; 45
+    13d2:	90 e0       	ldi	r25, 0x00	; 0
+    13d4:	2d e2       	ldi	r18, 0x2D	; 45
+    13d6:	30 e0       	ldi	r19, 0x00	; 0
+    13d8:	f9 01       	movw	r30, r18
+    13da:	20 81       	ld	r18, Z
+    13dc:	2f 77       	andi	r18, 0x7F	; 127
+    13de:	fc 01       	movw	r30, r24
+    13e0:	20 83       	st	Z, r18
+						    while (DeQueue(&SPIbufQueue,&f)); 
+    13e2:	00 00       	nop
+    13e4:	ce 01       	movw	r24, r28
+    13e6:	49 96       	adiw	r24, 0x19	; 25
+    13e8:	bc 01       	movw	r22, r24
+    13ea:	8c e4       	ldi	r24, 0x4C	; 76
+    13ec:	92 e0       	ldi	r25, 0x02	; 2
+    13ee:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+    13f2:	00 97       	sbiw	r24, 0x00	; 0
+    13f4:	b9 f7       	brne	.-18     	; 0x13e4 <__stack+0x2e5>
+						    SPCR |= (1<<7);  // 开启SPI中断SPIE
+    13f6:	8d e2       	ldi	r24, 0x2D	; 45
+    13f8:	90 e0       	ldi	r25, 0x00	; 0
+    13fa:	2d e2       	ldi	r18, 0x2D	; 45
+    13fc:	30 e0       	ldi	r19, 0x00	; 0
+    13fe:	f9 01       	movw	r30, r18
+    1400:	20 81       	ld	r18, Z
+    1402:	20 68       	ori	r18, 0x80	; 128
+    1404:	fc 01       	movw	r30, r24
+    1406:	20 83       	st	Z, r18
+							LedGreenOn();
+    1408:	0e 94 00 01 	call	0x200	; 0x200 <LedGreenOn>
+				            LedRedOn();
+    140c:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LedRedOn>
+				}
+			}
+		}
+		
+		//-------------------------------------------------------------------------发送给16
+		if(UARTbufQueue.front!=UARTbufQueue.rear){
+    1410:	20 91 18 03 	lds	r18, 0x0318
+    1414:	30 91 19 03 	lds	r19, 0x0319
+    1418:	80 91 1a 03 	lds	r24, 0x031A
+    141c:	90 91 1b 03 	lds	r25, 0x031B
+    1420:	28 17       	cp	r18, r24
+    1422:	39 07       	cpc	r19, r25
+    1424:	09 f1       	breq	.+66     	; 0x1468 <__stack+0x369>
+			SPI_MasterInitInit();
+    1426:	0e 94 c8 01 	call	0x390	; 0x390 <SPI_MasterInitInit>
+			while(UARTbufQueue.front!=UARTbufQueue.rear)
+    142a:	0c c0       	rjmp	.+24     	; 0x1444 <__stack+0x345>
+			{ 
+				DeQueue(&UARTbufQueue,&d);
+    142c:	ce 01       	movw	r24, r28
+    142e:	48 96       	adiw	r24, 0x18	; 24
+    1430:	bc 01       	movw	r22, r24
+    1432:	84 eb       	ldi	r24, 0xB4	; 180
+    1434:	92 e0       	ldi	r25, 0x02	; 2
+    1436:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+				//USART2_Transmit(d);
+				SPI_MasterTransmit(d);
+    143a:	88 8d       	ldd	r24, Y+24	; 0x18
+    143c:	88 2f       	mov	r24, r24
+    143e:	90 e0       	ldi	r25, 0x00	; 0
+    1440:	0e 94 57 02 	call	0x4ae	; 0x4ae <SPI_MasterTransmit>
+		}
+		
+		//-------------------------------------------------------------------------发送给16
+		if(UARTbufQueue.front!=UARTbufQueue.rear){
+			SPI_MasterInitInit();
+			while(UARTbufQueue.front!=UARTbufQueue.rear)
+    1444:	20 91 18 03 	lds	r18, 0x0318
+    1448:	30 91 19 03 	lds	r19, 0x0319
+    144c:	80 91 1a 03 	lds	r24, 0x031A
+    1450:	90 91 1b 03 	lds	r25, 0x031B
+    1454:	28 17       	cp	r18, r24
+    1456:	39 07       	cpc	r19, r25
+    1458:	49 f7       	brne	.-46     	; 0x142c <__stack+0x32d>
+				DeQueue(&UARTbufQueue,&d);
+				//USART2_Transmit(d);
+				SPI_MasterTransmit(d);
+				//delay(10);
+			}
+			d = SPDR; //读取SPDR保证SPIF不会自动置位
+    145a:	8f e2       	ldi	r24, 0x2F	; 47
+    145c:	90 e0       	ldi	r25, 0x00	; 0
+    145e:	fc 01       	movw	r30, r24
+    1460:	80 81       	ld	r24, Z
+    1462:	88 8f       	std	Y+24, r24	; 0x18
+		   	SPI_Init();
+    1464:	0e 94 55 01 	call	0x2aa	; 0x2aa <SPI_Init>
+		}
+	
+	
+		//------------------------------------------------------------------------------------发给4G/wifi
+		flagnum = 0;
+    1468:	1d 82       	std	Y+5, r1	; 0x05
+    146a:	1c 82       	std	Y+4, r1	; 0x04
+		flag = 0;
+    146c:	1f 82       	std	Y+7, r1	; 0x07
+    146e:	1e 82       	std	Y+6, r1	; 0x06
+		while (DeQueue(&SPIbufQueue,&c))
+    1470:	8f c0       	rjmp	.+286    	; 0x1590 <__stack+0x491>
+		{
+			//发送
+			dianping = PINE & (1<<7);
+    1472:	81 e2       	ldi	r24, 0x21	; 33
+    1474:	90 e0       	ldi	r25, 0x00	; 0
+    1476:	fc 01       	movw	r30, r24
+    1478:	80 81       	ld	r24, Z
+    147a:	80 78       	andi	r24, 0x80	; 128
+    147c:	8e 8b       	std	Y+22, r24	; 0x16
+			if(dianping)//高电平
+    147e:	8e 89       	ldd	r24, Y+22	; 0x16
+    1480:	88 23       	and	r24, r24
+    1482:	21 f0       	breq	.+8      	; 0x148c <__stack+0x38d>
+			{
+				USART1_Transmit(c);
+    1484:	8f 89       	ldd	r24, Y+23	; 0x17
+    1486:	0e 94 12 04 	call	0x824	; 0x824 <USART1_Transmit>
+    148a:	03 c0       	rjmp	.+6      	; 0x1492 <__stack+0x393>
+			}
+			else
+			{
+				USART2_Transmit(c);//发给4G
+    148c:	8f 89       	ldd	r24, Y+23	; 0x17
+    148e:	0e 94 2c 04 	call	0x858	; 0x858 <USART2_Transmit>
+			}
+			if (flag)
+    1492:	8e 81       	ldd	r24, Y+6	; 0x06
+    1494:	9f 81       	ldd	r25, Y+7	; 0x07
+    1496:	00 97       	sbiw	r24, 0x00	; 0
+    1498:	09 f4       	brne	.+2      	; 0x149c <__stack+0x39d>
+    149a:	3e c0       	rjmp	.+124    	; 0x1518 <__stack+0x419>
+			{
+				EEPROM_WRITE(address++,c);
+    149c:	8f 89       	ldd	r24, Y+23	; 0x17
+    149e:	28 2f       	mov	r18, r24
+    14a0:	30 e0       	ldi	r19, 0x00	; 0
+    14a2:	8a 89       	ldd	r24, Y+18	; 0x12
+    14a4:	91 e0       	ldi	r25, 0x01	; 1
+    14a6:	98 0f       	add	r25, r24
+    14a8:	9a 8b       	std	Y+18, r25	; 0x12
+    14aa:	88 2f       	mov	r24, r24
+    14ac:	90 e0       	ldi	r25, 0x00	; 0
+    14ae:	b9 01       	movw	r22, r18
+    14b0:	0e 94 81 00 	call	0x102	; 0x102 <EEPROM_WRITE>
+				if (c == '@')
+    14b4:	8f 89       	ldd	r24, Y+23	; 0x17
+    14b6:	80 34       	cpi	r24, 0x40	; 64
+    14b8:	79 f5       	brne	.+94     	; 0x1518 <__stack+0x419>
+				{
+					flagnum++;
+    14ba:	8c 81       	ldd	r24, Y+4	; 0x04
+    14bc:	9d 81       	ldd	r25, Y+5	; 0x05
+    14be:	01 96       	adiw	r24, 0x01	; 1
+    14c0:	9d 83       	std	Y+5, r25	; 0x05
+    14c2:	8c 83       	std	Y+4, r24	; 0x04
+					flag = 0;
+    14c4:	1f 82       	std	Y+7, r1	; 0x07
+    14c6:	1e 82       	std	Y+6, r1	; 0x06
+					
+					if (flagnum == 2)
+    14c8:	8c 81       	ldd	r24, Y+4	; 0x04
+    14ca:	9d 81       	ldd	r25, Y+5	; 0x05
+    14cc:	82 30       	cpi	r24, 0x02	; 2
+    14ce:	91 05       	cpc	r25, r1
+    14d0:	19 f5       	brne	.+70     	; 0x1518 <__stack+0x419>
+					{
+						address=0x00;
+    14d2:	1a 8a       	std	Y+18, r1	; 0x12
+						flagnum=0;
+    14d4:	1d 82       	std	Y+5, r1	; 0x05
+    14d6:	1c 82       	std	Y+4, r1	; 0x04
+						LedYellowOff();
+    14d8:	0e 94 45 01 	call	0x28a	; 0x28a <LedYellowOff>
+						delay(500);
+    14dc:	84 ef       	ldi	r24, 0xF4	; 244
+    14de:	91 e0       	ldi	r25, 0x01	; 1
+    14e0:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+						LedYellowOn();
+    14e4:	0e 94 15 01 	call	0x22a	; 0x22a <LedYellowOn>
+						delay(500);
+    14e8:	84 ef       	ldi	r24, 0xF4	; 244
+    14ea:	91 e0       	ldi	r25, 0x01	; 1
+    14ec:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+						LedYellowOff();
+    14f0:	0e 94 45 01 	call	0x28a	; 0x28a <LedYellowOff>
+						delay(500);
+    14f4:	84 ef       	ldi	r24, 0xF4	; 244
+    14f6:	91 e0       	ldi	r25, 0x01	; 1
+    14f8:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+						LedYellowOn();
+    14fc:	0e 94 15 01 	call	0x22a	; 0x22a <LedYellowOn>
+						delay(500);
+    1500:	84 ef       	ldi	r24, 0xF4	; 244
+    1502:	91 e0       	ldi	r25, 0x01	; 1
+    1504:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+						LedYellowOff();
+    1508:	0e 94 45 01 	call	0x28a	; 0x28a <LedYellowOff>
+						delay(500);
+    150c:	84 ef       	ldi	r24, 0xF4	; 244
+    150e:	91 e0       	ldi	r25, 0x01	; 1
+    1510:	0e 94 9f 00 	call	0x13e	; 0x13e <delay>
+						LedYellowOn();
+    1514:	0e 94 15 01 	call	0x22a	; 0x22a <LedYellowOn>
+					}
+				}
+			}
+			
+			if ((a == 'I') & (b == 'P') & (c == ':')) flag = 1;
+    1518:	91 e0       	ldi	r25, 0x01	; 1
+    151a:	89 81       	ldd	r24, Y+1	; 0x01
+    151c:	89 34       	cpi	r24, 0x49	; 73
+    151e:	09 f0       	breq	.+2      	; 0x1522 <__stack+0x423>
+    1520:	90 e0       	ldi	r25, 0x00	; 0
+    1522:	81 e0       	ldi	r24, 0x01	; 1
+    1524:	2a 81       	ldd	r18, Y+2	; 0x02
+    1526:	20 35       	cpi	r18, 0x50	; 80
+    1528:	09 f0       	breq	.+2      	; 0x152c <__stack+0x42d>
+    152a:	80 e0       	ldi	r24, 0x00	; 0
+    152c:	89 23       	and	r24, r25
+    152e:	28 2f       	mov	r18, r24
+    1530:	30 e0       	ldi	r19, 0x00	; 0
+    1532:	9f 89       	ldd	r25, Y+23	; 0x17
+    1534:	81 e0       	ldi	r24, 0x01	; 1
+    1536:	9a 33       	cpi	r25, 0x3A	; 58
+    1538:	09 f0       	breq	.+2      	; 0x153c <__stack+0x43d>
+    153a:	80 e0       	ldi	r24, 0x00	; 0
+    153c:	88 2f       	mov	r24, r24
+    153e:	90 e0       	ldi	r25, 0x00	; 0
+    1540:	82 23       	and	r24, r18
+    1542:	93 23       	and	r25, r19
+    1544:	00 97       	sbiw	r24, 0x00	; 0
+    1546:	21 f0       	breq	.+8      	; 0x1550 <__stack+0x451>
+    1548:	81 e0       	ldi	r24, 0x01	; 1
+    154a:	90 e0       	ldi	r25, 0x00	; 0
+    154c:	9f 83       	std	Y+7, r25	; 0x07
+    154e:	8e 83       	std	Y+6, r24	; 0x06
+			if ((a == 'R') & (b == 'T') & (c == ':')) flag = 1;
+    1550:	91 e0       	ldi	r25, 0x01	; 1
+    1552:	89 81       	ldd	r24, Y+1	; 0x01
+    1554:	82 35       	cpi	r24, 0x52	; 82
+    1556:	09 f0       	breq	.+2      	; 0x155a <__stack+0x45b>
+    1558:	90 e0       	ldi	r25, 0x00	; 0
+    155a:	81 e0       	ldi	r24, 0x01	; 1
+    155c:	2a 81       	ldd	r18, Y+2	; 0x02
+    155e:	24 35       	cpi	r18, 0x54	; 84
+    1560:	09 f0       	breq	.+2      	; 0x1564 <__stack+0x465>
+    1562:	80 e0       	ldi	r24, 0x00	; 0
+    1564:	89 23       	and	r24, r25
+    1566:	28 2f       	mov	r18, r24
+    1568:	30 e0       	ldi	r19, 0x00	; 0
+    156a:	9f 89       	ldd	r25, Y+23	; 0x17
+    156c:	81 e0       	ldi	r24, 0x01	; 1
+    156e:	9a 33       	cpi	r25, 0x3A	; 58
+    1570:	09 f0       	breq	.+2      	; 0x1574 <__stack+0x475>
+    1572:	80 e0       	ldi	r24, 0x00	; 0
+    1574:	88 2f       	mov	r24, r24
+    1576:	90 e0       	ldi	r25, 0x00	; 0
+    1578:	82 23       	and	r24, r18
+    157a:	93 23       	and	r25, r19
+    157c:	00 97       	sbiw	r24, 0x00	; 0
+    157e:	21 f0       	breq	.+8      	; 0x1588 <__stack+0x489>
+    1580:	81 e0       	ldi	r24, 0x01	; 1
+    1582:	90 e0       	ldi	r25, 0x00	; 0
+    1584:	9f 83       	std	Y+7, r25	; 0x07
+    1586:	8e 83       	std	Y+6, r24	; 0x06
+			a = b;
+    1588:	8a 81       	ldd	r24, Y+2	; 0x02
+    158a:	89 83       	std	Y+1, r24	; 0x01
+			b = c;
+    158c:	8f 89       	ldd	r24, Y+23	; 0x17
+    158e:	8a 83       	std	Y+2, r24	; 0x02
+	
+	
+		//------------------------------------------------------------------------------------发给4G/wifi
+		flagnum = 0;
+		flag = 0;
+		while (DeQueue(&SPIbufQueue,&c))
+    1590:	ce 01       	movw	r24, r28
+    1592:	47 96       	adiw	r24, 0x17	; 23
+    1594:	bc 01       	movw	r22, r24
+    1596:	8c e4       	ldi	r24, 0x4C	; 76
+    1598:	92 e0       	ldi	r25, 0x02	; 2
+    159a:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DeQueue>
+    159e:	00 97       	sbiw	r24, 0x00	; 0
+    15a0:	09 f0       	breq	.+2      	; 0x15a4 <__stack+0x4a5>
+    15a2:	67 cf       	rjmp	.-306    	; 0x1472 <__stack+0x373>
+			if ((a == 'I') & (b == 'P') & (c == ':')) flag = 1;
+			if ((a == 'R') & (b == 'T') & (c == ':')) flag = 1;
+			a = b;
+			b = c;
+		}
+    }
+    15a4:	ee cb       	rjmp	.-2084   	; 0xd82 <main+0xc2>
+
+000015a6 <__divmodhi4>:
+    15a6:	97 fb       	bst	r25, 7
+    15a8:	07 2e       	mov	r0, r23
+    15aa:	16 f4       	brtc	.+4      	; 0x15b0 <__divmodhi4+0xa>
+    15ac:	00 94       	com	r0
+    15ae:	07 d0       	rcall	.+14     	; 0x15be <__divmodhi4_neg1>
+    15b0:	77 fd       	sbrc	r23, 7
+    15b2:	09 d0       	rcall	.+18     	; 0x15c6 <__divmodhi4_neg2>
+    15b4:	0e 94 e7 0a 	call	0x15ce	; 0x15ce <__udivmodhi4>
+    15b8:	07 fc       	sbrc	r0, 7
+    15ba:	05 d0       	rcall	.+10     	; 0x15c6 <__divmodhi4_neg2>
+    15bc:	3e f4       	brtc	.+14     	; 0x15cc <__divmodhi4_exit>
+
+000015be <__divmodhi4_neg1>:
+    15be:	90 95       	com	r25
+    15c0:	81 95       	neg	r24
+    15c2:	9f 4f       	sbci	r25, 0xFF	; 255
+    15c4:	08 95       	ret
+
+000015c6 <__divmodhi4_neg2>:
+    15c6:	70 95       	com	r23
+    15c8:	61 95       	neg	r22
+    15ca:	7f 4f       	sbci	r23, 0xFF	; 255
+
+000015cc <__divmodhi4_exit>:
+    15cc:	08 95       	ret
+
+000015ce <__udivmodhi4>:
+    15ce:	aa 1b       	sub	r26, r26
+    15d0:	bb 1b       	sub	r27, r27
+    15d2:	51 e1       	ldi	r21, 0x11	; 17
+    15d4:	07 c0       	rjmp	.+14     	; 0x15e4 <__udivmodhi4_ep>
+
+000015d6 <__udivmodhi4_loop>:
+    15d6:	aa 1f       	adc	r26, r26
+    15d8:	bb 1f       	adc	r27, r27
+    15da:	a6 17       	cp	r26, r22
+    15dc:	b7 07       	cpc	r27, r23
+    15de:	10 f0       	brcs	.+4      	; 0x15e4 <__udivmodhi4_ep>
+    15e0:	a6 1b       	sub	r26, r22
+    15e2:	b7 0b       	sbc	r27, r23
+
+000015e4 <__udivmodhi4_ep>:
+    15e4:	88 1f       	adc	r24, r24
+    15e6:	99 1f       	adc	r25, r25
+    15e8:	5a 95       	dec	r21
+    15ea:	a9 f7       	brne	.-22     	; 0x15d6 <__udivmodhi4_loop>
+    15ec:	80 95       	com	r24
+    15ee:	90 95       	com	r25
+    15f0:	bc 01       	movw	r22, r24
+    15f2:	cd 01       	movw	r24, r26
+    15f4:	08 95       	ret
+
+000015f6 <__eerd_byte_m128>:
+    15f6:	e1 99       	sbic	0x1c, 1	; 28
+    15f8:	fe cf       	rjmp	.-4      	; 0x15f6 <__eerd_byte_m128>
+    15fa:	9f bb       	out	0x1f, r25	; 31
+    15fc:	8e bb       	out	0x1e, r24	; 30
+    15fe:	e0 9a       	sbi	0x1c, 0	; 28
+    1600:	99 27       	eor	r25, r25
+    1602:	8d b3       	in	r24, 0x1d	; 29
+    1604:	08 95       	ret
+
+00001606 <__eewr_byte_m128>:
+    1606:	26 2f       	mov	r18, r22
+
+00001608 <__eewr_r18_m128>:
+    1608:	e1 99       	sbic	0x1c, 1	; 28
+    160a:	fe cf       	rjmp	.-4      	; 0x1608 <__eewr_r18_m128>
+    160c:	9f bb       	out	0x1f, r25	; 31
+    160e:	8e bb       	out	0x1e, r24	; 30
+    1610:	2d bb       	out	0x1d, r18	; 29
+    1612:	0f b6       	in	r0, 0x3f	; 63
+    1614:	f8 94       	cli
+    1616:	e2 9a       	sbi	0x1c, 2	; 28
+    1618:	e1 9a       	sbi	0x1c, 1	; 28
+    161a:	0f be       	out	0x3f, r0	; 63
+    161c:	01 96       	adiw	r24, 0x01	; 1
+    161e:	08 95       	ret
+
+00001620 <_exit>:
+    1620:	f8 94       	cli
+
+00001622 <__stop_program>:
+    1622:	ff cf       	rjmp	.-2      	; 0x1622 <__stop_program>

@@ -1,0 +1,93 @@
+# WIFI配网连接服务器
+
+AT+CWMODE=1  // STA模式
+
+AT+CWAUTOCONN=1  // 上电自动连接AP
+
+AT+CWSTARTSMART=3  // 微信配网
+
+AT+CWSTARTDISCOVER="gh_4248324a4d02","aithinker",10  // 可被局域网发现
+
+AT+CIPMUX=0  // 开启单连接
+
+AT+CIPSTART="TCP","112.125.89.8",36487
+
+AT+CIPMODE=1  // 开始透传
+
+AT+CIPSEND  // 开始传输
+
+AT+CIPSTATUS  // 查看当前状态
+
+AT+CWQAP  // 断开wifi连接
+
+IP:112.125.89.8@PORT:35583@
+
+红灯亮的时候不按第二下
+
+
+config,set,paramsrc,1
+-->config,paramsrc,ok
+config,set,tcp,1,ttluart,1,1,,1,112.125.89.8,36487,0,0,0,0,0,0
+-->config,tcp,ok
+config,set,save
+-->config,save,ok
+// config,set,ttluart,9600,8,0,1,80
+// config,set,save
+
+if (wifi_ok_flag)  //-------------------------------------------------------微信配网成功，开始配置服务器
+{
+	LedGreenOn();
+	while (DeQueue(&UARTbufQueue,&f));//排空队列
+	puts1("AT+CIPMUX=0\r\n");
+	delay(1000);
+	while (!DeQueue(&UARTbufQueue,&f));
+	e=f;
+	SPI_MasterInitInit();
+	SPI_MasterTransmit(f);
+	SPI_Init();
+	if (rx_ok(e,f))
+	{
+		while (DeQueue(&UARTbufQueue,&f));
+		puts1("AT+CIPSTART=\"TCP\",");
+		USART1_Transmit(0x22);
+		puts1(ip);
+		USART1_Transmit(0x22);
+		USART1_Transmit(',');
+		puts1(port);
+		USART1_Transmit('\r');
+		USART1_Transmit('\n');
+		delay(1000);
+		while (!DeQueue(&UARTbufQueue,&f));
+		e=f;
+		SPI_MasterInitInit();
+		SPI_MasterTransmit(f);
+		SPI_Init();
+		if (rx_ok(e,f))
+		{ 
+			while (DeQueue(&UARTbufQueue,&f));
+			puts1("AT+CIPMODE=1\r\n");
+			delay(1000);
+			while (!DeQueue(&UARTbufQueue,&f));
+			e=f;
+			SPI_MasterInitInit();
+			SPI_MasterTransmit(f);
+			SPI_Init();
+			if (rx_ok(e,f))
+			{
+				while (DeQueue(&UARTbufQueue,&f));
+				puts1("AT+CIPSEND\r\n");
+				delay(1000);
+				while (!DeQueue(&UARTbufQueue,&f));
+				e=f;
+				SPI_MasterInitInit();
+				SPI_MasterTransmit(f);
+				SPI_Init();
+				if (rx_ok(e,f))
+				{
+					LedRedOn();
+					puts1("wifimodule ok");
+				}
+			}
+		}
+	}
+}
